@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Smoke Tests For Your System</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Demian Neidetcher</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Smoke Tests For Your System</h2>
+<p class="meta">24 Feb 2013</p>
+
+<div class="post">
+<p>Me and another team member took our most recent lab week to do something incredibly un-sexy.  Our resumes have no new libraries, buzz-words or languages that we can add.  We decided to use some old-school tools to create a very tactical set of smoke tests for our system and for the back-end systems that we depend on.</p>
+
+<p><a href="http://www.flickr.com/photos/neidetcher/8546486548/"><img src="https://farm9.staticflickr.com/8378/8546486548_66de3d31dc.jpg" alt="smoke_test_console"></a></p>
+
+<p>Our system is used by many clients.  When we get requests we then turn around and talk to about 20 different back-end systems.  Many times we are caught in the middle when there are anomalies found by our clients.  When this happens we have to turn to the logs to see if there&#39;s a problem with a system we depend on.  We also didn&#39;t have much visibility when our systems were not acting as they should. The principle is this.  Create a shell script that will run a bunch of other shell scripts in a directory.  If the script sends back an exit status that is bad (other than 1) we will consider that test failed.  The runner has a simple check for that and will echo PASS/ FAIL based on what we get back.  We also color the text green or red based on the results.  3/4 of my career has been about making red things green. </p>
+
+<p><a href="http://www.flickr.com/photos/neidetcher/8546486586/"><img src="https://farm9.staticflickr.com/8531/8546486586_752877ecc9.jpg" alt="smoke_test_html"></a></p>
+
+<p>The output is so simple that my wife looked at a screen with a bunch of red and said, &quot;that doesn&#39;t look good.&quot;  I&#39;m not sure if we&#39;ll opensource it, there isn&#39;t much intellectual property to speak of.  We decided to set up the scripts to run in a cron job once an hour and generate an HTML report showing the same type of data.</p>
+
+<p>We set a low bar on the smoke tests, sometimes they use cURL to POST a SOAP request and we just look at the response to see a specific piece of information is present.  Sometimes we just use NMAP to convince us that the port is warm on the far end and NMAP at least thinks it&#39;s the right type of application.  The idea is that these tests should be written in 5 minutes.</p>
+
+<p>We&#39;re not sure how these will be used.  We hope that folks that support operations (including developers) will see new problems that come up not only as an opportunity to diagnose the matter at hand but to also add another smoke test that will give us a more clear indication of the problem the next time around. </p>
+
+<p>This was an incredibly tactical bit of software that won&#39;t win us any design awards but it has already paid off a handful of times.  I regret that we didn&#39;t put something together like this sooner.  </p>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Demian Neidetcher<br />
+                Software Engineer<br />
+                demian0311@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/demian0311">github.com/demian0311</a><br />
+                <a href="https://twitter.com/demian0311">twitter.com/demian0311</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

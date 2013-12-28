@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Spare Box Ci</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Demian Neidetcher</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Spare Box Ci</h2>
+<p class="meta">17 Sep 2012</p>
+
+<div class="post">
+<p>I have 2 employer provided computers.  One is a Mac Book Pro, the other is a Mac Pro.  I do my day to day development on the MBP because I want a smooth transition when I&#39;m on the road.  I do this even though the desktop is a beast.  At home I use ShareMouse (a software KVM) so that the computers almost seem as one.  The desktop streams music from Pandora, has all the IM and email clients.</p>
+
+<p>I still wanted to leverage the desktop for my workflow.  The setup I have allows me to run CI unit tests against my local (laptop) git repo.  I&#39;ll make changes, commit them and then the desktop will poll my laptop to see if there is anything new.  If there is something new then it does a full build and unit test.  I can continue doing other tasks on the laptop while the desktop is churning through our scala project (compiling scala code is resource intensive).  Then when I see that the build is in good shape I&#39;ll do a push to our team GitHub Enterprise Server.</p>
+
+<h3>On your laptop</h3>
+
+<ul>
+<li>Tell git it&#39;s okay to export your project by touching this file: <code>&lt;path-to-project&gt;/.git/git-daemon-export-ok</code></li>
+<li>Serve up my local repo <code>git daemon --verbose --base-path=&lt;path-to-project&gt;</code></li>
+</ul>
+
+<h3>On your desktop</h3>
+
+<ul>
+<li>Install Jenkins on the desktop</li>
+<li>Point desktop Jenkins to your git repo: <code>git://&lt;your-network-ip&gt;/.git</code></li>
+</ul>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Demian Neidetcher<br />
+                Software Engineer<br />
+                demian0311@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/demian0311">github.com/demian0311</a><br />
+                <a href="https://twitter.com/demian0311">twitter.com/demian0311</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

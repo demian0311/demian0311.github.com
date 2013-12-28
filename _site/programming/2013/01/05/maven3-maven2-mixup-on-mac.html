@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Maven3 Maven2 Mixup On Mac</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Demian Neidetcher</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Maven3 Maven2 Mixup On Mac</h2>
+<p class="meta">05 Jan 2013</p>
+
+<div class="post">
+<p>At first my Mac was all:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  ~/opt/maven/bin&gt;mvn --version  
+  Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: org/codehaus/plexus/classworlds/launcher/Launcher  
+  Caused by: java.lang.ClassNotFoundException: org.codehaus.plexus.classworlds.launcher.Launcher  
+  at java.net.URLClassLoader$1.run(URLClassLoader.java:202)  
+  at java.security.AccessController.doPrivileged(Native Method)  
+  at java.net.URLClassLoader.findClass(URLClassLoader.java:190)  
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:306)  
+  at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)  
+  at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
+</code></pre></div>
+<p>And then I&#39;m like (in my ~/.bashrc)</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  export M3_HOME=$OPT/maven  
+  export M2\_HOME=$M3\_HOME  
+  export PATH=$M3_HOME/bin:$PATH
+</code></pre></div>
+<p>So now it&#39;s all:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  ~/opt/maven/bin&gt;./mvn --version  
+  Apache Maven 3.0.4 (r1232337; 2012-01-17 02:44:56-0600)  
+  Maven home: /Users/demian/opt/maven  
+  Java version: 1.6.0_37, vendor: Apple Inc.  
+  Java home: /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home  
+  Default locale: en_US, platform encoding: MacRoman  
+  OS name: &quot;mac os x&quot;, version: &quot;10.8.2&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;  
+</code></pre></div>
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Demian Neidetcher<br />
+                Software Engineer<br />
+                demian0311@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/demian0311">github.com/demian0311</a><br />
+                <a href="https://twitter.com/demian0311">twitter.com/demian0311</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

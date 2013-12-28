@@ -1,0 +1,31 @@
+---
+layout: default
+title: Demian Neidetcher 
+tagline: Software Engineer 
+---
+<img align="left" style="padding-right:15px;" src="/assets/images/demian_headshot.png"> 
+
+I'm a software engineer.  Almost all of my programming experience has been with JVM languages
+like Java, Groovy and more recently Scala.  Most of my career I have been in the
+telecommunications business.  Work is in Denver, Colorado but I'm remote in 
+Lafayette, Louisiana.
+
+I currently work on a great team at [Time Warner Cable](http://www.timewarnercable.com/).  We work on back-end services
+using [Scala](http://www.scala-lang.org/).  The services help various applications but more interestingly they 
+serve up data so that customers can view television content on their IP devices like
+tablets, phones, IP enabled televisions and whatever else.
+We also develop the company customer portal using [Groovy](http://groovy.codehaus.org/) and 
+[Grails](http://grails.org/).
+
+## Stand back, I'm a professional
+Here's my [Resume](/resume.html).
+I have a profile on [LinkedIn](http://www.linkedin.com/in/demian0311).
+Some of my software is at [GitHub](https://github.com/demian0311).
+This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
+
+## Pearls of Wisdom 
+<ul class="posts">
+  {% for post in site.posts offset: 0 limit: 5 %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>

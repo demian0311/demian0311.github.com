@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Scala Encoding Fun</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <h1 class="title"><a href="/">Demian Neidetcher</a></h1>
+            <a class="extra" href="/">home</a>
+          </div>
+
+          <h2>Scala Encoding Fun</h2>
+<p class="meta">15 Mar 2012</p>
+
+<div class="post">
+<p>I pulled a toy Scala <a href="https://github.com/demian0311/scalakata">project</a> into Eclipse and saw this 
+problem:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">IO error while decoding [file].scala with UTF-8 Please try specifying another one using the -encoding option
+</code></pre></div>
+<p><a href="http://p5wscala.wordpress.com/tag/encoding/">This guy</a> didn&#39;t have the exact solution but he got me pointed in the right direction.  The problem is that 
+I must have copied in some non-UTF-8 characters into my source code.  At this point the Scala compiler
+got confused.</p>
+
+<p>Here&#39;s a bunch of shell commands I did to fix the problem:</p>
+
+<h3>Figure out the character set of the file we&#39;re having trouble with</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">~/code/scalakata&gt;file -I ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala
+./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala: text/x-java; charset=iso-8859-1
+</code></pre></div>
+<p>Yep, the old iso-8859-1, that&#39;s not what we want.  That&#39;s what we use as the <em>from</em> encoding.</p>
+
+<h3>Make a copy of the offending file UTF-8</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">~/code/scalakata&gt;iconv -f iso-8859-1 -t utf-8 ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala &gt; ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8
+</code></pre></div>
+<h3>The diff command will show you what the offending line was</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">~/code/scalakata&gt;diff ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8
+134c134
+&lt;       // 4) Scala lets you multiply a string with a number?try out &quot;crazy&quot; * 3 in the REPL. What does this operation do? Where can you find it in Scaladoc?
+---
+&gt;       // 4) Scala lets you multiply a string with a numberÑtry out &quot;crazy&quot; * 3 in the REPL. What does this operation do? Where can you find it in Scaladoc?
+</code></pre></div>
+<h3>Now actually replace the old file</h3>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">~/code/scalakata&gt;mv ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8 ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala
+</code></pre></div>
+<p>After that I was back in business.</p>
+
+</div>
+
+
+          <div class="footer">
+            <div class="contact">
+              <p>
+                Demian Neidetcher<br />
+                Software Engineer<br />
+                demian0311@gmail.com
+              </p>
+            </div>
+            <div class="contact">
+              <p>
+                <a href="https://github.com/demian0311">github.com/demian0311</a><br />
+                <a href="https://twitter.com/demian0311">twitter.com/demian0311</a><br />
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>
