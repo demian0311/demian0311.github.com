@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Demian Neidetcher 
+title: Home 
 tagline: Software Engineer 
 ---
 <img align="left" style="padding-right:15px;" src="/assets/images/demian_headshot.png"> 
@@ -21,12 +21,13 @@ We also develop the company customer portal using [Groovy](http://groovy.codehau
 - Here's my [Resume](/resume.html).
 - I have a profile on [LinkedIn](http://www.linkedin.com/in/demian0311).
 - Some of my software is at [GitHub](https://github.com/demian0311).
+- I have been known to [tweet](https://twitter.com/demian0311).
 - This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
-
 
 ## Pearls of Wisdom 
 <ul class="posts">
   {% for post in site.posts offset: 0 limit: 5 %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
+    <li>older posts are in the <a href="/archive.html">archive</a></li>
 </ul>

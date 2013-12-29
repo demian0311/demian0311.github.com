@@ -17,14 +17,20 @@ body {
   font: 13.34px Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
+  color: #666;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
-h1 { 
-  /*border-bottom: 4px solid #eee;*/
-}
+h1{
+  font-size: 120%; 
+  color: #333;
+  }
+
+h2{
+  color: #333;
+  }
 
 p { margin: 1em 0; }
 
