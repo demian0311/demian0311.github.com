@@ -18,10 +18,11 @@ We also develop the company customer portal using [Groovy](http://groovy.codehau
 [Grails](http://grails.org/).
 
 ## Stand back, I'm a professional
-Here's my [Resume](/resume.html).
-I have a profile on [LinkedIn](http://www.linkedin.com/in/demian0311).
-Some of my software is at [GitHub](https://github.com/demian0311).
-This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
+- Here's my [Resume](/resume.html).
+- I have a profile on [LinkedIn](http://www.linkedin.com/in/demian0311).
+- Some of my software is at [GitHub](https://github.com/demian0311).
+- This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
+
 
 ## Pearls of Wisdom 
 <ul class="posts">
