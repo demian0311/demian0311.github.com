@@ -2,7 +2,7 @@
 layout: post
 category : programming
 tagline: "great book on FP in Java8"
-tags : [fitness, exercise]
+tags : [programming]
 ---
 
 Venkat is working on [Functional Programming in Java](http://pragprog.com/book/vsjava8/functional-programming-in-java).  The book is still in Beta right now but it's 
