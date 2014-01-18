@@ -155,8 +155,8 @@ a:visited { color: #aa0000; }
 /* standard */
 .post pre {
   border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
+  background-color: #eee;
+  padding: 10px;
 }
 
 .post ul, .post ol {
@@ -165,12 +165,13 @@ a:visited { color: #aa0000; }
 
 .post code {
   border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
+  background-color: #eee;
+  padding: 10px;
 }
 
 .post pre code {
   border: none;
+  padding: 10px;
 }
 
 /* terminal */
