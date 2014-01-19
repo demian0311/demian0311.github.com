@@ -21,14 +21,15 @@ Here are some thoughts:
 package javafunctional.java8.examples;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
+import static org.junit.Assert.assertEquals;
+
 public class FunctionLiterals {
-    private Predicate<Integer> divBy3() { return arg -> (arg % 3) == 0? true: false; }
-    private Predicate<Integer> divBy5() { return arg -> (arg % 5) == 0? true: false; }
+    private Predicate<Integer> divBy3() { return arg -> (arg % 3) == 0;}
+    private Predicate<Integer> divBy5() { return arg -> (arg % 5) == 0;}
 
     @Test public void testPredicates(){
         assertEquals(true, divBy3().test(3));
@@ -53,5 +54,4 @@ public class FunctionLiterals {
                 .forEach(s -> System.out.println(s));
     }
 }
-
 ```
