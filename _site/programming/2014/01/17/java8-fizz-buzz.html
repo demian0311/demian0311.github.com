@@ -11,7 +11,7 @@
     <body>
         <div class="site">
           <div class="header">
-            <h1><a href="/">Demian Neidetcher</a> &raquo; Java8 Fizz Buzz</h1>
+            <h1><a href="/">Demian Neidetcher</a> | Java8 Fizz Buzz</h1>
           </div>
           <div class="post">
 <p>Here&#39;s my attempt at <a href="http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html">FizzBuzz</a> 
@@ -30,14 +30,15 @@ implementation and unit test, just messing around.</p>
 <div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kn">package</span> <span class="n">javafunctional</span><span class="o">.</span><span class="na">java8</span><span class="o">.</span><span class="na">examples</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.*;</span>
 
 <span class="kn">import</span> <span class="nn">java.util.function.Predicate</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
 
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">FunctionLiterals</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy3</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">3</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">?</span> <span class="kc">true</span><span class="o">:</span> <span class="kc">false</span><span class="o">;</span> <span class="o">}</span>
-    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy5</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">5</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">?</span> <span class="kc">true</span><span class="o">:</span> <span class="kc">false</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy3</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">3</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;}</span>
+    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy5</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">5</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;}</span>
 
     <span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">testPredicates</span><span class="o">(){</span>
         <span class="n">assertEquals</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">divBy3</span><span class="o">().</span><span class="na">test</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
@@ -66,12 +67,8 @@ implementation and unit test, just messing around.</p>
 </div>
 
           <div class="footer">
-            <div class="contact">
-              <p>
-                Demian Neidetcher</br>
-                <a href="https://neidetcher.com">neidetcher.com</a><br />
-              </p>
-            </div>
+            Demian Neidetcher | 
+            <a href="https://neidetcher.com">neidetcher.com</a>
           </div>
         </div>
     </body>
