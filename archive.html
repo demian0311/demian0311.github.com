@@ -1,13 +1,15 @@
 ---
 layout: default
-title: Demian Neidetcher 
+title: Archive 
 ---
 
 <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
+<table class="posts">
+  {% for post in site.posts %}
+   <tr>
+      <td><nobr>{{ post.date | date_to_string }}</nobr></td>
+      <td><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></td>
+   </tr>
+  {% endfor %}
+</table>
 </div>
