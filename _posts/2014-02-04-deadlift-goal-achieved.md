@@ -49,8 +49,8 @@ in February I'm doing 6/4/2.  Like I said I'll keep the weights where
 they are.  Assuming I hit all my lifts, then the following month I'll 
 go to 7/3/5.
 
-Here's how my 5/3/1 sets look for Jan, Feb and Mar look.  
-I'm leaving out deload weeks here.
+Here's how my 5/3/1 sets look for Jan, Feb and Mar look.  I'm leaving 
+out deload weeks here.
 
 #### January
       5 250   3 267.5 5 287.5
