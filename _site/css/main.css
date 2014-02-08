@@ -30,7 +30,12 @@ h3{
 }
 
 a{
+   color: #a55;
    text-decoration: none;
+}
+
+a:hover{
+   text-decoration: underline;
 }
 
 ul{
@@ -60,6 +65,10 @@ tr:nth-child(2n) {
     background-color: #eee;
 }
 
+img{
+   float:right; margin: 0 0 15px 15px;
+}
+
 .post pre code {
    color: #555;
 }
@@ -71,8 +80,12 @@ tr:nth-child(2n) {
 }
 
 .footer{
-    border-top: 1px solid #000;
-    color: #555;
-    font-size: 90%;
+   border-top: 1px solid #000;
+   color: #555;
+   font-size: 80%;
+}
+
+.printonly{
+   display: none;
 }
 
