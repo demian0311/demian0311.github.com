@@ -3,7 +3,7 @@ layout: default
 title: Home 
 tagline: Software Engineer 
 ---
-<img align="left" style="padding-right:15px;" src="/assets/images/demian_headshot.png"> 
+<img align="left" style="padding-right:15px;" src="/assets/images/demian_color.png"> 
 
 I'm a software engineer.  Almost all of my programming experience has been with [JVM](http://java.com/en/download/index.jsp) languages
 like [Java](http://java.com/en/), [Groovy](http://groovy.codehaus.org/) and more recently [Scala](http://scala-lang.org/).  Most of my career I have been in the
