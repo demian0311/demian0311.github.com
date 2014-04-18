@@ -10,12 +10,10 @@ like [Java](http://java.com/en/), [Groovy](http://groovy.codehaus.org/) and more
 telecommunications business.  Work is in Denver, Colorado but I'm remote in 
 Lafayette, Louisiana.
 
+
 I currently work on a great team at [Time Warner Cable](http://www.timewarnercable.com/).  We work on 
-back-end services using [Scala](http://www.scala-lang.org/).  The services help various applications but more interestingly they 
-serve up data so that customers can view television content on their IP devices like
-tablets, phones, IP enabled televisions and whatever else.
-We also develop the company customer portal using [Groovy](http://groovy.codehaus.org/) and 
-[Grails](http://grails.org/).
+back-end services using [Scala](http://www.scala-lang.org/).  We also work on a handful of 
+portals that our customers use.  These portals are written with [Groovy](http://groovy.codehaus.org/) and [Grails](http://grails.org/).
 
 ## Stand back, I'm a professional
 - Here's my [Resume](/resume.html).
