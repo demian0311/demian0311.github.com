@@ -27,7 +27,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - Tomcat, Apache, Nginx, JBoss, ServiceMix ESB, Systinet SOAP, BEA Weblogic
 - Linux (primarily Debian based), most types of Unix, MacOS
 - MySQL, PostgreSQL, HSQLDB, Oracle, DB2
-- Eclipse, VIM, OmniPlan, OmniGraffle
+- [IntelliJ IDEA](http://www.jetbrains.com/idea/), Eclipse, VIM, OmniPlan, OmniGraffle
 - SOAPUI, VisualVM, Charles Proxy, JetProfiler, JProfiler, Wireshark, Subversion, git, Jenkins
 
 ## Experience
