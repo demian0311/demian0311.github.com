@@ -4,13 +4,128 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/programming-atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-05-06T15:52:42-05:00</updated>
+ <updated>2014-05-13T17:02:12-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Just Enough Rrdtool</title>
+   <link href="http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool.html"/>
+   <updated>2014-05-13T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool</id>
+   <content type="html">&lt;h2&gt;DevOps&lt;/h2&gt;
+
+&lt;p&gt;If you get into devops at a lower level you will continually run into RRDB.  RRDB stands
+for Round Robin DataBase.  It&amp;#39;s a file that you set up with a predictable size based on 
+what you tell it you want to store and how long you want to retain that information.  The
+consistent file size is important because even if the system you&amp;#39;re tracking runs out of
+disk space, your RRDB won&amp;#39;t ask for more room.  The tooling around it doesn&amp;#39;t use temp 
+files or anything so your monitoring will all continue to work.  Initially I looked into 
+RRDB but got a little scared I&amp;#39;m ashamed to say.  &lt;/p&gt;
+
+&lt;p&gt;At work some of my more motivated co-workers have spun up an instance of &lt;a href=&quot;http://graphite.wikidot.com/&quot;&gt;Graphite&lt;/a&gt;.  Graphite
+leverages RRDB to accept monitoring information and turn it into data and graphs that you can
+render based on what you want to see.  Awesome stuff.&lt;/p&gt;
+
+&lt;p&gt;Recently I&amp;#39;ve been working on a talk that I&amp;#39;ve been giving that touches on devops.  In the talk I 
+have some live demos for &lt;a href=&quot;https://en.wikipedia.org/wiki/Circuit_breaker_design_pattern&quot;&gt;Circuit Breakers&lt;/a&gt; (using the &lt;a href=&quot;https://github.com/Netflix/Hystrix&quot;&gt;Hystrix&lt;/a&gt; project from &lt;a href=&quot;http://www.netflix.com/&quot;&gt;Netflix&lt;/a&gt;).  But
+I didn&amp;#39;t have a compelling demonstration on how to turn data, logs or metrics into graphs.  Graphite 
+and other tooling seemed too heavy for a little demo during a talk.  That and I 
+thought it&amp;#39;d be too heavy-weight for someone to play with right away.  So I decided to use
+simple RRDtool to work with RRDB files in a shell script.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll refine my use of RRDB later to do something live on a local system.  But I wanted something
+that was gathering real data from a running system to show off.  That way I didn&amp;#39;t have to 
+think about how to create synthetic data.&lt;/p&gt;
+
+&lt;h2&gt;My Example&lt;/h2&gt;
+
+&lt;p&gt;My site is running on a &lt;a href=&quot;http://www.rackspace.com/&quot;&gt;RackSpace&lt;/a&gt; virtual machine.  My web server is &lt;a href=&quot;http://wiki.nginx.org/Main&quot;&gt;NGINX&lt;/a&gt;.  I&amp;#39;m going to show
+how to get some rough information out of my NGINX logs and turn that into some pictures.&lt;/p&gt;
+
+&lt;p&gt;You can go to the &lt;a href=&quot;https://gist.github.com/demian0311/fc5b45cc901d36889b5e&quot;&gt;full script in a gist&lt;/a&gt; but we&amp;#39;ll walk through each section of a shell script.  It seemed
+to make sense to me to put all these things together in one
+script.  &lt;/p&gt;
+
+&lt;p&gt;Here we just define some variables.
+&lt;code&gt;
+name=neidetcher_access
+rrdfile=&amp;quot;/var/local/${name}.rrd&amp;quot;
+imageDir=&amp;quot;/home/demian/code/demian0311.github.com/_site&amp;quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;Create an RRDB&lt;/h3&gt;
+
+&lt;p&gt;Before you get going you need to set up an RRDB.  The &lt;code&gt;--step 60&lt;/code&gt; says 
+we want to store things in 60 second increments.  We also tell it about
+a data source that&amp;#39;s a GAUGE.  If anything comes in after 120 seconds then
+we want to discard it.  And good values will be between 0 and 1000000.  We
+also say that we want to keep around an average of the last hour and an
+average of the last 24 hours.  rrdtool will take care of averaging all the
+updates it gets into nice averages that we can later graph.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;   rrdtool create $rrdfile --step 60 \
+      &amp;quot;DS:${name}:GAUGE:120:0:1000000&amp;quot; \
+      &amp;quot;RRA:AVERAGE:0:1:60&amp;quot; \
+      &amp;quot;RRA:AVERAGE:0:60:24&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So, to do this step in my script I would run this one time to set things up:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;root@raven:~/bin# ./neidetcher_access_log.sh create
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Logtail &amp;amp; rrdtool update&lt;/h3&gt;
+
+&lt;p&gt;Here we use logtail.  I have to admit up until 6 months ago I didn&amp;#39;t even 
+know logtail was a thing but it&amp;#39;s pretty cool.  It reads a log file and 
+keeps track of how far it got last time.  Then the next time you run it,
+it&amp;#39;ll start from that position.  It has some smarts like knowing what the 
+inode is of the file.  So if the file has been replaced it&amp;#39;ll start over
+at the top.&lt;/p&gt;
+
+&lt;p&gt;Here we just get a line count wich roughly correlates to the number of 
+requests that came into NGINx.  We get that for two log files, add them
+together and shove that value into our RRDB using rrdtool.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;   http_value=`/usr/sbin/logtail -f /var/log/nginx/neidetcher.access.log \
+      -o /var/log/nginx/.neidetcher.access.log.offset | wc -l`
+   https_value=`/usr/sbin/logtail -f /var/log/nginx/ssl_neidetcher.access.log \
+      -o /var/log/nginx/.ssl_neidetcher.access.log.offset| wc -l`
+   value=$(($http_value + $https_value))
+
+   rrdtool update $rrdfile N:${value}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That capability runs once a minute from cron.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;* * * * * /root/bin/neidetcher_access_log.sh update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;rrdtool graph&lt;/h3&gt;
+
+&lt;p&gt;Now the fun part where we graph the data that we&amp;#39;ve been tracking.  The
+first time we get 1 hour worth, the second time we get 24 hours worth.
+We move that file into where all my static HTML is for my site and that&amp;#39;s it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;        rrdtool graph ./${name}_hour.png \
+                --start end-1h \
+                DEF:${name}=${rrdfile}:${name}:AVERAGE \
+                AREA:${name}#aa5555:${name}
+        mv -f ./${name}_hour.png ${imageDir}/${name}_hour.png
+
+        rrdtool graph ./${name}_day.png \
+                --start end-24h \
+                DEF:${name}=${rrdfile}:${name}:AVERAGE \
+                AREA:${name}#aa5555:${name}
+        mv -f ./${name}_day.png ${imageDir}/${name}_day.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The graphing runs once a minute as well from cron.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;* * * * * /root/bin/neidetcher_access_log.sh graph
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;What that gets you&lt;/h2&gt;
+
+&lt;p&gt;Okay, lots of stuff there but now we have some pretty graphs showing how 
+often my site is visited.  As you can see I don&amp;#39;t need to investigate CDN
+options just yet..  My &lt;a href=&quot;http://neidetcher.com/metrics.html&quot;&gt;metrics&lt;/a&gt; page shows the
+graphs in action.  &lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Play And Akka</title>
