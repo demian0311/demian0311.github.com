@@ -7,8 +7,7 @@ tagline: Software Engineer
 
 I'm a software engineer.  Almost all of my programming experience has been with [JVM](http://java.com/en/download/index.jsp) languages
 like [Java](http://java.com/en/), [Groovy](http://groovy.codehaus.org/) and more recently [Scala](http://scala-lang.org/).  Most of my career I have been in the
-telecommunications business.  Work is in Denver, Colorado but I'm remote in 
-Lafayette, Louisiana.
+telecommunications business.  Work is in Denver, Colorado but I'm remote in Lafayette, Louisiana.
 
 
 I currently work on a great team at [Time Warner Cable](http://www.timewarnercable.com/).  We work on 
@@ -21,6 +20,7 @@ portals that our customers use.  These portals are written with [Groovy](http://
 - Some of my software is at [GitHub](https://github.com/demian0311).
 - I have been known to [tweet](https://twitter.com/demian0311).
 - This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
+- I *just* started to put some slides up on [SlideShare](http://www.slideshare.net/demian0311).
 
 ## Pearls of Wisdom 
 <table class="posts">
