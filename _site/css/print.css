@@ -19,3 +19,7 @@ a{
 iframe{ 
    display: none;
 }
+
+input{
+    border: 0px;
+}

@@ -21,6 +21,8 @@ portals that our customers use.  These portals are written with [Groovy](http://
 - I have been known to [tweet](https://twitter.com/demian0311).
 - This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
 - I *just* started to put some slides up on [SlideShare](http://www.slideshare.net/demian0311).
+- I resistance train.  Some [videos are up on YouTube](https://www.youtube.com/watch?v=WXsc1GjSrmc&list=PLrt6A30KJdWrS53Z6y_GIcmyV-wJtN2jU)
+  and I made a [5/3/1 Workout Calculator](/531.html).
 
 ## Pearls of Wisdom 
 <table class="posts">
