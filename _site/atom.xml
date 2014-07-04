@@ -4,13 +4,97 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-07-03T13:30:54-05:00</updated>
+ <updated>2014-07-03T19:58:26-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Javascript Is Alright</title>
+   <link href="http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html"/>
+   <updated>2014-07-03T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/programming/2014/07/03/javascript-is-alright</id>
+   <content type="html">&lt;h2&gt;Once Bitten&lt;/h2&gt;
+
+&lt;p&gt;While at my second job as a programmer and still an &lt;a href=&quot;http://www.bradley.edu/&quot;&gt;undergrad&lt;/a&gt; 
+I worked on a team that did an e-commerce site.  This would&amp;#39;ve been about 1998-1999.  It was for
+&lt;a href=&quot;http://www.thelibrarystore.com/&quot;&gt;The Library Store&lt;/a&gt;.  They were good clients.  The
+back end was Java, holy cow I had JDBC code in my JSPs back then.&lt;/p&gt;
+
+&lt;p&gt;We had a UI guy that liked JavaScript.  He used it at the  end of the checkout process.&lt;br&gt;
+You know where this is going, right.  At some point after the
+release the customer called our office.  My manager wasn&amp;#39;t around and I was the most senior
+person there so I took the call.  There was a guy on the other end of the line that had 
+customers that couldn&amp;#39;t give him money because of our JavaScript.   To me this was no fun
+and no amount of JavaScript coolness justified a customer being unable to check out.
+That stuck with me throughout my career.  &lt;/p&gt;
+
+&lt;h2&gt;Full-Stack&lt;/h2&gt;
+
+&lt;p&gt;Even though I pride myself as a full-stack engineer my JavaScript-fu was weak.  I guess by 
+full-stack meant being familiar with:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux, databases, web-servers&lt;/li&gt;
+&lt;li&gt;SQL, persistence frameworks&lt;/li&gt;
+&lt;li&gt;dependency injection frameworks&lt;/li&gt;
+&lt;li&gt;Java web frameworks&lt;/li&gt;
+&lt;li&gt;HTML, CSS, a tiny bit of JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It seems that full-stack is something of a thing.  And in to credibly call myself a full-stack programmer 
+I have been in need of a tune-up.&lt;/p&gt;
+
+&lt;div style=&quot;width:540px&quot;&gt;
+&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot; title=&quot;&amp;#034;full-stack&amp;#034; Job Trends&quot;&gt;
+&lt;img width=&quot;540&quot; height=&quot;300&quot; src=&quot;http://www.indeed.com/trendgraph/jobgraph.png?q=%22full-stack%22&quot; border=&quot;0&quot; alt=&quot;&amp;#034;full-stack&amp;#034; Job Trends graph&quot;&gt;
+&lt;/a&gt;
+&lt;table width=&quot;100%&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; style=&quot;font-size:80%&quot;&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; Job Trends&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;a href=&quot;http://www.indeed.com/jobs?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; jobs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+ 
+
+&lt;h2&gt;Late to the Party&lt;/h2&gt;
+
+&lt;p&gt;At work we have lab weeks, often times I&amp;#39;ll do something that is drudgery that needs to get 
+done but this time around I decided that I should dive into JavaScript.  &lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t know anyone who learns this way but I ran through a &lt;a href=&quot;http://techbus.safaribooksonline.com/video/programming/javascript/9781771370516&quot;&gt;Learning JavaScript Programming&lt;/a&gt;
+video series on O&amp;#39;Reilly.  That was useful to get boot-strapped.  Then I came up with a manageable
+little problem to solve.  I wrote a &lt;a href=&quot;http://neidetcher.com/531.html&quot;&gt;5/3/1 Workout Calculator&lt;/a&gt;.  It
+was a good place to start.  Some flow control, a bit of math and lots of working with the DOM to add
+listeners and change values.  &lt;/p&gt;
+
+&lt;p&gt;I asked my co-workers how to do some things and they quickly directed me to start using &lt;a href=&quot;https://jquery.com/&quot;&gt;jQuery&lt;/a&gt;.
+I assumed that I could get further with vanilla JavaScript but it seems that jQuery is almost a part
+of JavaScript.  I was already finding answers to questions in StackOverflow that directed me towards
+a solution in jQuery.&lt;/p&gt;
+
+&lt;h2&gt;Tooling is Good&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://getfirebug.com/&quot;&gt;FireBug&lt;/a&gt; and all the similar consoles in major browsers are great to work with.
+And the JavaScript support in &lt;a href=&quot;http://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt; impresses me as well.  A &lt;a href=&quot;https://github.com/johnnywey&quot;&gt;colleague&lt;/a&gt; 
+said that &lt;a href=&quot;http://www.jetbrains.com/webstorm/&quot;&gt;WebStorm&lt;/a&gt; is more light-weight but the &lt;a href=&quot;http://plugins.jetbrains.com/plugin/164?pr=phpStorm&quot;&gt;IdeaVim&lt;/a&gt;
+plugin isn&amp;#39;t available for it and that&amp;#39;s one of my biggest productivity boosters. I didn&amp;#39;t know 
+&lt;a href=&quot;http://www.w3schools.com/jquery/jquery_ref_selectors.asp&quot;&gt;selectors&lt;/a&gt; were a thing.  They&amp;#39;re  very 
+powerful, they make doing things with jQuery easy.&lt;/p&gt;
+
+&lt;h2&gt;Next&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;m glad I took the time to get into JavaScript.  It has changed how I think the browser can interact
+with the server.  Of course I knew you could do all this stuff but I didn&amp;#39;t realize how easy it
+all is.  Especially with frameworks like jQuery my initial bad experiences with JavaScript are less
+likely to happen since they take care of the browser inconsistencies for you.&lt;/p&gt;
+
+&lt;p&gt;From here I guess I need to interact with the server with JavaScript.  I also plan on  using 
+&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; as well. &lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Just Enough Rrdtool</title>

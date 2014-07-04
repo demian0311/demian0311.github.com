@@ -17,18 +17,18 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Finagle
 - Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
 - Java, J2EE, EJB, [iBatis](http://blog.mybatis.org/), JDBC, Hibernate, JSP, Struts2 , Spring (DI, AOP, DAO, Security)
-- sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock
 - SQL, Stored Procedures
+- HTML, CSS, JavaScript, jQuery, AJAX
+- sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock
 - UML, OOP, OOA/D, Functional Programming, Aspect Oriented Programming, Database design
 - ReST (JRA), SOAP (CXF, Axis2, JAXWS), XML
-- HTML, CSS, JavaScript, AJAX
 
 ### Platforms and Tools
 - Tomcat, Apache, Nginx, JBoss, ServiceMix ESB, Systinet SOAP, BEA Weblogic
 - Linux (primarily Debian based), most types of Unix, MacOS
 - MySQL, PostgreSQL, HSQLDB, Oracle, DB2
 - [IntelliJ IDEA](http://www.jetbrains.com/idea/), Eclipse, VIM, OmniPlan, OmniGraffle
-- SOAPUI, VisualVM, Charles Proxy, JetProfiler, JProfiler, Wireshark, Subversion, git, Jenkins
+- SOAPUI, VisualVM, Charles Proxy, Burp Suite, JetProfiler, JProfiler, Wireshark, Subversion, git, Jenkins
 
 ## Experience
 
