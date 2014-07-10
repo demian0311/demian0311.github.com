@@ -4,13 +4,106 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/programming-atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-07-03T19:58:26-05:00</updated>
+ <updated>2014-07-09T19:59:14-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Two Years Remote</title>
+   <link href="http://neidetcher.com/programming/2014/07/06/two-years-remote.html"/>
+   <updated>2014-07-06T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/programming/2014/07/06/two-years-remote</id>
+   <content type="html">&lt;h2&gt;Why Remote?&lt;/h2&gt;
+
+&lt;p&gt;I lived in Denver, Colorado for 10 years.  I met my wife out there and like many
+in Colorado we weren&amp;#39;t natives.  We decided that we should attempt to get closer 
+to family if we could so that our two boys could have some good years with their
+grandparents.&lt;/p&gt;
+
+&lt;p&gt;I work at &lt;a href=&quot;http://www.timewarnercable.com/&quot;&gt;Time Warner Cable&lt;/a&gt; and on a case by 
+case basis they will make allowances for people to work remote.  It&amp;#39;s a big leap 
+of faith and a progressive thing to do for a big cable company.  To me this buys
+a lot of good will towards my employer.  I appreciate it and my wife appreciates
+it.  That&amp;#39;s a factor.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;#39;t say that me, being remote is better than me being on-site.  There are
+good things and bad things.  Maybe it&amp;#39;s a wash but I don&amp;#39;t know.  But I am 
+confident that me, being remote is better than the general population of software
+engineers. &lt;/p&gt;
+
+&lt;h2&gt;Things that Make it Work&lt;/h2&gt;
+
+&lt;h3&gt;History with Team&lt;/h3&gt;
+
+&lt;p&gt;I had a couple years of proving myself to the team before I went remote.  It 
+also helped that a few of the guys on the team were long-time colleagues prior
+to my current job.  So there&amp;#39;s some history and trust already.  I could do 
+remote without that but it helps.&lt;/p&gt;
+
+&lt;h3&gt;Office&lt;/h3&gt;
+
+&lt;p&gt;You need to have an office with a door that closes.  This is a no-brainer.
+Of course good Internet access.  Fortunately, the community I&amp;#39;m at in Louisiana 
+has &lt;a href=&quot;http://www.lusfiber.com/&quot;&gt;metropolitan fiber to the curb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Routine&lt;/h3&gt;
+
+&lt;p&gt;I don&amp;#39;t keep the work hours of the home office, I&amp;#39;m just an hour ahead.  We 
+have engineers in every time zone so I might as well work 9AM to 5PM 
+in my time zone.  By 9AM I have worked out, had a shower and I&amp;#39;m sipping 
+on a fresh cup of coffee ready for work.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m also completely dressed just as I would be for work in-person.  I know 
+others can work remote without being dressed but I see this as yet another
+slippery slope.  In fact when I worked on-site there were days that I would
+wear shorts but since I&amp;#39;ve been remote I always wear pants during work hours.  &lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve read warnings from remote workers that a danger you may run into is not 
+knowing when to &lt;em&gt;stop&lt;/em&gt; work.  That has not been a problem for me.  Sure there have 
+been a handful of times where operational concerns will have me working after
+hours but this hasn&amp;#39;t been worse than any other situation.  So yeah, at 5PM my
+time I&amp;#39;m out of my office and thinking about dinner with the family.&lt;/p&gt;
+
+&lt;h3&gt;Standing Meetings&lt;/h3&gt;
+
+&lt;p&gt;Team meetings that happen regularly with cameras and voice are great for 
+getting back in touch to what your team is doing.  If these meetings go 
+away then you can go days without seeing or hearing people.  That isn&amp;#39;t 
+good.&lt;/p&gt;
+
+&lt;h3&gt;Tooling&lt;/h3&gt;
+
+&lt;p&gt;We use a lot of tools to make the remote thing work.  What we&amp;#39;ve found is that
+the quickness at which we can use a tool is almost more important than the
+features of different tools.  We use &lt;a href=&quot;https://join.me/&quot;&gt;join.me&lt;/a&gt; for quick 
+screen sharing and sometimes voice, also &lt;a href=&quot;http://skype.com/&quot;&gt;Skype&lt;/a&gt; for chat 
+and voice.&lt;/p&gt;
+
+&lt;p&gt;We hardly pair-program but at the times where I did it was great with voice
+and screen sharing.  join.me will even let you hand off mouse and keyboard
+control to the person who is looking on the other end.&lt;/p&gt;
+
+&lt;p&gt;Prior to working remote, when I got on voice, the first thing I would
+do is figure out how to get off the phone.  Being on the phone with others
+was kind of creepy.  So yeah, you have to get over that.  Sometimes we&amp;#39;ll 
+even just leave Skype on and not really say anything in particular.  You 
+can mention things casually just as you would if you were co-located.&lt;/p&gt;
+
+&lt;p&gt;Of course another nice thing about tooling is that you can turn it off or
+ignore it.  I&amp;#39;m not the first person that&amp;#39;d say the ability to focus is one
+of the best things about being remote.&lt;/p&gt;
+
+&lt;h3&gt;In-Person Trips&lt;/h3&gt;
+
+&lt;p&gt;Nothing beats getting out into the same place with people, talking, having a 
+meal and maybe a drink.  Most any amount of friction and sharp edges can be
+overcome by having food and drinks with people. &lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Javascript Is Alright</title>
