@@ -4,13 +4,89 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-07-09T19:59:14-05:00</updated>
+ <updated>2014-07-11T10:24:58-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Port Confusion With Apple Airport</title>
+   <link href="http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html"/>
+   <updated>2014-07-11T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport</id>
+   <content type="html">&lt;p&gt;This won&amp;#39;t add anything to the knowledge that &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;already exists online&lt;/a&gt; but 
+hopefully it&amp;#39;s more searchable for the next poor sap that is confused by this.&lt;/p&gt;
+
+&lt;h2&gt;Locking Down my Server&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://neidetcher.com&quot;&gt;This site&lt;/a&gt; runs on a tiny &lt;a href=&quot;http://www.rackspace.com/&quot;&gt;Rackspace&lt;/a&gt; server.  I&amp;#39;m no expert but 
+one of the easiest things you can do to lock down your server is to shut down as many ports as possible.  That 
+means that you don&amp;#39;t have potentially vulnerable software listening in on ports.  &lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll probably do some &lt;code&gt;nmap&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;nmap localhost
+
+Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
+Interesting ports on localhost (127.0.0.1):
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And maybe some &lt;code&gt;netstat&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 *:https                 *:*                     LISTEN     
+tcp        0      0 *:www                   *:*                     LISTEN     
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     83108    /var/run/acpid.socket
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I checked it locally and noticed that &lt;code&gt;exim4&lt;/code&gt; was running and had a port open.  So I made sure that service was no
+longer in the startup scripts and &lt;a href=&quot;https://wiki.debian.org/Daemon&quot;&gt;removed the daemon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Now Try from Laptop&lt;/h2&gt;
+
+&lt;p&gt;Just to be sure I ran it from &lt;code&gt;nmap&lt;/code&gt; from my laptop.  This is what I saw.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;demian  ~  nmap neidetcher.com
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
+Nmap scan report for neidetcher.com (184.106.150.226)
+Host is up (0.057s latency).
+rDNS record for 184.106.150.226: foo.com
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+554/tcp  open  rtsp
+3128/tcp open  squid-http
+7070/tcp open  realserver
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 0.87 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Whoah, that&amp;#39;s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of &lt;code&gt;nmap&lt;/code&gt;
+such that it doesn&amp;#39;t show the ports they have used to turn my server into a slave for 
+their &lt;a href=&quot;https://en.wikipedia.org/wiki/Botnet&quot;&gt;botnet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Apple Airport&lt;/h2&gt;
+
+&lt;p&gt;I ran across &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;this blog post&lt;/a&gt;.  The deal is that Apple Airport will 
+try to proxy protocols for you.  Apparently it doesn&amp;#39;t bother to check with the far-end servers to see if the
+port is even available.  So, to you on your computer behind an Apple router, &lt;code&gt;nmap&lt;/code&gt; will think the port is hot.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Two Years Remote</title>
