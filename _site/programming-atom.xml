@@ -4,13 +4,115 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/programming-atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-07-11T10:40:04-05:00</updated>
+ <updated>2014-07-13T14:54:50-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>What Next For Java</title>
+   <link href="http://neidetcher.com/programming/2014/07/13/what-next-for-java.html"/>
+   <updated>2014-07-13T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/programming/2014/07/13/what-next-for-java</id>
+   <content type="html">&lt;p&gt;At Time Warner Cable we&amp;#39;re in the midst of an acquisition.  There is a possibility 
+that many of us will be changing jobs in the coming years.  Since we&amp;#39;ve been at 
+our current gig we have switched from using Java to Groovy and Scala.  A while ago, 
+some fellow co-workers and I were talking about languages and where we think we&amp;#39;ll
+end up and where we&amp;#39;d like to end up.  I thought this was an interesting conversation.
+This sums up a lot of what was said, you can assume anything insightful wasn&amp;#39;t said
+by me.&lt;/p&gt;
+
+&lt;h2&gt;Groovy&lt;/h2&gt;
+
+&lt;p&gt;Grails is great for bootstrapping a new project.  The architectural decisions have
+been made for you and you just need to fill in the blanks with your  implementation.  &lt;/p&gt;
+
+&lt;p&gt;Grails is great for working with web designers and UI people.  They can understand
+how Grails works and it&amp;#39;s easy for them to work with the views.  &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s difficult to boldly refactor Groovy code though.  There&amp;#39;s a lot of magic going
+on and the compiler or tests won&amp;#39;t always tell you when you&amp;#39;ve done something bad.
+This is especially true when you inherit code with bad tests.  Often when attempting
+a bold refactor I&amp;#39;ll need to lean on commandline searching to make sure there broken 
+references that my IDE and compiler aren&amp;#39;t warning me about.&lt;/p&gt;
+
+&lt;p&gt;All in all, because Grails is so great Groovy or Grails are not going away any time 
+soon.  I could see doing more Grails applications in the future.  &lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;But what if I were starting up a new team, would I pick it?  If we outsourced or had
+a different team of UI/ UX web designers then having Grails on the front end is 
+compelling at least for the web application.  But the looseness and lack of tooling
+support would otherwise make me want to pick something with a more strict type 
+system.&lt;/p&gt;
+
+&lt;h2&gt;Scala&lt;/h2&gt;
+
+&lt;h3&gt;Deep Water&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#39;m mixed on Scala.  I&amp;#39;d like to throw away 30% of the features.  There are some 
+features that make the code incredibly hard for me to understand.  I&amp;#39;m sure some
+would say that those are the features that also make for very easy to use APIs.
+Maybe the answer is something like CheckStyle that would bark at you if introduce 
+new code to your project that is too hairy.&lt;/p&gt;
+
+&lt;h3&gt;Fun&lt;/h3&gt;
+
+&lt;p&gt;But Scala has really re-invigorated my enjoyment while programming.  It&amp;#39;s so powerful 
+and functional programming let&amp;#39;s you do awesome code that just feels &lt;em&gt;tight&lt;/em&gt;.  We
+just write some clean, awesome code that generally doesn&amp;#39;t have problems.&lt;/p&gt;
+
+&lt;h3&gt;Asshole Magnet&lt;/h3&gt;
+
+&lt;p&gt;Scala seems like it could be a language for pedantic assholes to apply  esoteric 
+features that make their code un-intelligible.  Whenever I code I try to imagine
+me looking at this code a year from now, with a VP screaming on a conference call
+at 3AM.  Would I be able to understand what I&amp;#39;m writing?  Could I safely change it?
+If I need to bring to bear my entire intellect to write code I have no
+hope of understanding it in the future.  &lt;/p&gt;
+
+&lt;p&gt;This will be a big challenge for Scala going forward.  With Scala on my 
+resume I&amp;#39;d like to somehow advertise to potential teams that I swing toward the 
+more pragmatic side even though I&amp;#39;m using a language that attracts engineers
+very interested in pushing Scala to the limit.&lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#39;d happily do more work in Scala.  But on a new team doing Scala I would 
+really want to influence people to stay in the shallow end of the pool.  I&amp;#39;d 
+also caution against throwing out all the great frameworks that the Java 
+community has in place.&lt;/p&gt;
+
+&lt;h2&gt;Java&lt;/h2&gt;
+
+&lt;p&gt;I bet we&amp;#39;ll see a renaissance in Java.  The language has amazing staying power. Relative 
+to Groovy the tooling is so great for Java, you just totally know what
+the code is doing.  It might be verbose and littered with semi-colons but you
+get it.  It&amp;#39;s hard to hide your intentions in Java.  Maybe that&amp;#39;s just because
+even though I haven&amp;#39;t done it much the last two years I&amp;#39;ve used the language for
+a very long time.&lt;/p&gt;
+
+&lt;p&gt;Lambdas, streams and the collections API are great.  They&amp;#39;ve done a great
+job given the restrictions that they&amp;#39;re working under.&lt;/p&gt;
+
+&lt;p&gt;Most Java coders aren&amp;#39;t going to get excited about lambdas for a while.  When 
+popular libraries leverage these features then we&amp;#39;ll start to see lambdas embraced. &lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;If I found myself doing Java8 I&amp;#39;d embrace the new features and try to be as 
+functional and immutable as possible.  The latest version of Spring leverages 
+lambdas and it&amp;#39;d be fun to see where they (and other Java libraries) take it.  &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;d also be interesting to loop back and see how you&amp;#39;d solve problems with the
+new features.  For example with functional programming I bet annotations and aspect
+oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Port Confusion With Apple Airport</title>
