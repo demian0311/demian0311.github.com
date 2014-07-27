@@ -4,7 +4,7 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/programming-atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-07-25T09:20:44-07:00</updated>
+ <updated>2014-07-26T23:52:53-05:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
@@ -15,7 +15,7 @@
  <entry>
    <title>What Next For Java</title>
    <link href="http://neidetcher.com/programming/2014/07/13/what-next-for-java.html"/>
-   <updated>2014-07-13T00:00:00-07:00</updated>
+   <updated>2014-07-13T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/13/what-next-for-java</id>
    <content type="html">&lt;p&gt;At Time Warner Cable we&amp;#39;re in the midst of an acquisition.  There is a possibility 
 that many of us will be changing jobs in the coming years.  Since we&amp;#39;ve been at 
@@ -117,7 +117,7 @@ oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
  <entry>
    <title>Port Confusion With Apple Airport</title>
    <link href="http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html"/>
-   <updated>2014-07-11T00:00:00-07:00</updated>
+   <updated>2014-07-11T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport</id>
    <content type="html">&lt;p&gt;This won&amp;#39;t add anything to the knowledge that &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;already exists online&lt;/a&gt; but 
 hopefully it&amp;#39;s more searchable for the next poor sap that is confused by this.&lt;/p&gt;
@@ -193,7 +193,7 @@ port is even available.  So, to you on your computer behind an Apple router, &lt
  <entry>
    <title>Two Years Remote</title>
    <link href="http://neidetcher.com/programming/2014/07/06/two-years-remote.html"/>
-   <updated>2014-07-06T00:00:00-07:00</updated>
+   <updated>2014-07-06T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/06/two-years-remote</id>
    <content type="html">&lt;h2&gt;Why Remote?&lt;/h2&gt;
 
@@ -286,7 +286,7 @@ overcome by having food and drinks with people. &lt;/p&gt;
  <entry>
    <title>Javascript Is Alright</title>
    <link href="http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html"/>
-   <updated>2014-07-03T00:00:00-07:00</updated>
+   <updated>2014-07-03T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/03/javascript-is-alright</id>
    <content type="html">&lt;h2&gt;Once Bitten&lt;/h2&gt;
 
@@ -370,7 +370,7 @@ likely to happen since they take care of the browser inconsistencies for you.&lt
  <entry>
    <title>Just Enough Rrdtool</title>
    <link href="http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool.html"/>
-   <updated>2014-05-13T00:00:00-07:00</updated>
+   <updated>2014-05-13T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool</id>
    <content type="html">&lt;h2&gt;DevOps&lt;/h2&gt;
 
@@ -491,7 +491,7 @@ graphs in action.&lt;/p&gt;
  <entry>
    <title>Play And Akka</title>
    <link href="http://neidetcher.com/programming/2014/04/17/play-and-akka.html"/>
-   <updated>2014-04-17T00:00:00-07:00</updated>
+   <updated>2014-04-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/04/17/play-and-akka</id>
    <content type="html">&lt;p&gt;I took another lab week to stumble around with the &lt;a href=&quot;http://www.playframework.com/&quot;&gt;Play Framework&lt;/a&gt;.  I really 
 like the way routing works, the controllers 
@@ -565,7 +565,7 @@ a response here.  This uses the implicit timeout from above. &lt;/p&gt;
  <entry>
    <title>Java8 Fizz Buzz</title>
    <link href="http://neidetcher.com/programming/2014/01/17/java8-fizz-buzz.html"/>
-   <updated>2014-01-17T00:00:00-08:00</updated>
+   <updated>2014-01-17T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2014/01/17/java8-fizz-buzz</id>
    <content type="html">&lt;p&gt;Here&amp;#39;s my attempt at &lt;a href=&quot;http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html&quot;&gt;FizzBuzz&lt;/a&gt; 
 in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt; with &lt;a href=&quot;http://openjdk.java.net/projects/lambda/&quot;&gt;Lambdas&lt;/a&gt;.  This will 
@@ -622,7 +622,7 @@ implementation and unit test, just messing around.&lt;/p&gt;
  <entry>
    <title>Book Review Functional Programming In Java</title>
    <link href="http://neidetcher.com/programming/2013/12/29/book-review-functional-programming-in-java.html"/>
-   <updated>2013-12-29T00:00:00-08:00</updated>
+   <updated>2013-12-29T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/12/29/book-review-functional-programming-in-java</id>
    <content type="html">&lt;p&gt;Venkat is working on &lt;a href=&quot;http://pragprog.com/book/vsjava8/functional-programming-in-java&quot;&gt;Functional Programming in Java&lt;/a&gt;.  The book is still in Beta right now but it&amp;#39;s 
 firming up and I&amp;#39;ve finished it over Christmas
@@ -662,7 +662,7 @@ creates more declarative code.  I just kind of see it as having more awesome API
  <entry>
    <title>Book Review Phoenix Project</title>
    <link href="http://neidetcher.com/programming/2013/12/04/book-review-phoenix-project.html"/>
-   <updated>2013-12-04T00:00:00-08:00</updated>
+   <updated>2013-12-04T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/12/04/book-review-phoenix-project</id>
    <content type="html">&lt;p&gt;This book is about an IT manager.  I don&amp;#39;t want to give spoilers because
 even though the book isn&amp;#39;t perfect I think that anyone in the software
@@ -703,7 +703,7 @@ many of your co-workers to read this book as possible.&lt;/p&gt;
  <entry>
    <title>Getting Around Groovy Linkage Error</title>
    <link href="http://neidetcher.com/programming/2013/10/17/getting-around-groovy-linkage-error.html"/>
-   <updated>2013-10-17T00:00:00-07:00</updated>
+   <updated>2013-10-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/10/17/getting-around-groovy-linkage-error</id>
    <content type="html">&lt;h2&gt;A Hystrix Grails Plugin&lt;/h2&gt;
 
@@ -771,7 +771,7 @@ Here&amp;#39;s the way that seems to work.&lt;/p&gt;
  <entry>
    <title>Beginning Cryptography With Java</title>
    <link href="http://neidetcher.com/programming/2013/09/27/beginning-cryptography-with-java.html"/>
-   <updated>2013-09-27T00:00:00-07:00</updated>
+   <updated>2013-09-27T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/09/27/beginning-cryptography-with-java</id>
    <content type="html">&lt;h2&gt;Getting my Ass Handed to Me&lt;/h2&gt;
 
@@ -823,7 +823,7 @@ and became more expressive, got to the core of what we were doing.&lt;/p&gt;
  <entry>
    <title>Intellij Is Good</title>
    <link href="http://neidetcher.com/programming/2013/07/12/intellij-is-good.html"/>
-   <updated>2013-07-12T00:00:00-07:00</updated>
+   <updated>2013-07-12T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/07/12/intellij-is-good</id>
    <content type="html">&lt;p&gt;This seems to be a theme lately where I&amp;#39;m late to the party, taking a long time
 to &lt;em&gt;get&lt;/em&gt; something that is common knowledge to most folks.&lt;/p&gt;
@@ -873,7 +873,7 @@ previously but I wanted them to pay for the latest version.&lt;/p&gt;
  <entry>
    <title>Book Review Functional Programming For Java Developers</title>
    <link href="http://neidetcher.com/programming/2013/05/14/book-review-functional-programming-for-java-developers.html"/>
-   <updated>2013-05-14T00:00:00-07:00</updated>
+   <updated>2013-05-14T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/05/14/book-review-functional-programming-for-java-developers</id>
    <content type="html">&lt;p&gt;First off, this is a small book.  72 pages including a glossary.  I was able to read
 it on a plne ride from Louisiana to Denver.  Like the tagline says, I hope I never
@@ -898,7 +898,7 @@ grab this book to keep my sanity.&lt;/p&gt;
  <entry>
    <title>In Praise Of The Full Time Employee</title>
    <link href="http://neidetcher.com/programming/2013/03/17/in-praise-of-the-full-time-employee.html"/>
-   <updated>2013-03-17T00:00:00-07:00</updated>
+   <updated>2013-03-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/03/17/in-praise-of-the-full-time-employee</id>
    <content type="html">&lt;p&gt;As software engineeers we have to turn our attention to thought leaders.
 These might be consultants, blog authors, book authors, speakers, software authors.
@@ -953,7 +953,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Smoke Tests For Your System</title>
    <link href="http://neidetcher.com/programming/2013/02/24/smoke-tests-for-your-system.html"/>
-   <updated>2013-02-24T00:00:00-08:00</updated>
+   <updated>2013-02-24T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/02/24/smoke-tests-for-your-system</id>
    <content type="html">&lt;p&gt;Me and another team member took our most recent lab week to do something incredibly un-sexy.  Our resumes have no new libraries, buzz-words or languages that we can add.  We decided to use some old-school tools to create a very tactical set of smoke tests for our system and for the back-end systems that we depend on.&lt;/p&gt;
 
@@ -976,7 +976,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Maven3 Maven2 Mixup On Mac</title>
    <link href="http://neidetcher.com/programming/2013/01/05/maven3-maven2-mixup-on-mac.html"/>
-   <updated>2013-01-05T00:00:00-08:00</updated>
+   <updated>2013-01-05T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/01/05/maven3-maven2-mixup-on-mac</id>
    <content type="html">&lt;p&gt;At first my Mac was all:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  ~/opt/maven/bin&amp;gt;mvn --version  
@@ -1008,7 +1008,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Java Jdk 1.7 On Mac 1.8.2</title>
    <link href="http://neidetcher.com/programming/2012/12/14/java-JDK-1.7-on-mac-1.8.2.html"/>
-   <updated>2012-12-14T00:00:00-08:00</updated>
+   <updated>2012-12-14T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/12/14/java-JDK-1.7-on-mac-1.8.2</id>
    <content type="html">&lt;p&gt;I have been doing Scala and Groovy at the day job for about a year now.  For some side work I thought I&amp;#39;http://neidetcher.blogspot.comd use Java, there obviously aren&amp;#39;http://neidetcher.blogspot.comt enough semi-colons in my life.  I haven&amp;#39;http://neidetcher.blogspot.comt touched 1.7 yet and setting it up on my Mac wasn&amp;#39;http://neidetcher.blogspot.comt incredibly intuitive.  &lt;/p&gt;
 
@@ -1030,7 +1030,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Another Look At Play2</title>
    <link href="http://neidetcher.com/programming/2012/11/19/another-look-at-play2.html"/>
-   <updated>2012-11-19T00:00:00-08:00</updated>
+   <updated>2012-11-19T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/11/19/another-look-at-play2</id>
    <content type="html">&lt;h1&gt;Neidetcher: Another Look at Play2&lt;/h1&gt;
 
@@ -1060,7 +1060,7 @@ They have utilities to help with testing.  All the examples use Specs, I haven&a
  <entry>
    <title>Functional Programming Principles In Scala</title>
    <link href="http://neidetcher.com/programming/2012/11/09/functional-programming-principles-in-scala.html"/>
-   <updated>2012-11-09T00:00:00-08:00</updated>
+   <updated>2012-11-09T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/11/09/functional-programming-principles-in-scala</id>
    <content type="html">&lt;h1&gt;Functional Programming Principles in Scala&lt;/h1&gt;
 
@@ -1096,7 +1096,7 @@ Then we get the email from the admins that we need to take it down.  That&amp;#3
  <entry>
    <title>Spare Box Ci</title>
    <link href="http://neidetcher.com/programming/2012/09/17/spare-box-ci.html"/>
-   <updated>2012-09-17T00:00:00-07:00</updated>
+   <updated>2012-09-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2012/09/17/spare-box-ci</id>
    <content type="html">&lt;p&gt;I have 2 employer provided computers.  One is a Mac Book Pro, the other is a Mac Pro.  I do my day to day development on the MBP because I want a smooth transition when I&amp;#39;m on the road.  I do this even though the desktop is a beast.  At home I use ShareMouse (a software KVM) so that the computers almost seem as one.  The desktop streams music from Pandora, has all the IM and email clients.&lt;/p&gt;
 
@@ -1121,7 +1121,7 @@ Then we get the email from the admins that we need to take it down.  That&amp;#3
  <entry>
    <title>Scala Encoding Fun</title>
    <link href="http://neidetcher.com/programming/2012/03/15/scala-encoding-fun.html"/>
-   <updated>2012-03-15T00:00:00-07:00</updated>
+   <updated>2012-03-15T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2012/03/15/scala-encoding-fun</id>
    <content type="html">&lt;p&gt;I pulled a toy Scala &lt;a href=&quot;https://github.com/demian0311/scalakata&quot;&gt;project&lt;/a&gt; into Eclipse and saw this 
 problem:&lt;/p&gt;
