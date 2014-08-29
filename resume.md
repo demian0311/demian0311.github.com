@@ -41,12 +41,12 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 
 ### [Dash Carrier Services](https://www.linkedin.com/company/646621?trk=tyah&trkInfo=tarId%3A1398094869496%2Ctas%3Adash%20carrier%20services%2Cidx%3A1-1-1) - Principal Architect, Denver, CO (Jun 07 - Oct 10)
 - Collaborated with business and leadership to establish a domain model and database schema to run a VoIP and 911 geospatial call routing systems.
-- Architected and designed the entire software solution.
+- Created architecture and design for the entire software solution.
 - Wrote the initial software and remained active in the code after advancing in role.
 - Managed a 6 engineer team built by hiring and acquisition. 
 - Lead agile process as scrum master, aligning work with strategic and tactical business goals.
 - Communicated with customers to make sure they could use our API.
-- Evaluated 6 vendors and consumed APIs.
+- Evaluated vendors and consumed various types of APIs.
 - Wrote software to dynamically pick vendors for phone traffic and 911 service provisioning based on revenue.
 
 ### [OpenLogic](http://www.openlogic.com/) - Senior Engineer, Broomfield, CO (Dec 06 - Jun 07)
