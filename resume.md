@@ -17,7 +17,8 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Finagle
 - Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
 - Java, J2EE, EJB, [iBatis](http://blog.mybatis.org/), JDBC, Hibernate, JSP, Struts2 , Spring (DI, AOP, DAO, Security)
-- SQL, Stored Procedures
+- SQL, Stored Procedures, MySQL, Oracle, PostgreSQL, Hazelcast
+- Netty, Hystrix
 - HTML, CSS, JavaScript, jQuery, AJAX
 - sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock
 - UML, OOP, OOA/D, FP, AOP

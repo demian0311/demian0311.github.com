@@ -4,13 +4,110 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2014-08-29T16:55:27-05:00</updated>
+ <updated>2014-12-29T13:51:05-06:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
    <email>demian0311@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Lifting In 2014</title>
+   <link href="http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html"/>
+   <updated>2014-12-28T00:00:00-06:00</updated>
+   <id>http://neidetcher.com/fitness/2014/12/28/lifting-in-2014</id>
+   <content type="html">&lt;h2&gt;Overall&lt;/h2&gt;
+
+&lt;p&gt;Here are my PRs at the end of the year:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Press: 205&lt;/li&gt;
+&lt;li&gt;Dead: 365&lt;/li&gt;
+&lt;li&gt;Bench: 275&lt;/li&gt;
+&lt;li&gt;Squat: 315&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;5/3/1&lt;/h3&gt;
+
+&lt;p&gt;Still trucking along on 5/3/1.  I think I&amp;#39;m going to stick with the template for this lifetime.
+The undulation is probably good for someone that is getting older, being able to not go heavy
+all of the time.  As I said last year, it&amp;#39;s a perfect mix of structure and flexibility.&lt;/p&gt;
+
+&lt;h2&gt;Exercises&lt;/h2&gt;
+
+&lt;h3&gt;Press&lt;/h3&gt;
+
+&lt;p&gt;I felt a tweak in my shoulder while going heavy sometime mid-year so I lowered the weights and
+decided to work back up to a 205 max.  Although my progress in the press has gone well I don&amp;#39;t 
+feel the need to go any higher.  Of course 225 is calling but it&amp;#39;s an uneasy feeling to have 
+205 pounds above your head, at least for me.&lt;/p&gt;
+
+&lt;h3&gt;Dead&lt;/h3&gt;
+
+&lt;p&gt;My dead has stayed still for a year.  I&amp;#39;ve kept the weight at 365 for almost a year.  I think I
+have more in the tank but it&amp;#39;s still slow to get up.  &lt;/p&gt;
+
+&lt;p&gt;I continue to be a fan of the barbell hip thrust.  I started at 65 pounds and after increasing the
+weight by 5 pounds every workout I&amp;#39;m now doing 3 sets of 10 reps at 315 pounds.  &lt;/p&gt;
+
+&lt;h3&gt;Bench&lt;/h3&gt;
+
+&lt;p&gt;To review what was wrong with my bench, I used a wide grip while trying to chase numbers.  It was
+stupid.  Keeping a more narrow grip gives you more longevity so if you aren&amp;#39;t competing it just
+makes sense.  Especially given the shoulder problems I have from dislocating my shoulder while
+snowboarding.&lt;/p&gt;
+
+&lt;p&gt;So I brought the numbers way down and worked up to a 275 single.  Like the other lifts, feels like
+there&amp;#39;s more in the tank but now the game is being injury free.&lt;/p&gt;
+
+&lt;h3&gt;Squats&lt;/h3&gt;
+
+&lt;p&gt;There isn&amp;#39;t much you can do in the gym that is more of a head-trip than the squat.  It&amp;#39;s really 
+the main lift where I have to summon the demons to prepare myself.  But as with the other lifts
+I usually marvel at how easy it was to get up the weight.&lt;/p&gt;
+
+&lt;h2&gt;On to 2015&lt;/h2&gt;
+
+&lt;p&gt;My goal is to keep the weight where it is but figure out a way to motivate myself such that getting
+leaner is part of the picture.  I don&amp;#39;t want to switch to looking at scale weight and lose sight 
+of strength numbers. &lt;/p&gt;
+
+&lt;p&gt;Besides that I want to maintain my strength and remain injury free.  I might dabble a little with
+what would make up a minimal effective dose of training to stay where I&amp;#39;m at.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Results Come From The Grind</title>
+   <link href="http://neidetcher.com/exercise/2014/11/02/results-come-from-the-grind.html"/>
+   <updated>2014-11-02T00:00:00-05:00</updated>
+   <id>http://neidetcher.com/exercise/2014/11/02/results-come-from-the-grind</id>
+   <content type="html">&lt;p&gt;This is a lesson from lifting weights that applies to programming or
+pretty much anything.  Results come from &lt;em&gt;the grind&lt;/em&gt;.  What is the grind?
+It starts with knowing where you want to go.  After that it&amp;#39;s coming up
+with a good plan to get there.  Assuming you have done well in the first
+two parts, the last part is the grind.  You&amp;#39;re confident in your goal and
+you&amp;#39;re confident in the plan that is going to get you there.  From there
+you just have to execute.  Often times this means showing up, punching the
+clock and doing the thing.&lt;/p&gt;
+
+&lt;h2&gt;From the Iron Game&lt;/h2&gt;
+
+&lt;p&gt;Despite all the ab-rollers, thigh blasters, muscle confusion and even CrossFit
+it turns out that the best way to get strong is to grind it out.  You don&amp;#39;t 
+need complicated equipment or the latest workout from a website every week.
+A man, barbell, weights, squat stands and maybe a bench are all that you need. 
+You get to deadlift 315 because last month you were able to pull 310.  And you
+don&amp;#39;t get there by gimmicks you get there by showing up and doing the same
+thing but with a little more weight.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s the lesson that the iron game teaches.  To get strong you do the basics
+and you grind it out.&lt;/p&gt;
+
+&lt;h2&gt;From Programming&lt;/h2&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Java8 Fizz Buzz Revision 2</title>
