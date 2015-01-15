@@ -4,7 +4,7 @@
  <title>neidetcher.com</title>
  <link href="http://neidetcher.com/atom.xml" rel="self"/>
  <link href="http://neidetcher.com/"/>
- <updated>2015-01-06T20:36:40-07:00</updated>
+ <updated>2015-01-15T11:29:50-06:00</updated>
  <id>http://neidetcher.com</id>
  <author>
    <name>Demian Neidetcher</name>
@@ -13,9 +13,57 @@
 
  
  <entry>
+   <title>Winter Reading</title>
+   <link href="http://neidetcher.com/2015/01/15/winter-reading.html"/>
+   <updated>2015-01-15T00:00:00-06:00</updated>
+   <id>http://neidetcher.com/2015/01/15/winter-reading</id>
+   <content type="html">&lt;h2&gt;MONEY Master the Game - Tony Robbins&lt;/h2&gt;
+
+&lt;p&gt;I heard his interview on the &lt;a href=&quot;http://fourhourworkweek.com/blog/&quot;&gt;Tim Ferriss&lt;/a&gt; podcast and
+decided to read the book.  30% bragging about who he has helped, 30% building up what he&amp;#39;s
+going to tell you and then 30% on actual good, actionable personal financial advice.  Oh
+also there is some cross-marketing of services that are promoted in the book that Tony 
+Robbins I would assume benefits from.  It&amp;#39;s not in your face but it&amp;#39;s there.&lt;/p&gt;
+
+&lt;p&gt;The premise of the book is that he saw so many people get wiped out in 2008 that he&amp;#39;s 
+curious about what&amp;#39;s going on and what the common man can do to not get screwed again.
+To this end he is able to get an audience with a lot of high performing financial guys.
+He interviews them and gets some good information.&lt;/p&gt;
+
+&lt;p&gt;The price of the book on Kindle was worth that 30%.  What I liked most was the allocations
+that he gets.  The book has motivated to get more serious about retirement and allocations.
+Otherwise, lots of sound advice.&lt;/p&gt;
+
+&lt;h3&gt;Some take aways&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Just use low fee index funds that track the market in your 401k.&lt;/li&gt;
+&lt;li&gt;Set up an annual increase plan to automatically bump your partipation percentage.&lt;/li&gt;
+&lt;li&gt;His allocations split between US bonds, stocks, gold and commodities.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Zero to One - Peter Thiel&lt;/h2&gt;
+
+&lt;p&gt;Great book.  I found myself laughing a few times.  Peter Thiel is a highly successful 
+entrepreneur and venture capitalist.  The book offers his perspective on what makes a 
+good business from a lot of perspectives.  It challenges some conventional notions 
+about what make good businesses.  The book also gives insight into how VCs operate and
+evaluate companies they fund.&lt;/p&gt;
+
+&lt;h3&gt;Some take aways&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The lionization of competition is not useful for business, a good business has a virtual monopoly.&lt;/li&gt;
+&lt;li&gt;Good founders are outliers and weirdos.&lt;/li&gt;
+&lt;li&gt;Good founders have a prior history. &lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Lifting In 2014</title>
    <link href="http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html"/>
-   <updated>2014-12-28T00:00:00-07:00</updated>
+   <updated>2014-12-28T00:00:00-06:00</updated>
    <id>http://neidetcher.com/fitness/2014/12/28/lifting-in-2014</id>
    <content type="html">&lt;h2&gt;Overall&lt;/h2&gt;
 
@@ -81,7 +129,7 @@ what would make up a minimal effective dose of training to stay where I&amp;#39;
  <entry>
    <title>Java8 Fizz Buzz Revision 2</title>
    <link href="http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html"/>
-   <updated>2014-08-29T00:00:00-06:00</updated>
+   <updated>2014-08-29T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2</id>
    <content type="html">&lt;p&gt;This is my second attempt at &lt;a href=&quot;http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html&quot;&gt;FizzBuzz&lt;/a&gt; 
 in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt; with &lt;a href=&quot;http://openjdk.java.net/projects/lambda/&quot;&gt;Lambdas&lt;/a&gt;.  &lt;/p&gt;
@@ -111,7 +159,7 @@ in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt;
  <entry>
    <title>Gym Fouls</title>
    <link href="http://neidetcher.com/fitness/2014/07/17/gym-fouls.html"/>
-   <updated>2014-07-17T00:00:00-06:00</updated>
+   <updated>2014-07-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/fitness/2014/07/17/gym-fouls</id>
    <content type="html">&lt;p&gt;My bubbly extrovert personality has me very happily working out at home the last couple
 of years.  I love it, I have just the right amount of equipment and no one is ever on
@@ -249,7 +297,7 @@ workouts in some sensible fashion:&lt;/p&gt;
  <entry>
    <title>What Next For Java</title>
    <link href="http://neidetcher.com/programming/2014/07/13/what-next-for-java.html"/>
-   <updated>2014-07-13T00:00:00-06:00</updated>
+   <updated>2014-07-13T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/13/what-next-for-java</id>
    <content type="html">&lt;p&gt;At Time Warner Cable we&amp;#39;re in the midst of an acquisition.  There is a possibility 
 that many of us will be changing jobs in the coming years.  Since we&amp;#39;ve been at 
@@ -351,7 +399,7 @@ oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
  <entry>
    <title>Port Confusion With Apple Airport</title>
    <link href="http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html"/>
-   <updated>2014-07-11T00:00:00-06:00</updated>
+   <updated>2014-07-11T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport</id>
    <content type="html">&lt;p&gt;This won&amp;#39;t add anything to the knowledge that &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;already exists online&lt;/a&gt; but 
 hopefully it&amp;#39;s more searchable for the next poor sap that is confused by this.&lt;/p&gt;
@@ -427,7 +475,7 @@ port is even available.  So, to you on your computer behind an Apple router, &lt
  <entry>
    <title>Two Years Remote</title>
    <link href="http://neidetcher.com/programming/2014/07/06/two-years-remote.html"/>
-   <updated>2014-07-06T00:00:00-06:00</updated>
+   <updated>2014-07-06T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/06/two-years-remote</id>
    <content type="html">&lt;h2&gt;Why Remote?&lt;/h2&gt;
 
@@ -520,7 +568,7 @@ overcome by having food and drinks with people. &lt;/p&gt;
  <entry>
    <title>Javascript Is Alright</title>
    <link href="http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html"/>
-   <updated>2014-07-03T00:00:00-06:00</updated>
+   <updated>2014-07-03T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/07/03/javascript-is-alright</id>
    <content type="html">&lt;h2&gt;Once Bitten&lt;/h2&gt;
 
@@ -604,7 +652,7 @@ likely to happen since they take care of the browser inconsistencies for you.&lt
  <entry>
    <title>Just Enough Rrdtool</title>
    <link href="http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool.html"/>
-   <updated>2014-05-13T00:00:00-06:00</updated>
+   <updated>2014-05-13T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/05/13/just-enough-rrdtool</id>
    <content type="html">&lt;h2&gt;DevOps&lt;/h2&gt;
 
@@ -725,7 +773,7 @@ graphs in action.&lt;/p&gt;
  <entry>
    <title>April 2014 Lifting</title>
    <link href="http://neidetcher.com/fitness/2014/04/23/april-2014-lifting.html"/>
-   <updated>2014-04-23T00:00:00-06:00</updated>
+   <updated>2014-04-23T00:00:00-05:00</updated>
    <id>http://neidetcher.com/fitness/2014/04/23/april-2014-lifting</id>
    <content type="html">&lt;p&gt;This is just a collection of observations related to lifting right now.&lt;/p&gt;
 
@@ -928,7 +976,7 @@ iTunes.&lt;/p&gt;
  <entry>
    <title>Play And Akka</title>
    <link href="http://neidetcher.com/programming/2014/04/17/play-and-akka.html"/>
-   <updated>2014-04-17T00:00:00-06:00</updated>
+   <updated>2014-04-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2014/04/17/play-and-akka</id>
    <content type="html">&lt;p&gt;I took another lab week to stumble around with the &lt;a href=&quot;http://www.playframework.com/&quot;&gt;Play Framework&lt;/a&gt;.  I really 
 like the way routing works, the controllers 
@@ -1002,7 +1050,7 @@ a response here.  This uses the implicit timeout from above. &lt;/p&gt;
  <entry>
    <title>Squat Fail</title>
    <link href="http://neidetcher.com/fitness/2014/03/24/squat-fail.html"/>
-   <updated>2014-03-24T00:00:00-06:00</updated>
+   <updated>2014-03-24T00:00:00-05:00</updated>
    <id>http://neidetcher.com/fitness/2014/03/24/squat-fail</id>
    <content type="html">&lt;h2&gt;Squat Fail&lt;/h2&gt;
 
@@ -1046,7 +1094,7 @@ back into the squat.  Keeping the weight on my heels.&lt;/p&gt;
  <entry>
    <title>Deadlift Goal Achieved</title>
    <link href="http://neidetcher.com/fitness/2014/02/04/deadlift-goal-achieved.html"/>
-   <updated>2014-02-04T00:00:00-07:00</updated>
+   <updated>2014-02-04T00:00:00-06:00</updated>
    <id>http://neidetcher.com/fitness/2014/02/04/deadlift-goal-achieved</id>
    <content type="html">&lt;h2&gt;Nailed It&lt;/h2&gt;
 
@@ -1157,7 +1205,7 @@ much better cardio shape.  We&amp;#39;ll see how it works.&lt;/p&gt;
  <entry>
    <title>Java8 Fizz Buzz</title>
    <link href="http://neidetcher.com/programming/2014/01/17/java8-fizz-buzz.html"/>
-   <updated>2014-01-17T00:00:00-07:00</updated>
+   <updated>2014-01-17T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2014/01/17/java8-fizz-buzz</id>
    <content type="html">&lt;p&gt;Here&amp;#39;s my attempt at &lt;a href=&quot;http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html&quot;&gt;FizzBuzz&lt;/a&gt; 
 in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt; with &lt;a href=&quot;http://openjdk.java.net/projects/lambda/&quot;&gt;Lambdas&lt;/a&gt;.  This will 
@@ -1214,7 +1262,7 @@ implementation and unit test, just messing around.&lt;/p&gt;
  <entry>
    <title>Kids And Lifting</title>
    <link href="http://neidetcher.com/fitness/2014/01/14/kids-and-lifting.html"/>
-   <updated>2014-01-14T00:00:00-07:00</updated>
+   <updated>2014-01-14T00:00:00-06:00</updated>
    <id>http://neidetcher.com/fitness/2014/01/14/kids-and-lifting</id>
    <content type="html">&lt;p&gt;&lt;img src=&quot;https://farm4.staticflickr.com/3690/11787566944_a1715689bf_m.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 
@@ -1287,7 +1335,7 @@ how strong he is and he has a smile on his face.&lt;/p&gt;
  <entry>
    <title>Lifting In 2013</title>
    <link href="http://neidetcher.com/fitness/2013/12/31/lifting-in-2013.html"/>
-   <updated>2013-12-31T00:00:00-07:00</updated>
+   <updated>2013-12-31T00:00:00-06:00</updated>
    <id>http://neidetcher.com/fitness/2013/12/31/lifting-in-2013</id>
    <content type="html">&lt;h2&gt;Overall&lt;/h2&gt;
 
@@ -1425,7 +1473,7 @@ be this year.  &lt;/p&gt;
  <entry>
    <title>Book Review Functional Programming In Java</title>
    <link href="http://neidetcher.com/programming/2013/12/29/book-review-functional-programming-in-java.html"/>
-   <updated>2013-12-29T00:00:00-07:00</updated>
+   <updated>2013-12-29T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/12/29/book-review-functional-programming-in-java</id>
    <content type="html">&lt;p&gt;Venkat is working on &lt;a href=&quot;http://pragprog.com/book/vsjava8/functional-programming-in-java&quot;&gt;Functional Programming in Java&lt;/a&gt;.  The book is still in Beta right now but it&amp;#39;s 
 firming up and I&amp;#39;ve finished it over Christmas
@@ -1465,7 +1513,7 @@ creates more declarative code.  I just kind of see it as having more awesome API
  <entry>
    <title>Book Review Phoenix Project</title>
    <link href="http://neidetcher.com/programming/2013/12/04/book-review-phoenix-project.html"/>
-   <updated>2013-12-04T00:00:00-07:00</updated>
+   <updated>2013-12-04T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/12/04/book-review-phoenix-project</id>
    <content type="html">&lt;p&gt;This book is about an IT manager.  I don&amp;#39;t want to give spoilers because
 even though the book isn&amp;#39;t perfect I think that anyone in the software
@@ -1506,7 +1554,7 @@ many of your co-workers to read this book as possible.&lt;/p&gt;
  <entry>
    <title>Getting Around Groovy Linkage Error</title>
    <link href="http://neidetcher.com/programming/2013/10/17/getting-around-groovy-linkage-error.html"/>
-   <updated>2013-10-17T00:00:00-06:00</updated>
+   <updated>2013-10-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/10/17/getting-around-groovy-linkage-error</id>
    <content type="html">&lt;h2&gt;A Hystrix Grails Plugin&lt;/h2&gt;
 
@@ -1574,7 +1622,7 @@ Here&amp;#39;s the way that seems to work.&lt;/p&gt;
  <entry>
    <title>Beginning Cryptography With Java</title>
    <link href="http://neidetcher.com/programming/2013/09/27/beginning-cryptography-with-java.html"/>
-   <updated>2013-09-27T00:00:00-06:00</updated>
+   <updated>2013-09-27T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/09/27/beginning-cryptography-with-java</id>
    <content type="html">&lt;h2&gt;Getting my Ass Handed to Me&lt;/h2&gt;
 
@@ -1626,7 +1674,7 @@ and became more expressive, got to the core of what we were doing.&lt;/p&gt;
  <entry>
    <title>Amor Fati</title>
    <link href="http://neidetcher.com/life/2013/08/12/amor-fati.html"/>
-   <updated>2013-08-12T00:00:00-06:00</updated>
+   <updated>2013-08-12T00:00:00-05:00</updated>
    <id>http://neidetcher.com/life/2013/08/12/amor-fati</id>
    <content type="html">&lt;p&gt;This is just here for posterity.&lt;br&gt;
 Awesome &lt;a href=&quot;http://grooveshark.com/#!/s/Amor+Fati/52Zo9a?src=5&quot;&gt;song&lt;/a&gt;, lyrics and &lt;a href=&quot;http://en.wikipedia.org/wiki/Amor_fati&quot;&gt;concept&lt;/a&gt;.&lt;/p&gt;
@@ -1666,7 +1714,7 @@ The roads you&#39;re going to find
  <entry>
    <title>Intellij Is Good</title>
    <link href="http://neidetcher.com/programming/2013/07/12/intellij-is-good.html"/>
-   <updated>2013-07-12T00:00:00-06:00</updated>
+   <updated>2013-07-12T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/07/12/intellij-is-good</id>
    <content type="html">&lt;p&gt;This seems to be a theme lately where I&amp;#39;m late to the party, taking a long time
 to &lt;em&gt;get&lt;/em&gt; something that is common knowledge to most folks.&lt;/p&gt;
@@ -1716,7 +1764,7 @@ previously but I wanted them to pay for the latest version.&lt;/p&gt;
  <entry>
    <title>Book Review Functional Programming For Java Developers</title>
    <link href="http://neidetcher.com/programming/2013/05/14/book-review-functional-programming-for-java-developers.html"/>
-   <updated>2013-05-14T00:00:00-06:00</updated>
+   <updated>2013-05-14T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/05/14/book-review-functional-programming-for-java-developers</id>
    <content type="html">&lt;p&gt;First off, this is a small book.  72 pages including a glossary.  I was able to read
 it on a plne ride from Louisiana to Denver.  Like the tagline says, I hope I never
@@ -1741,7 +1789,7 @@ grab this book to keep my sanity.&lt;/p&gt;
  <entry>
    <title>April 2013 Month In Review</title>
    <link href="http://neidetcher.com/fitness/2013/04/27/april-2013-month-in-review.html"/>
-   <updated>2013-04-27T00:00:00-06:00</updated>
+   <updated>2013-04-27T00:00:00-05:00</updated>
    <id>http://neidetcher.com/fitness/2013/04/27/april-2013-month-in-review</id>
    <content type="html">&lt;h2&gt;Home Gym&lt;/h2&gt;
 
@@ -1792,7 +1840,7 @@ bench but I can see my thigh make a brief appearance above my hip crease so I th
  <entry>
    <title>In Praise Of The Full Time Employee</title>
    <link href="http://neidetcher.com/programming/2013/03/17/in-praise-of-the-full-time-employee.html"/>
-   <updated>2013-03-17T00:00:00-06:00</updated>
+   <updated>2013-03-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2013/03/17/in-praise-of-the-full-time-employee</id>
    <content type="html">&lt;p&gt;As software engineeers we have to turn our attention to thought leaders.
 These might be consultants, blog authors, book authors, speakers, software authors.
@@ -1847,7 +1895,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Smoke Tests For Your System</title>
    <link href="http://neidetcher.com/programming/2013/02/24/smoke-tests-for-your-system.html"/>
-   <updated>2013-02-24T00:00:00-07:00</updated>
+   <updated>2013-02-24T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/02/24/smoke-tests-for-your-system</id>
    <content type="html">&lt;p&gt;Me and another team member took our most recent lab week to do something incredibly un-sexy.  Our resumes have no new libraries, buzz-words or languages that we can add.  We decided to use some old-school tools to create a very tactical set of smoke tests for our system and for the back-end systems that we depend on.&lt;/p&gt;
 
@@ -1870,7 +1918,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Maven3 Maven2 Mixup On Mac</title>
    <link href="http://neidetcher.com/programming/2013/01/05/maven3-maven2-mixup-on-mac.html"/>
-   <updated>2013-01-05T00:00:00-07:00</updated>
+   <updated>2013-01-05T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2013/01/05/maven3-maven2-mixup-on-mac</id>
    <content type="html">&lt;p&gt;At first my Mac was all:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;text language-text&quot; data-lang=&quot;text&quot;&gt;  ~/opt/maven/bin&amp;gt;mvn --version  
@@ -1902,7 +1950,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Java Jdk 1.7 On Mac 1.8.2</title>
    <link href="http://neidetcher.com/programming/2012/12/14/java-JDK-1.7-on-mac-1.8.2.html"/>
-   <updated>2012-12-14T00:00:00-07:00</updated>
+   <updated>2012-12-14T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/12/14/java-JDK-1.7-on-mac-1.8.2</id>
    <content type="html">&lt;p&gt;I have been doing Scala and Groovy at the day job for about a year now.  For some side work I thought I&amp;#39;http://neidetcher.blogspot.comd use Java, there obviously aren&amp;#39;http://neidetcher.blogspot.comt enough semi-colons in my life.  I haven&amp;#39;http://neidetcher.blogspot.comt touched 1.7 yet and setting it up on my Mac wasn&amp;#39;http://neidetcher.blogspot.comt incredibly intuitive.  &lt;/p&gt;
 
@@ -1924,7 +1972,7 @@ of these areas I&amp;#39;ve seen short-term contractors have a positive effect. 
  <entry>
    <title>Another Look At Play2</title>
    <link href="http://neidetcher.com/programming/2012/11/19/another-look-at-play2.html"/>
-   <updated>2012-11-19T00:00:00-07:00</updated>
+   <updated>2012-11-19T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/11/19/another-look-at-play2</id>
    <content type="html">&lt;h1&gt;Neidetcher: Another Look at Play2&lt;/h1&gt;
 
@@ -1954,7 +2002,7 @@ They have utilities to help with testing.  All the examples use Specs, I haven&a
  <entry>
    <title>The Setup</title>
    <link href="http://neidetcher.com/efficiency/2012/11/16/the-setup.html"/>
-   <updated>2012-11-16T00:00:00-07:00</updated>
+   <updated>2012-11-16T00:00:00-06:00</updated>
    <id>http://neidetcher.com/efficiency/2012/11/16/the-setup</id>
    <content type="html">&lt;h1&gt;Neidetcher: The Setup&lt;/h1&gt;
 
@@ -1995,7 +2043,7 @@ They have utilities to help with testing.  All the examples use Specs, I haven&a
  <entry>
    <title>Functional Programming Principles In Scala</title>
    <link href="http://neidetcher.com/programming/2012/11/09/functional-programming-principles-in-scala.html"/>
-   <updated>2012-11-09T00:00:00-07:00</updated>
+   <updated>2012-11-09T00:00:00-06:00</updated>
    <id>http://neidetcher.com/programming/2012/11/09/functional-programming-principles-in-scala</id>
    <content type="html">&lt;h1&gt;Functional Programming Principles in Scala&lt;/h1&gt;
 
@@ -2031,7 +2079,7 @@ Then we get the email from the admins that we need to take it down.  That&amp;#3
  <entry>
    <title>Stairway To Scala</title>
    <link href="http://neidetcher.com/2012/10/31/stairway-to-scala.html"/>
-   <updated>2012-10-31T00:00:00-06:00</updated>
+   <updated>2012-10-31T00:00:00-05:00</updated>
    <id>http://neidetcher.com/2012/10/31/stairway-to-scala</id>
    <content type="html">&lt;p&gt;The team I am on at Time Warn Cable has been doing Scala for almost a year now.  5 of us flew out to San Francisco to attend Stairway to Scala training.&lt;/p&gt;
 
@@ -2044,7 +2092,7 @@ Then we get the email from the admins that we need to take it down.  That&amp;#3
  <entry>
    <title>Spare Box Ci</title>
    <link href="http://neidetcher.com/programming/2012/09/17/spare-box-ci.html"/>
-   <updated>2012-09-17T00:00:00-06:00</updated>
+   <updated>2012-09-17T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2012/09/17/spare-box-ci</id>
    <content type="html">&lt;p&gt;I have 2 employer provided computers.  One is a Mac Book Pro, the other is a Mac Pro.  I do my day to day development on the MBP because I want a smooth transition when I&amp;#39;m on the road.  I do this even though the desktop is a beast.  At home I use ShareMouse (a software KVM) so that the computers almost seem as one.  The desktop streams music from Pandora, has all the IM and email clients.&lt;/p&gt;
 
@@ -2069,7 +2117,7 @@ Then we get the email from the admins that we need to take it down.  That&amp;#3
  <entry>
    <title>Scala Encoding Fun</title>
    <link href="http://neidetcher.com/programming/2012/03/15/scala-encoding-fun.html"/>
-   <updated>2012-03-15T00:00:00-06:00</updated>
+   <updated>2012-03-15T00:00:00-05:00</updated>
    <id>http://neidetcher.com/programming/2012/03/15/scala-encoding-fun</id>
    <content type="html">&lt;p&gt;I pulled a toy Scala &lt;a href=&quot;https://github.com/demian0311/scalakata&quot;&gt;project&lt;/a&gt; into Eclipse and saw this 
 problem:&lt;/p&gt;
@@ -2107,7 +2155,7 @@ got confused.&lt;/p&gt;
  <entry>
    <title>Current Lifting Program</title>
    <link href="http://neidetcher.com/fitness/2012/01/03/current-lifting-program.html"/>
-   <updated>2012-01-03T00:00:00-07:00</updated>
+   <updated>2012-01-03T00:00:00-06:00</updated>
    <id>http://neidetcher.com/fitness/2012/01/03/current-lifting-program</id>
    <content type="html">&lt;p&gt;Over the past couple years I have gotten back into weight lifting.  It has
 been great, I&amp;#39;m stronger than I was when I was in the Marines 20 years ago.
@@ -2197,7 +2245,7 @@ has but after a couple cycles I quit doing 5/3/1 strictly.&lt;/p&gt;
  <entry>
    <title>Book Review My Job Went To India</title>
    <link href="http://neidetcher.com/2006/03/19/book-review-my-job-went-to-india.html"/>
-   <updated>2006-03-19T00:00:00-07:00</updated>
+   <updated>2006-03-19T00:00:00-06:00</updated>
    <id>http://neidetcher.com/2006/03/19/book-review-my-job-went-to-india</id>
    <content type="html">&lt;!--include:header.htm--&gt;
 &lt;p&gt;i bought the pdf version of the book.  if you haven&#39;t bought a pdf book from the pragmatic programmers they give you a customized book complete with your name on each page.  to do this processing it takes a few minutes before you can actually download your book.  your name in the book is to discourage you from throwing it up on some p2p system i&#39;m sure.&lt;br /&gt;&lt;br /&gt;the book was great, i felt the same way as when i read the &lt;span style=&quot;font-style:italic;&quot;&gt;pragmatic programmer&lt;/span&gt;.  there were lots of moments where the author said things that seem obvious but it&#39;s always good to get validation.  even tho a lot of the information should be a given to anyone in the tech business the book serves as a kick in the pants to motivate you into change.&lt;br /&gt;&lt;br /&gt;the book was well worth the price for the information that was new to me.  it wasn&#39;t so much new information but insightful things you can do to improve yourself.&lt;br /&gt;&lt;br /&gt;here are some good points from the book:&lt;br /&gt;&lt;ul&gt;&lt;br /&gt;&lt;li&gt;learn some obscure technologies: you can get a new perspective and differentiate yourself from the herd.&lt;br /&gt;&lt;li&gt;learn your domain: if you&#39;re in telecom, learn your vertical, the coder ignorant of his business won&#39;t last long in the future.&lt;br /&gt;&lt;li&gt;be a generalist: be a 1 man shop, networking, dba, coder, tester, architect&lt;br /&gt;&lt;li&gt;be a specialist: if you are a java developer &lt;b&gt;know java&lt;/b&gt;.  know how the classloader works, know serialization, know how to break the jvm, know garbage collection, know the libraries.&lt;br /&gt;&lt;li&gt;don&#39;t become tiffany: remember her?  it&#39;s better to be like madonna, change with the times.  do an audit of your skills and where they are in the marketplace.  look for new trends.&lt;br /&gt;&lt;/ul&gt;&lt;br /&gt;it&#39;s worth mentioning that the author has reverence for people in india.  he appreciates the culture and reminds us that they are intelligent as their stateside counterparts.  he reminds the reader that most indian workers are highly motivated to improve their standard of living.  the author also gives you insight into establishing a good relationship with distributed teams.&lt;br /&gt;&lt;br /&gt;there&#39;s lots more wisdom in the book.  in the process of reading the book i&#39;ve made a checklist of things i want to do to improve myself professionally; books to read, tasks to do and things to learn.  ...yeah, i know i&#39;m so cool, seriously tho, that might be a good way to approach the book.  as i said, the book is worth the price especially if you&#39;re getting the pdf ($13).&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;http://www.amazon.com/gp/product/0976694018?ie=UTF8&amp;tag=demian0311blo-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0976694018&quot;&gt;My Job Went to India: And All I Got Was This Lousy Book (Pragmatic Programmers)&lt;/a&gt;&lt;img src=&quot;http://www.assoc-amazon.com/e/ir?t=demian0311blo-20&amp;l=as2&amp;o=1&amp;a=0976694018&quot; width=&quot;1&quot; height=&quot;1&quot; border=&quot;0&quot; alt=&quot;&quot; style=&quot;border:none !important; margin:0px !important;&quot; /&gt;&lt;/p&gt;

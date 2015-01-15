@@ -3,11 +3,17 @@ body {
    */
     font-family: 'Roboto', sans-serif;
 	background: #fdf6e3;
-	color: #333;
+	/*color: #657b83;*/ /* base00 */
+	color: #839496; /* base0 */
+
+   /**
+   $base1:     #93a1a1;
+   $base2:     #eee8d5;
+   $base3:     #fdf6e3;
+*/
 }
 
 h1, h2, h3 {
-   color: #268bd2;
    margin-top: 5px;
    margin-bottom: 0px;
    padding-top: 0px;
@@ -15,23 +21,30 @@ h1, h2, h3 {
 }
 
 h1 {
+   color: #dc322f;
    font-size: 150%;
    border-bottom: 1px solid  #eee8d5;
 }
 
 h2{
+   color: #dc322f;
    background-color: #eee8d5;
    font-size: 125%;
 }
 
 h3{
+   color: #586e75; /* base01 */
    font-size: 110%;
    border-bottom: 1px solid #eee;
 }
 
 a{
-   color: #dc322f;
+   color: #586e75; /* base01 */
    text-decoration: none;
+}
+
+a {
+   color: #586e75; /* base01 */
 }
 
 a:hover{
@@ -45,11 +58,11 @@ ul{
 }
 
 a:link{
-	color: #dc322f;
+   color: #586e75; /* base01 */
 }
 
 a:visited{
-   color: #859900;
+   color: #586e75; /* base01 */
 }
 
 table{
