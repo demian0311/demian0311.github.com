@@ -20,8 +20,6 @@ portals that our customers use.  These portals are written with [Groovy](http://
 ## Stand back, I'm a professional
 - Here's my [Resume](/resume.html) and I have a profile on [LinkedIn](http://www.linkedin.com/in/demian0311).
 - Some of my software is at [GitHub](https://github.com/demian0311).
-- I *just* started to put some slides up on [SlideShare](http://www.slideshare.net/demian0311).
-- This year I'm going to do more shows on the [NFJS Tour](http://www.nofluffjuststuff.com).
 
 ## Pearls of Wisdom 
 <table class="posts">
