@@ -39,12 +39,8 @@ h3{
 }
 
 a{
-   color: #586e75; /* base01 */
+   color: #268bd2; /* blue */
    text-decoration: none;
-}
-
-a {
-   color: #586e75; /* base01 */
 }
 
 a:hover{
@@ -58,11 +54,11 @@ ul{
 }
 
 a:link{
-   color: #586e75; /* base01 */
+   color: #268bd2; /* blue */
 }
 
 a:visited{
-   color: #586e75; /* base01 */
+   color: #268bd2; /* blue */
 }
 
 table{
