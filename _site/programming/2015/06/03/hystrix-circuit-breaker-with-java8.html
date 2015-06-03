@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Hystrix Circuit Breaker With Java8</title>
+        <meta name="viewport" content="width=device-width"/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto' 
+            rel='stylesheet' type='text/css'>
+            
+        <link rel="stylesheet" href="/css/syntax.css"/>
+        <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" href="/css/print.css" type="text/css" media="print"/>
+    </head>
+    <body>
+        <div class="site">
+          <div class="header">
+            <h1><a href="/">Demian Neidetcher</a> | Hystrix Circuit Breaker With Java8</h1>
+          </div>
+          <div class="post">
+<p>It&#39;ll continue to be interesting to see what happens with Java8.  Sure the version is
+out there, you can write all the lambdas you want.  But it&#39;s going to get more fun
+to see how every day coders use it and how library authors use it.</p>
+
+<p>During the day I use Groovy, enjoy it&#39;s closures.  I still do a bit of Scala but not as
+much as I&#39;d like.  But at night I&#39;ve been working with Java8.  </p>
+
+<h2>Generic Hystrix Circuit Breaker</h2>
+
+<p>From what I understand you should encapsulate the code that talks to remote systems 
+inside of a class that implements a HystrixCommand.  I had a situation where there 
+were a lot of little calls to a back-end system.  Creating new classes for each call 
+was getting tedious.  So I endeavored to create a generic circuit breaker 
+(implementation of HystrixCommand) for each dependent system.  </p>
+
+<p>You just give it 2 suppliers, one for the actual thing you&#39;re trying to do and another 
+as a fallback if what you&#39;re trying to do fails.  The suppliers have to adhere to the 
+normal contract with circuit breakers.  If an exception bubbles up from one of your 
+lambdas then the circuit breaker trips.</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseCommand</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">HystrixCommand</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplier</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplier</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">DatabaseCommand</span><span class="o">(</span>
+            <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplierIn</span><span class="o">,</span>
+            <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplierIn</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">getSetter</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">DB_COMMAND_KEY</span><span class="o">));</span>
+
+        <span class="n">runSupplier</span> <span class="o">=</span> <span class="n">runSupplierIn</span><span class="o">;</span>
+        <span class="n">fallbackSupplier</span> <span class="o">=</span> <span class="n">fallbackSupplierIn</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">runSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">getFallback</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">fallbackSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>There&#39;s some hand waving with the <code>CommandProvider.getSetter()</code>, that&#39;s the 
+monster set of calls where you configure your circuit breaker. </p>
+
+<h2>Using it</h2>
+
+<p>Then when you want to use the circuit breaker it looks something like this.</p>
+<div class="highlight"><pre><code class="java language-java" data-lang="java"><span class="n">DatabaseCommand</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="n">databaseCommand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DatabaseCommand</span><span class="o">&lt;&gt;(</span>
+         <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">databaseClient</span><span class="o">.</span><span class="na">findCustomer</span><span class="o">(</span><span class="n">customerId</span><span class="o">),</span>
+         <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">databaseClient</span><span class="o">.</span><span class="na">findCustomerFromCache</span><span class="o">(</span><span class="n">findCustomerId</span><span class="o">);</span>
+
+<span class="k">return</span> <span class="n">databaseCommand</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div>
+<p>This isn&#39;t so bad.  Sure it&#39;s convenient that I have those suppliers wrapped inside
+of functions already so I don&#39;t have nasty multi-line lambdas.</p>
+
+</div>
+
+          <div class="footer">
+          This work is licensed under a
+          <a rel="license" 
+            href="http://creativecommons.org/licenses/by/4.0/deed.en_US"
+            >Creative Commons Attribution 4.0 International License</a>.
+          </div>
+          <div class="printonly">
+            http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html<br/>
+            <img src="/assets/images/resume_qrcode.png"/>
+          </div>
+        </div>
+    </body>
+</html>
