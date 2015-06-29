@@ -1,0 +1,34 @@
+<p>I pulled a toy Scala <a href="https://github.com/demian0311/scalakata">project</a> into Eclipse and saw this 
+problem:</p>
+
+<pre><code>IO error while decoding [file].scala with UTF-8 Please try specifying another one using the -encoding option
+</code></pre>
+
+<p><a href="http://p5wscala.wordpress.com/tag/encoding/">This guy</a> didn’t have the exact solution but he got me pointed in the right direction.  The problem is that 
+I must have copied in some non-UTF-8 characters into my source code.  At this point the Scala compiler
+got confused.</p>
+
+<p>Here’s a bunch of shell commands I did to fix the problem:</p>
+
+<h3 id="figure-out-the-character-set-of-the-file-were-having-trouble-with">Figure out the character set of the file we’re having trouble with</h3>
+<pre><code>~/code/scalakata&gt;file -I ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala
+./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala: text/x-java; charset=iso-8859-1 Yep, the old iso-8859-1, that's not what we want.  That's what we use as the *from* encoding.
+</code></pre>
+
+<h3 id="make-a-copy-of-the-offending-file-utf-8">Make a copy of the offending file UTF-8</h3>
+<pre><code>~/code/scalakata&gt;iconv -f iso-8859-1 -t utf-8 ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala &gt; ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8
+</code></pre>
+
+<h3 id="the-diff-command-will-show-you-what-the-offending-line-was">The diff command will show you what the offending line was</h3>
+<pre><code>~/code/scalakata&gt;diff ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8
+134c134
+&lt; 		// 4) Scala lets you multiply a string with a number?try out "crazy" * 3 in the REPL. What does this operation do? Where can you find it in Scaladoc?
+---
+&gt; 		// 4) Scala lets you multiply a string with a numberÑtry out "crazy" * 3 in the REPL. What does this operation do? Where can you find it in Scaladoc?
+</code></pre>
+
+<h3 id="now-actually-replace-the-old-file">Now actually replace the old file</h3>
+<pre><code>~/code/scalakata&gt;mv ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala.utf8 ./src/test/scala/com/neidetcher/sfti/Chapter1Test.scala
+</code></pre>
+
+<p>After that I was back in business.</p>

@@ -1,0 +1,78 @@
+<p>I took another lab week to stumble around with the <a href="http://www.playframework.com/">Play Framework</a>.  I really 
+like the way routing works, the controllers 
+are nice and simple.  It has all come a long way
+and I wish I could use it for my day job.  If I were
+doing a green-field web-app with some APIs I’d likely 
+reach for Play.</p>
+
+<p>I wanted to learn a little bit more about <a href="https://en.wikipedia.org/wiki/Reactive_programming">reactive programming</a>.  I’m not bought in enough to go sign the 
+<a href="http://www.reactivemanifesto.org/">reactive manifesto</a> quite yet.  But a lot of smart people seem to be into it so again I thought I’d look into it.  I put 
+<a href="https://github.com/demian0311/ricochet">this project up on GitHub</a>.</p>
+
+<h2 id="actor">Actor</h2>
+
+<p>Here’s <a href="https://github.com/demian0311/ricochet/blob/master/app/actors/PersistorActor.scala">my actor</a>.  It uses a Scala object singleton to sort of simulate some 
+back-end persistence.</p>
+
+<p>``` scala
+package actors</p>
+
+<p>import akka.actor.Actor
+import utils._
+import play.api.mvc.Results</p>
+
+<p>class PersistorActor extends Actor with Results {</p>
+
+<p>def receive = {
+    case TimerEventPost(path, TimerEvent(duration, dateTime)) =&gt; {
+      GaugePersistence.persist(TimerEventPost(path, TimerEvent(duration, dateTime)))
+    }
+    case TimerEventRequest(path) =&gt; {
+      sender.forward(GaugePersistence.report(TimerEventRequest(path)))
+    }
+  }
+}
+```</p>
+
+<h2 id="controller-actor-client">Controller/ Actor Client</h2>
+
+<p>Below is my Play Framework controller (<a href="https://github.com/demian0311/ricochet/blob/master/app/controllers/ReactiveGauge.scala">full source</a>) that creates a pool of actors.
+I’m thankful that <a href="http://blog.evilmonkeylabs.com/2013/01/17/Distributing_Akka_Workloads_And_Shutting_Down_After/">Evil Monkey Labs</a>
+posted some code on how to easily create a pool of Actors.
+The Akka documentation wasn’t very straight-forward to me.  I have to admit I didn’t
+read it end to end, I was doing more random access.</p>
+
+<p>``` scala
+implicit val timeout = Timeout(10000)</p>
+
+<p>val system = ActorSystem(“SimpleSystem”)
+val persistorActor: ActorRef = system.actorOf(Props[PersistorActor].withRouter(
+    RoundRobinRouter(nrOfInstances = 100)
+), name = “simpleRoutedActor”)
+```</p>
+
+<p>This is the actor usage example that you always see.  This is async, fire and
+forget.  This goes right on a different thread so the actor can do it’s work.</p>
+
+<p><code>scala
+persistorActor ! TimerEventPost(path, TimerEvent(durationOpt.get))
+</code></p>
+
+<p>This is the less than typical way of using actors.  We actually want to get 
+a response here.  This uses the implicit timeout from above.</p>
+
+<p><code>scala
+persistorActor.ask(TimerEventRequest(path)).mapTo[SimpleResult]
+</code></p>
+
+<h2 id="more-stuff-to-learn">More stuff to learn</h2>
+
+<p>Here are some things that I think I need to learn with respect to Akka and actors.</p>
+
+<ul>
+  <li>dependency injection with actors <a href="http://scaldi.org/Scaldi.html">scaldi</a> seems to be a good solution</li>
+  <li>creating a hierarchy of actors</li>
+  <li>configuring actor pools and dispatching</li>
+  <li>remoting Actors</li>
+  <li>handling dead letter situations</li>
+</ul>

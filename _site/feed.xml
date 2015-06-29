@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Demian Neidetcher</title>
+    <description>I&#39;m a software engineer, primarily working with JVM languages and in the telecommunications domain.
+</description>
+    <link>http://neidetcher.com/</link>
+    <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 28 Jun 2015 22:17:28 -0500</pubDate>
+    <lastBuildDate>Sun, 28 Jun 2015 22:17:28 -0500</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Hystrix Circuit Breaker With Java8</title>
+        <description>&lt;p&gt;It&amp;#39;ll continue to be interesting to see what happens with Java8.  Sure the version is
+out there, you can write all the lambdas you want.  But it&amp;#39;s going to get more fun
+to see how every day coders use it and how library authors use it.&lt;/p&gt;
+
+&lt;p&gt;During the day I use Groovy, enjoy it&amp;#39;s closures.  I still do a bit of Scala but not as
+much as I&amp;#39;d like.  But at night I&amp;#39;ve been working with Java8.  &lt;/p&gt;
+
+&lt;h2&gt;Generic Hystrix Circuit Breaker&lt;/h2&gt;
+
+&lt;p&gt;From what I understand you should encapsulate the code that talks to remote systems 
+inside of a class that implements a HystrixCommand.  I had a situation where there 
+were a lot of little calls to a back-end system.  Creating new classes for each call 
+was getting tedious.  So I endeavored to create a generic circuit breaker 
+(implementation of HystrixCommand) for each dependent system.  &lt;/p&gt;
+
+&lt;p&gt;You just give it 2 suppliers, one for the actual thing you&amp;#39;re trying to do and another 
+as a fallback if what you&amp;#39;re trying to do fails.  The suppliers have to adhere to the 
+normal contract with circuit breakers.  If an exception bubbles up from one of your 
+lambdas then the circuit breaker trips.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DatabaseCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HystrixCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runSupplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fallbackSupplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DatabaseCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runSupplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fallbackSupplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CommandProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getSetter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CommandProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;DB_COMMAND_KEY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;runSupplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runSupplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;fallbackSupplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fallbackSupplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runSupplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getFallback&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fallbackSupplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There&amp;#39;s some hand waving with the &lt;code&gt;CommandProvider.getSetter()&lt;/code&gt;, that&amp;#39;s the 
+monster set of calls where you configure your circuit breaker. &lt;/p&gt;
+
+&lt;h2&gt;Using it&lt;/h2&gt;
+
+&lt;p&gt;Then when you want to use the circuit breaker it looks something like this.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;DatabaseCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Customer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseCommand&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DatabaseCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findCustomer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;customerId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseClient&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findCustomerFromCache&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;findCustomerId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;databaseCommand&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This isn&amp;#39;t so bad.  Sure it&amp;#39;s convenient that I have those suppliers wrapped inside
+of functions already so I don&amp;#39;t have nasty multi-line lambdas.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 03 Jun 2015 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</guid>
+        
+        <category>programming</category>
+        
+        <category>java8</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>A Guide To The Good Life</title>
+        <description>&lt;p&gt;Raise your hand if your job title is &lt;em&gt;I work with assholes all day&lt;/em&gt;.  Wow, that was a lot, you might
+want to read this book.  The full title of the book is &lt;a href=&quot;http://www.amazon.com/Guide-Good-Life-Ancient-Stoic/dp/0195374614&quot;&gt;A Guide to the Good Life: The Ancient Art of Stoic Joy&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Background&lt;/h2&gt;
+
+&lt;p&gt;I have read blog posts and perused Wikipedia but this is the first book I have read on stoicism.  It 
+probably doesn&amp;#39;t help that the word &lt;em&gt;Stoic&lt;/em&gt; is used commonly to refer to someone who seems without
+emotion.  But for the un-initiated, stoicism is a Greek and Roman philosophy that is concerned with
+minimizing bad emotions.  It&amp;#39;s different in that is very practical, it&amp;#39;s not very abstract.  It&amp;#39;s
+better to think of it as a set of tools that help you navigate your day and your life with minimal
+negative thoughts like jealousy, anxiety, anger and so on.&lt;/p&gt;
+
+&lt;p&gt;Like so many topics I think I gravitated towards this because instead of showing me something I 
+never thought of before it more codifies an approach or ideology I already have.  There&amp;#39;s a lot
+of value in firming up your existing beliefs but it&amp;#39;s good to be aware of the selection bias that
+you have.&lt;/p&gt;
+
+&lt;h2&gt;The Book&lt;/h2&gt;
+
+&lt;p&gt;The book covers the history of stoicism.  That was interesting although some notable Stoics seemed
+to die early.  That might not be encouraging when you&amp;#39;re browsing for philosophies.&lt;/p&gt;
+
+&lt;p&gt;It goes on to cover some techniques to help you in your daily life.  The author doesn&amp;#39;t hide the
+fact that he is interpreting original Stoic literature for us and applying it to modern life.  It&amp;#39;s 
+not a big book, seems to be a great introduction overall to the philosophy.&lt;/p&gt;
+
+&lt;h2&gt;Some Techniques&lt;/h2&gt;
+
+&lt;h3&gt;Negative Visualization&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;#39;ve ever reasoned &lt;em&gt;what is the worst that could happen&lt;/em&gt; to get yourself through something then
+you have practiced negative visualization.  For example if you have anxiety about entirely losing your
+livelyhood you could imagine living with family.  Maybe that wouldn&amp;#39;t be so bad, maybe you&amp;#39;d connect
+more than you would have otherwise.  Alright, perhaps a bad example but you get the idea.  There are
+other variations on this theme but that&amp;#39;s the gist.&lt;/p&gt;
+
+&lt;h3&gt;Dichotomy of Control&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;#39;ve ever read the Serenity Prayer you&amp;#39;re familiar with this Stoic principle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;God, grant me the serenity to accept the things I cannot change,
+The courage to change the things I can,
+And the wisdom to know the difference.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It&amp;#39;s really about working through the things that you can absolutely control (the thoughts in your
+mind), the things you sort of control (your actions) and the things you absolutely don&amp;#39;t control which
+is pretty much everything else in the world.  There&amp;#39;s much more useful subtlety in the book.&lt;/p&gt;
+
+&lt;h3&gt;Fatalism for the Past&lt;/h3&gt;
+
+&lt;p&gt;Stoics also seem to practice a kind of fatalism on past events.  I guess this is just a function of
+putting the past into the bucket of those things you can&amp;#39;t control.  So let it guide your decisions
+but don&amp;#39;t dwell on it and don&amp;#39;t worry about it.&lt;/p&gt;
+
+&lt;h2&gt;End Matter&lt;/h2&gt;
+
+&lt;p&gt;You might think that all this would make someone apathetic towards life.  That&amp;#39;s not the case, 
+Stoics seem to think you have a social duty based on your existence.  You should strive to be 
+productive and have a positive influence on others.&lt;/p&gt;
+
+&lt;p&gt;Still not sure, go read &lt;a href=&quot;https://en.wikiquote.org/wiki/Marcus_Aurelius&quot;&gt;some quotes from Marcus Aurelius&lt;/a&gt;.  He was the last big Stoic, a Roman
+Emporer and apparently an alright guy.  His job description including having to work with assholes
+all day.  These guys had it figured out, it&amp;#39;s cool something so old has a lot to offer in the 
+present day.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 19 Feb 2015 00:00:00 -0600</pubDate>
+        <link>http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Winter Reading</title>
+        <description>&lt;h2&gt;MONEY Master the Game - Tony Robbins&lt;/h2&gt;
+
+&lt;p&gt;I heard his interview on the &lt;a href=&quot;http://fourhourworkweek.com/blog/&quot;&gt;Tim Ferriss&lt;/a&gt; podcast and
+decided to read the book.  30% bragging about who he has helped, 30% building up what he&amp;#39;s
+going to tell you and then 30% on actual good, actionable personal financial advice.  Oh
+also there is some cross-marketing of services that are promoted in the book that Tony 
+Robbins I would assume benefits from.  It&amp;#39;s not in your face but it&amp;#39;s there.&lt;/p&gt;
+
+&lt;p&gt;The premise of the book is that he saw so many people get wiped out in 2008 that he&amp;#39;s 
+curious about what&amp;#39;s going on and what the common man can do to not get screwed again.
+To this end he is able to get an audience with a lot of high performing financial guys.
+He interviews them and gets some good information.&lt;/p&gt;
+
+&lt;p&gt;The price of the book on Kindle was worth that 30%.  What I liked most was the allocations
+that he gets.  The book has motivated to get more serious about retirement and allocations.
+Otherwise, lots of sound advice.&lt;/p&gt;
+
+&lt;h3&gt;Some take aways&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Just use low fee index funds that track the market in your 401k.&lt;/li&gt;
+&lt;li&gt;Set up an annual increase plan to automatically bump your partipation percentage.&lt;/li&gt;
+&lt;li&gt;His allocations split between US bonds, stocks, gold and commodities.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Zero to One - Peter Thiel&lt;/h2&gt;
+
+&lt;p&gt;Great book.  I found myself laughing a few times.  Peter Thiel is a highly successful 
+entrepreneur and venture capitalist.  The book offers his perspective on what makes a 
+good business from a lot of perspectives.  It challenges some conventional notions 
+about what make good businesses.  The book also gives insight into how VCs operate and
+evaluate companies they fund.&lt;/p&gt;
+
+&lt;h3&gt;Some take aways&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The lionization of competition is not useful for business, a good business has a virtual monopoly.&lt;/li&gt;
+&lt;li&gt;Good founders are outliers and should have a prior history. &lt;/li&gt;
+&lt;li&gt;To be compelling, your offering should be a 10x improvement over your competition.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 15 Jan 2015 00:00:00 -0600</pubDate>
+        <link>http://neidetcher.com/2015/01/15/winter-reading.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/01/15/winter-reading.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Lifting In 2014</title>
+        <description>&lt;h2&gt;Overall&lt;/h2&gt;
+
+&lt;p&gt;Here are my PRs at the end of the year:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Press: 205&lt;/li&gt;
+&lt;li&gt;Dead: 365&lt;/li&gt;
+&lt;li&gt;Bench: 275&lt;/li&gt;
+&lt;li&gt;Squat: 315&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;5/3/1&lt;/h3&gt;
+
+&lt;p&gt;Still trucking along on 5/3/1.  I think I&amp;#39;m going to stick with the template for this lifetime.
+The undulation is probably good for someone that is getting older, being able to not go heavy
+all of the time.  As I said last year, it&amp;#39;s a perfect mix of structure and flexibility.&lt;/p&gt;
+
+&lt;h2&gt;Exercises&lt;/h2&gt;
+
+&lt;h3&gt;Press&lt;/h3&gt;
+
+&lt;p&gt;I felt a tweak in my shoulder while going heavy sometime mid-year so I lowered the weights and
+decided to work back up to a 205 max.  Although my progress in the press has gone well I don&amp;#39;t 
+feel the need to go any higher.  Of course 225 is calling but it&amp;#39;s an uneasy feeling to have 
+205 pounds above your head, at least for me.&lt;/p&gt;
+
+&lt;h3&gt;Dead&lt;/h3&gt;
+
+&lt;p&gt;My dead has stayed still for a year.  I&amp;#39;ve kept the weight at 365 for almost a year.  I think I
+have more in the tank but it&amp;#39;s still slow to get up.  &lt;/p&gt;
+
+&lt;p&gt;I continue to be a fan of the barbell hip thrust.  I started at 65 pounds and after increasing the
+weight by 5 pounds every workout I&amp;#39;m now doing 3 sets of 10 reps at 315 pounds.  &lt;/p&gt;
+
+&lt;h3&gt;Bench&lt;/h3&gt;
+
+&lt;p&gt;To review what was wrong with my bench, I used a wide grip while trying to chase numbers.  It was
+stupid.  Keeping a more narrow grip gives you more longevity so if you aren&amp;#39;t competing it just
+makes sense.  Especially given the shoulder problems I have from dislocating my shoulder while
+snowboarding.&lt;/p&gt;
+
+&lt;p&gt;So I brought the numbers way down and worked up to a 275 single.  Like the other lifts, feels like
+there&amp;#39;s more in the tank but now the game is being injury free.&lt;/p&gt;
+
+&lt;h3&gt;Squats&lt;/h3&gt;
+
+&lt;p&gt;There isn&amp;#39;t much you can do in the gym that is more of a head-trip than the squat.  It&amp;#39;s really 
+the main lift where I have to summon the demons to prepare myself.  But as with the other lifts
+I usually marvel at how easy it was to get up the weight.&lt;/p&gt;
+
+&lt;h2&gt;On to 2015&lt;/h2&gt;
+
+&lt;p&gt;My goal is to keep the weight where it is but figure out a way to motivate myself such that getting
+leaner is part of the picture.  I don&amp;#39;t want to switch to looking at scale weight and lose sight 
+of strength numbers. &lt;/p&gt;
+
+&lt;p&gt;Besides that I want to maintain my strength and remain injury free.  I might dabble a little with
+what would make up a minimal effective dose of training to stay where I&amp;#39;m at.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 28 Dec 2014 00:00:00 -0600</pubDate>
+        <link>http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</guid>
+        
+        <category>fitness</category>
+        
+        <category>exercise</category>
+        
+        
+        <category>fitness</category>
+        
+      </item>
+    
+      <item>
+        <title>Java8 Fizz Buzz Revision 2</title>
+        <description>&lt;p&gt;This is my second attempt at &lt;a href=&quot;http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html&quot;&gt;FizzBuzz&lt;/a&gt; 
+in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt; with &lt;a href=&quot;http://openjdk.java.net/projects/lambda/&quot;&gt;Lambdas&lt;/a&gt;.  &lt;/p&gt;
+
+&lt;p&gt;The first incarnation I did &lt;a href=&quot;/programming/2014/01/17/java8-fizz-buzz.html&quot;&gt;can be found here&lt;/a&gt;.  It&amp;#39;s more enterprisey.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This &lt;a href=&quot;https://stackoverflow.com/questions/23674624/how-do-i-convert-a-java-8-intstream-to-a-list&quot;&gt;StackOverflow page&lt;/a&gt; is where I found out about &lt;code&gt;IntStream.boxed()&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;This thing is kind of a one liner.  Reminds me of how in Scala land a lot of things surprisingly end up being a single expression.&lt;/li&gt;
+&lt;li&gt;I wasn&amp;#39;t a big fan of the ternary operator before getting into FP.  As you strive for more stateless coding you&amp;#39;ll find it&amp;#39;s your friend.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;neidetcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;java8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.stream.IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FizzBuzz&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;IntStream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;boxed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;: &amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Fizz&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Buzz&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Fri, 29 Aug 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html</guid>
+        
+        <category>programming</category>
+        
+        <category>java8</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Gym Fouls</title>
+        <description>&lt;p&gt;My bubbly extrovert personality has me very happily working out at home the last couple
+of years.  I love it, I have just the right amount of equipment and no one is ever on
+the equipment I want to use.  &lt;/p&gt;
+
+&lt;p&gt;Before my critical tirade, I commend anyone that manages to get up the gumption to get to the
+gym.  There was a long time where I couldn&amp;#39;t muster up that kind of motivation.  And anyone
+that shows up in a given week is doing better than the folks that don&amp;#39;t even make an 
+attempt.&lt;/p&gt;
+
+&lt;h2&gt;Gym Fouls&lt;/h2&gt;
+
+&lt;p&gt;I had the occasion to use a gym at a hotel on a recent trip and it reminded me of other 
+reasons why I like to workout without people around.&lt;/p&gt;
+
+&lt;h3&gt;Reading&lt;/h3&gt;
+
+&lt;p&gt;The gym is not for reading.  Alright, maybe on the treadmill but you should only use the
+treadmill if you need to get out of the house and you&amp;#39;re entire body is already sore from
+resistance training.   &lt;/p&gt;
+
+&lt;p&gt;Training is a good time to focus on the movement you&amp;#39;re doing and to let your brain go 
+on auto-pilot for a while.  Really this is a good thing for your brain and creativity.
+Humans suck at multi-tasking, when you&amp;#39;re reading while training you are training crappy
+and you&amp;#39;re reading crappy.  &lt;/p&gt;
+
+&lt;h3&gt;Martial Arts&lt;/h3&gt;
+
+&lt;p&gt;You&amp;#39;re getting your pump on, mirrors are everywhere and there are women in the gym.  What 
+better time to whip on some next level kung-fu shit.  I really don&amp;#39;t need to make an 
+argument against this just, no, please no.  &lt;/p&gt;
+
+&lt;h3&gt;Not Squatting in the Squat Rack&lt;/h3&gt;
+
+&lt;p&gt;Squat racks are for squatting.  Squats are the most important exercise a person can do.&lt;/p&gt;
+
+&lt;p&gt;The actual reason I quit going to my gym is because a guy was curling in the squat rack.
+This is really bad.  But it gets worse, he was curling chains in the squat rack.  Chains
+make sense if you are a geared power lifter and you want to load the lock-out of your 
+bench or the top of your squat.  Chains are not for curling especially in the squat rack. &lt;/p&gt;
+
+&lt;h3&gt;Combo Moves&lt;/h3&gt;
+
+&lt;p&gt;So you know about lunges.  And you know about pressing 2 pound purple dumbells overhead. 
+Obviously the combination of the two would be doubly beneficial.  Yeah, the best 
+exercises are the ones that aren&amp;#39;t very creative.&lt;/p&gt;
+
+&lt;h3&gt;Ridiculous Movement&lt;/h3&gt;
+
+&lt;p&gt;Exercise machines are sub-optimal for whatever your fitness goals are but they&amp;#39;re 
+easy.  Your butt goes on the seat, your hands go on the handles and then you exert 
+in some prescribed manor.  So  usually you don&amp;#39;t see nonsensical movement on exercise 
+machines.  &lt;/p&gt;
+
+&lt;p&gt;You normally see this with dumbells.  But if the weight isn&amp;#39;t moving in something that
+looks perpendicular to the surface of the Earth then you are probably doing things wrong.&lt;/p&gt;
+
+&lt;p&gt;A variation of this is the deal where you put 1 dumbells in each hand and then lean over 
+to one side or the other.  This is silly, you are providing counter weight, the most 
+value you are getting out of this is just your traps and core supporting weight.  &lt;/p&gt;
+
+&lt;p&gt;You probably mean to do either a &lt;a href=&quot;http://www.exrx.net/WeightExercises/Other/SBFarmersWalk.html&quot;&gt;farmers walk&lt;/a&gt; 
+or &lt;a href=&quot;http://www.exrx.net/WeightExercises/Obliques/DBSideBend.html&quot;&gt;weighted side bends&lt;/a&gt;.  Those 
+are both good things to do.&lt;/p&gt;
+
+&lt;h3&gt;Not Having a Plan&lt;/h3&gt;
+
+&lt;p&gt;This is what I see, someone stumbles into the gym.  You see them look around surprised 
+like they were just tele-ported to that location.  Next they&amp;#39;ll realise they should 
+probably do something since they are there.  Sometimes they&amp;#39;ll just start reading 
+(see above).  But hopefully they decide to do resistance training.  &lt;/p&gt;
+
+&lt;p&gt;You might see some inner conflict but usually this ends up ending up with &amp;quot;I should do
+some curls&amp;quot;.  &lt;/p&gt;
+
+&lt;h2&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;It&amp;#39;d be un-cool if I pointed out the wrong things people were doing and didn&amp;#39;t provide
+any good things you could do in the gym.&lt;/p&gt;
+
+&lt;h3&gt;Established Routines&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stronglifts.com/&quot;&gt;StrongLifts&lt;/a&gt; is a legit program to start out with.
+&lt;a href=&quot;http://startingstrength.wikia.com/wiki/FAQ:The_Program&quot;&gt;Starting Strength&lt;/a&gt; is 
+more popular and highly regarded.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;#39;t know how to do the exercises look on YouTube for &lt;a href=&quot;https://www.youtube.com/results?search_query=mark+rippetoe&quot;&gt;Mark Rippetoe&lt;/a&gt; or go to
+&lt;a href=&quot;http://www.exrx.net/Exercise.html&quot;&gt;exrx.net&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is Starting Strength.  &lt;/p&gt;
+
+&lt;h4&gt;Workout A&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;exercise | sets | reps
+---------|------|-----
+squat    | 3    | 5
+bench    | 3    | 5
+deadlift | 1    | 5 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Workout B&lt;/h4&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;exercise    | sets | reps
+------------|------|-----
+squat       | 3    | 5
+press       | 3    | 5
+power clean | 5    | 3 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Snowflake&lt;/h3&gt;
+
+&lt;p&gt;If you&amp;#39;re a special snowflake and Starting Strength is too restrictive then just split 
+workouts in some sensible fashion:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;push/ pull/ legs&lt;/li&gt;
+&lt;li&gt;vertical / horizontal / legs&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With this guidance:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;3 to 5 workouts in a week&lt;/li&gt;
+&lt;li&gt;3 to 5 exercises in a workout&lt;/li&gt;
+&lt;li&gt;3 to 5 sets&lt;/li&gt;
+&lt;li&gt;5 to 10 reps per set (lower reps are for strength, more reps are for size)&lt;/li&gt;
+&lt;li&gt;prefer multi-joint movements and put them at the start of the workout&lt;/li&gt;
+&lt;li&gt;single-joint (if any) movements at the end of the workout&lt;/li&gt;
+&lt;li&gt;fucking never skip leg day in the name of all that is holy&lt;/li&gt;
+&lt;li&gt;you should squat and your femur should go below parallel when you squat&lt;/li&gt;
+&lt;li&gt;track your progress on the multi-joint movements you&amp;#39;re doing (press, deadlift, bench, squat)&lt;/li&gt;
+&lt;li&gt;start the weights very low low&lt;/li&gt;
+&lt;li&gt;increase the weights on &lt;em&gt;at least one&lt;/em&gt; exercise by 5 pounds each week&lt;/li&gt;
+&lt;li&gt;keep showing up&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 17 Jul 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</guid>
+        
+        <category>fitness</category>
+        
+        <category>exercise</category>
+        
+        
+        <category>fitness</category>
+        
+      </item>
+    
+      <item>
+        <title>What Next For Java</title>
+        <description>&lt;p&gt;At Time Warner Cable we&amp;#39;re in the midst of an acquisition.  There is a possibility 
+that many of us will be changing jobs in the coming years.  Since we&amp;#39;ve been at 
+our current gig we have switched from using Java to Groovy and Scala.  A while ago, 
+some fellow co-workers and I were talking about languages and where we think we&amp;#39;ll
+end up and where we&amp;#39;d like to end up.  I thought this was an interesting conversation.
+This sums up a lot of what was said, you can assume anything insightful wasn&amp;#39;t said
+by me.&lt;/p&gt;
+
+&lt;h2&gt;Groovy&lt;/h2&gt;
+
+&lt;p&gt;Grails is great for bootstrapping a new project.  The architectural decisions have
+been made for you and you just need to fill in the blanks with your  implementation.  &lt;/p&gt;
+
+&lt;p&gt;Grails is great for working with web designers and UI people.  They can understand
+how Grails works and it&amp;#39;s easy for them to work with the views.  &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s difficult to boldly refactor Groovy code though.  There&amp;#39;s a lot of magic going
+on and the compiler or tests won&amp;#39;t always tell you when you&amp;#39;ve done something bad.
+This is especially true when you inherit code with bad tests.  Often when attempting
+a bold refactor I&amp;#39;ll need to lean on commandline searching to make sure there broken 
+references that my IDE and compiler aren&amp;#39;t warning me about.&lt;/p&gt;
+
+&lt;p&gt;All in all, because Grails is so great Groovy or Grails are not going away any time 
+soon.  I could see doing more Grails applications in the future.  &lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;But what if I were starting up a new team, would I pick it?  If we outsourced or had
+a different team of UI/ UX web designers then having Grails on the front end is 
+compelling at least for the web application.  But the looseness and lack of tooling
+support would otherwise make me want to pick something with a more strict type 
+system.&lt;/p&gt;
+
+&lt;h2&gt;Scala&lt;/h2&gt;
+
+&lt;h3&gt;Deep Water&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#39;m mixed on Scala.  I&amp;#39;d like to throw away 30% of the features.  There are some 
+features that make the code incredibly hard for me to understand.  I&amp;#39;m sure some
+would say that those are the features that also make for very easy to use APIs.
+Maybe the answer is something like CheckStyle that would bark at you if introduce 
+new code to your project that is too hairy.&lt;/p&gt;
+
+&lt;h3&gt;Fun&lt;/h3&gt;
+
+&lt;p&gt;But Scala has really re-invigorated my enjoyment while programming.  It&amp;#39;s so powerful 
+and functional programming let&amp;#39;s you do awesome code that just feels &lt;em&gt;tight&lt;/em&gt;.  We
+just write some clean, awesome code that generally doesn&amp;#39;t have problems.&lt;/p&gt;
+
+&lt;h3&gt;Asshole Magnet&lt;/h3&gt;
+
+&lt;p&gt;Scala seems like it could be a language for pedantic assholes to apply  esoteric 
+features that make their code un-intelligible.  Whenever I code I try to imagine
+me looking at this code a year from now, with a VP screaming on a conference call
+at 3AM.  Would I be able to understand what I&amp;#39;m writing?  Could I safely change it?
+If I need to bring to bear my entire intellect to write code I have no
+hope of understanding it in the future.  &lt;/p&gt;
+
+&lt;p&gt;This will be a big challenge for Scala going forward.  With Scala on my 
+resume I&amp;#39;d like to somehow advertise to potential teams that I swing toward the 
+more pragmatic side even though I&amp;#39;m using a language that attracts engineers
+very interested in pushing Scala to the limit.&lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;I&amp;#39;d happily do more work in Scala.  But on a new team doing Scala I would 
+really want to influence people to stay in the shallow end of the pool.  I&amp;#39;d 
+also caution against throwing out all the great frameworks that the Java 
+community has in place.&lt;/p&gt;
+
+&lt;h2&gt;Java&lt;/h2&gt;
+
+&lt;p&gt;I bet we&amp;#39;ll see a renaissance in Java.  The language has amazing staying power. Relative 
+to Groovy the tooling is so great for Java, you just totally know what
+the code is doing.  It might be verbose and littered with semi-colons but you
+get it.  It&amp;#39;s hard to hide your intentions in Java.  Maybe that&amp;#39;s just because
+even though I haven&amp;#39;t done it much the last two years I&amp;#39;ve used the language for
+a very long time.&lt;/p&gt;
+
+&lt;p&gt;Lambdas, streams and the collections API are great.  They&amp;#39;ve done a great
+job given the restrictions that they&amp;#39;re working under.&lt;/p&gt;
+
+&lt;p&gt;Most Java coders aren&amp;#39;t going to get excited about lambdas for a while.  When 
+popular libraries leverage these features then we&amp;#39;ll start to see lambdas embraced. &lt;/p&gt;
+
+&lt;h3&gt;Greenfield&lt;/h3&gt;
+
+&lt;p&gt;If I found myself doing Java8 I&amp;#39;d embrace the new features and try to be as 
+functional and immutable as possible.  The latest version of Spring leverages 
+lambdas and it&amp;#39;d be fun to see where they (and other Java libraries) take it.  &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;d also be interesting to loop back and see how you&amp;#39;d solve problems with the
+new features.  For example with functional programming I bet annotations and aspect
+oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 13 Jul 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</guid>
+        
+        <category>programming</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Port Confusion With Apple Airport</title>
+        <description>&lt;p&gt;This won&amp;#39;t add anything to the knowledge that &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;already exists online&lt;/a&gt; but 
+hopefully it&amp;#39;s more searchable for the next poor sap that is confused by this.&lt;/p&gt;
+
+&lt;h2&gt;Locking Down my Server&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://neidetcher.com&quot;&gt;This site&lt;/a&gt; runs on a tiny &lt;a href=&quot;http://www.rackspace.com/&quot;&gt;Rackspace&lt;/a&gt; server.  I&amp;#39;m no expert but 
+one of the easiest things you can do to lock down your server is to shut down as many ports as possible.  That 
+means that you don&amp;#39;t have potentially vulnerable software listening in on ports.  &lt;/p&gt;
+
+&lt;p&gt;You&amp;#39;ll probably do some &lt;code&gt;nmap&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;nmap localhost
+
+Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
+Interesting ports on localhost (127.0.0.1):
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https
+
+Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And maybe some &lt;code&gt;netstat&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 *:https                 *:*                     LISTEN     
+tcp        0      0 *:www                   *:*                     LISTEN     
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     83108    /var/run/acpid.socket
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I checked it locally and noticed that &lt;code&gt;exim4&lt;/code&gt; was running and had a port open.  So I made sure that service was no
+longer in the startup scripts and &lt;a href=&quot;https://wiki.debian.org/Daemon&quot;&gt;removed the daemon&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Now Try from Laptop&lt;/h2&gt;
+
+&lt;p&gt;Just to be sure I ran it from &lt;code&gt;nmap&lt;/code&gt; from my laptop.  This is what I saw.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian  ~  nmap neidetcher.com
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
+Nmap scan report for neidetcher.com (184.106.150.226)
+Host is up (0.057s latency).
+rDNS record for 184.106.150.226: foo.com
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+554/tcp  open  rtsp
+3128/tcp open  squid-http
+7070/tcp open  realserver
+8080/tcp open  http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 0.87 seconds
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Whoah, that&amp;#39;s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of &lt;code&gt;nmap&lt;/code&gt;
+such that it doesn&amp;#39;t show the ports they have used to turn my server into a slave for 
+their &lt;a href=&quot;https://en.wikipedia.org/wiki/Botnet&quot;&gt;botnet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Apple Airport&lt;/h2&gt;
+
+&lt;p&gt;I ran across &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;this blog post&lt;/a&gt;.  The deal is that Apple Airport will 
+try to proxy protocols for you.  Apparently it doesn&amp;#39;t bother to check with the far-end servers to see if the
+port is even available.  So, to you on your computer behind an Apple router, &lt;code&gt;nmap&lt;/code&gt; will think the port is hot.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 11 Jul 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</guid>
+        
+        <category>programming</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Two Years Remote</title>
+        <description>&lt;h2&gt;Why Remote?&lt;/h2&gt;
+
+&lt;p&gt;I lived in Denver, Colorado for 10 years.  I met my wife out there and like many
+in Colorado we weren&amp;#39;t natives.  We decided that we should attempt to get closer 
+to family if we could so that our two boys could have some good years with their
+grandparents.&lt;/p&gt;
+
+&lt;p&gt;I work at &lt;a href=&quot;http://www.timewarnercable.com/&quot;&gt;Time Warner Cable&lt;/a&gt; and on a case by 
+case basis they will make allowances for people to work remote.  It&amp;#39;s a big leap 
+of faith and a progressive thing to do for a big cable company.  To me this buys
+a lot of good will towards my employer.  I appreciate it and my wife appreciates
+it.  That&amp;#39;s a factor.&lt;/p&gt;
+
+&lt;p&gt;I won&amp;#39;t say that me, being remote is better than me being on-site.  There are
+good things and bad things.  Maybe it&amp;#39;s a wash but I don&amp;#39;t know.  But I am 
+confident that me, being remote is better than the general population of software
+engineers. &lt;/p&gt;
+
+&lt;h2&gt;Things that Make it Work&lt;/h2&gt;
+
+&lt;h3&gt;History with Team&lt;/h3&gt;
+
+&lt;p&gt;I had a couple years of proving myself to the team before I went remote.  It 
+also helped that a few of the guys on the team were long-time colleagues prior
+to my current job.  So there&amp;#39;s some history and trust already.  I could do 
+remote without that but it helps.&lt;/p&gt;
+
+&lt;h3&gt;Office&lt;/h3&gt;
+
+&lt;p&gt;You need to have an office with a door that closes.  This is a no-brainer.
+Of course good Internet access.  Fortunately, the community I&amp;#39;m at in Louisiana 
+has &lt;a href=&quot;http://www.lusfiber.com/&quot;&gt;metropolitan fiber to the curb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Routine&lt;/h3&gt;
+
+&lt;p&gt;I don&amp;#39;t keep the work hours of the home office, I&amp;#39;m just an hour ahead.  We 
+have engineers in every time zone so I might as well work 9AM to 5PM 
+in my time zone.  By 9AM I have worked out, had a shower and I&amp;#39;m sipping 
+on a fresh cup of coffee ready for work.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m also completely dressed just as I would be for work in-person.  I know 
+others can work remote without being dressed but I see this as yet another
+slippery slope.  In fact when I worked on-site there were days that I would
+wear shorts but since I&amp;#39;ve been remote I always wear pants during work hours.  &lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve read warnings from remote workers that a danger you may run into is not 
+knowing when to &lt;em&gt;stop&lt;/em&gt; work.  That has not been a problem for me.  Sure there have 
+been a handful of times where operational concerns will have me working after
+hours but this hasn&amp;#39;t been worse than any other situation.  So yeah, at 5PM my
+time I&amp;#39;m out of my office and thinking about dinner with the family.&lt;/p&gt;
+
+&lt;h3&gt;Standing Meetings&lt;/h3&gt;
+
+&lt;p&gt;Team meetings that happen regularly with cameras and voice are great for 
+getting back in touch to what your team is doing.  If these meetings go 
+away then you can go days without seeing or hearing people.  That isn&amp;#39;t 
+good.&lt;/p&gt;
+
+&lt;h3&gt;Tooling&lt;/h3&gt;
+
+&lt;p&gt;We use a lot of tools to make the remote thing work.  What we&amp;#39;ve found is that
+the quickness at which we can use a tool is almost more important than the
+features of different tools.  We use &lt;a href=&quot;https://join.me/&quot;&gt;join.me&lt;/a&gt; for quick 
+screen sharing and sometimes voice, also &lt;a href=&quot;http://skype.com/&quot;&gt;Skype&lt;/a&gt; for chat 
+and voice.&lt;/p&gt;
+
+&lt;p&gt;We hardly pair-program but at the times where I did it was great with voice
+and screen sharing.  join.me will even let you hand off mouse and keyboard
+control to the person who is looking on the other end.&lt;/p&gt;
+
+&lt;p&gt;Prior to working remote, when I got on voice, the first thing I would
+do is figure out how to get off the phone.  Being on the phone with others
+was kind of creepy.  So yeah, you have to get over that.  Sometimes we&amp;#39;ll 
+even just leave Skype on and not really say anything in particular.  You 
+can mention things casually just as you would if you were co-located.&lt;/p&gt;
+
+&lt;p&gt;Of course another nice thing about tooling is that you can turn it off or
+ignore it.  I&amp;#39;m not the first person that&amp;#39;d say the ability to focus is one
+of the best things about being remote.&lt;/p&gt;
+
+&lt;h3&gt;In-Person Trips&lt;/h3&gt;
+
+&lt;p&gt;Nothing beats getting out into the same place with people, talking, having a 
+meal and maybe a drink.  Most any amount of friction and sharp edges can be
+overcome by having food and drinks with people. &lt;/p&gt;
+</description>
+        <pubDate>Sun, 06 Jul 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2014/07/06/two-years-remote.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/06/two-years-remote.html</guid>
+        
+        <category>programming</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+      <item>
+        <title>Javascript Is Alright</title>
+        <description>&lt;h2&gt;Once Bitten&lt;/h2&gt;
+
+&lt;p&gt;While at my second job as a programmer and still an &lt;a href=&quot;http://www.bradley.edu/&quot;&gt;undergrad&lt;/a&gt; 
+I worked on a team that did an e-commerce site.  This would&amp;#39;ve been about 1998-1999.  It was for
+&lt;a href=&quot;http://www.thelibrarystore.com/&quot;&gt;The Library Store&lt;/a&gt;.  They were good clients.  The
+back end was Java, holy cow I had JDBC code in my JSPs back then.&lt;/p&gt;
+
+&lt;p&gt;We had a UI guy that liked JavaScript.  He used it at the  end of the checkout process.&lt;br&gt;
+You know where this is going, right.  At some point after the
+release the customer called our office.  My manager wasn&amp;#39;t around and I was the most senior
+person there so I took the call.  There was a guy on the other end of the line that had 
+customers that couldn&amp;#39;t give him money because of our JavaScript.   To me this was no fun
+and no amount of JavaScript coolness justified a customer being unable to check out.
+That stuck with me throughout my career.  &lt;/p&gt;
+
+&lt;h2&gt;Full-Stack&lt;/h2&gt;
+
+&lt;p&gt;Even though I pride myself as a full-stack engineer my JavaScript-fu was weak.  I guess by 
+full-stack meant being familiar with:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Linux, databases, web-servers&lt;/li&gt;
+&lt;li&gt;SQL, persistence frameworks&lt;/li&gt;
+&lt;li&gt;dependency injection frameworks&lt;/li&gt;
+&lt;li&gt;Java web frameworks&lt;/li&gt;
+&lt;li&gt;HTML, CSS, a tiny bit of JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It seems that full-stack is something of a thing.  And in to credibly call myself a full-stack programmer 
+I have been in need of a tune-up.&lt;/p&gt;
+
+&lt;div style=&quot;width:540px&quot;&gt;
+&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot; title=&quot;&amp;#034;full-stack&amp;#034; Job Trends&quot;&gt;
+&lt;img width=&quot;540&quot; height=&quot;300&quot; src=&quot;http://www.indeed.com/trendgraph/jobgraph.png?q=%22full-stack%22&quot; border=&quot;0&quot; alt=&quot;&amp;#034;full-stack&amp;#034; Job Trends graph&quot;&gt;
+&lt;/a&gt;
+&lt;table width=&quot;100%&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; style=&quot;font-size:80%&quot;&gt;&lt;tr&gt;
+&lt;td&gt;&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; Job Trends&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&quot;right&quot;&gt;&lt;a href=&quot;http://www.indeed.com/jobs?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; jobs&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+ 
+
+&lt;h2&gt;Late to the Party&lt;/h2&gt;
+
+&lt;p&gt;At work we have lab weeks, often times I&amp;#39;ll do something that is drudgery that needs to get 
+done but this time around I decided that I should dive into JavaScript.  &lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t know anyone who learns this way but I ran through a &lt;a href=&quot;http://techbus.safaribooksonline.com/video/programming/javascript/9781771370516&quot;&gt;Learning JavaScript Programming&lt;/a&gt;
+video series on O&amp;#39;Reilly.  That was useful to get boot-strapped.  Then I came up with a manageable
+little problem to solve.  I wrote a &lt;a href=&quot;http://neidetcher.com/531.html&quot;&gt;5/3/1 Workout Calculator&lt;/a&gt;.  It
+was a good place to start.  Some flow control, a bit of math and lots of working with the DOM to add
+listeners and change values.  &lt;/p&gt;
+
+&lt;p&gt;I asked my co-workers how to do some things and they quickly directed me to start using &lt;a href=&quot;https://jquery.com/&quot;&gt;jQuery&lt;/a&gt;.
+I assumed that I could get further with vanilla JavaScript but it seems that jQuery is almost a part
+of JavaScript.  I was already finding answers to questions in StackOverflow that directed me towards
+a solution in jQuery.&lt;/p&gt;
+
+&lt;h2&gt;Tooling is Good&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://getfirebug.com/&quot;&gt;FireBug&lt;/a&gt; and all the similar consoles in major browsers are great to work with.
+And the JavaScript support in &lt;a href=&quot;http://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt; impresses me as well.  A &lt;a href=&quot;https://github.com/johnnywey&quot;&gt;colleague&lt;/a&gt; 
+said that &lt;a href=&quot;http://www.jetbrains.com/webstorm/&quot;&gt;WebStorm&lt;/a&gt; is more light-weight but the &lt;a href=&quot;http://plugins.jetbrains.com/plugin/164?pr=phpStorm&quot;&gt;IdeaVim&lt;/a&gt;
+plugin isn&amp;#39;t available for it and that&amp;#39;s one of my biggest productivity boosters. I didn&amp;#39;t know 
+&lt;a href=&quot;http://www.w3schools.com/jquery/jquery_ref_selectors.asp&quot;&gt;selectors&lt;/a&gt; were a thing.  They&amp;#39;re  very 
+powerful, they make doing things with jQuery easy.&lt;/p&gt;
+
+&lt;h2&gt;Next&lt;/h2&gt;
+
+&lt;p&gt;I&amp;#39;m glad I took the time to get into JavaScript.  It has changed how I think the browser can interact
+with the server.  Of course I knew you could do all this stuff but I didn&amp;#39;t realize how easy it
+all is.  Especially with frameworks like jQuery my initial bad experiences with JavaScript are less
+likely to happen since they take care of the browser inconsistencies for you.&lt;/p&gt;
+
+&lt;p&gt;From here I guess I need to interact with the server with JavaScript.  I also plan on  using 
+&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; as well. &lt;/p&gt;
+</description>
+        <pubDate>Thu, 03 Jul 2014 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html</guid>
+        
+        <category>programming</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
+    
+  </channel>
+</rss>

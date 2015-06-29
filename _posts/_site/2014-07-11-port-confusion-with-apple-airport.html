@@ -1,0 +1,78 @@
+<p>This won’t add anything to the knowledge that <a href="http://blog.nephtaliproject.com/?p=129">already exists online</a> but 
+hopefully it’s more searchable for the next poor sap that is confused by this.</p>
+
+<h2 id="locking-down-my-server">Locking Down my Server</h2>
+
+<p><a href="http://neidetcher.com">This site</a> runs on a tiny <a href="http://www.rackspace.com/">Rackspace</a> server.  I’m no expert but 
+one of the easiest things you can do to lock down your server is to shut down as many ports as possible.  That 
+means that you don’t have potentially vulnerable software listening in on ports.</p>
+
+<p>You’ll probably do some <code>nmap</code>.</p>
+
+<p>```
+demian@raven ~&gt;nmap localhost</p>
+
+<p>Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
+Interesting ports on localhost (127.0.0.1):
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+22/tcp  open  ssh
+80/tcp  open  http
+443/tcp open  https</p>
+
+<p>Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
+```</p>
+
+<p>And maybe some <code>netstat</code>.</p>
+
+<p><code>
+demian@raven ~&gt;netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 *:https                 *:*                     LISTEN     
+tcp        0      0 *:www                   *:*                     LISTEN     
+tcp        0      0 *:ssh                   *:*                     LISTEN     
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     83108    /var/run/acpid.socket
+</code></p>
+
+<p>I checked it locally and noticed that <code>exim4</code> was running and had a port open.  So I made sure that service was no
+longer in the startup scripts and <a href="https://wiki.debian.org/Daemon">removed the daemon</a>.</p>
+
+<h2 id="now-try-from-laptop">Now Try from Laptop</h2>
+
+<p>Just to be sure I ran it from <code>nmap</code> from my laptop.  This is what I saw.</p>
+
+<p>```
+demian  ~  nmap neidetcher.com</p>
+
+<p>Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
+Nmap scan report for neidetcher.com (184.106.150.226)
+Host is up (0.057s latency).
+rDNS record for 184.106.150.226: foo.com
+Not shown: 992 closed ports
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+80/tcp   open  http
+443/tcp  open  https
+554/tcp  open  rtsp
+3128/tcp open  squid-http
+7070/tcp open  realserver
+8080/tcp open  http-proxy</p>
+
+<p>Nmap done: 1 IP address (1 host up) scanned in 0.87 seconds
+```</p>
+
+<p>Whoah, that’s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of <code>nmap</code>
+such that it doesn’t show the ports they have used to turn my server into a slave for 
+their <a href="https://en.wikipedia.org/wiki/Botnet">botnet</a>.</p>
+
+<h2 id="apple-airport">Apple Airport</h2>
+
+<p>I ran across <a href="http://blog.nephtaliproject.com/?p=129">this blog post</a>.  The deal is that Apple Airport will 
+try to proxy protocols for you.  Apparently it doesn’t bother to check with the far-end servers to see if the
+port is even available.  So, to you on your computer behind an Apple router, <code>nmap</code> will think the port is hot.</p>
+
