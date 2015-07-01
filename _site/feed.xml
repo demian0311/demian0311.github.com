@@ -6,9 +6,92 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 28 Jun 2015 22:17:28 -0500</pubDate>
-    <lastBuildDate>Sun, 28 Jun 2015 22:17:28 -0500</lastBuildDate>
+    <pubDate>Tue, 30 Jun 2015 22:12:03 -0500</pubDate>
+    <lastBuildDate>Tue, 30 Jun 2015 22:12:03 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Stupid Java8 Trick</title>
+        <description>&lt;p&gt;Alright this isn&amp;#39;t much but I&amp;#39;m satisfied with myself and it surprisingly took me a
+little bit to push the right buttons to make it work.&lt;/p&gt;
+
+&lt;p&gt;I use EasyMock in my unit tests in Java8.  Mocking frameworks will typically have a
+recording phase and then a phase where your expectations should be ready to play back.
+With EasyMock your unit test can extend &lt;code&gt;EasyMockSupport&lt;/code&gt;.  That class gives you access
+to methods like &lt;code&gt;replayAll()&lt;/code&gt; and &lt;code&gt;verifyAll()&lt;/code&gt;.  &lt;/p&gt;
+
+&lt;h2&gt;Before&lt;/h2&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
+
+   &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;Inter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ageFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;After&lt;/h2&gt;
+
+&lt;p&gt;This isn&amp;#39;t as smooth as you&amp;#39;d see in Scala or Groovy but in Java8 you can do something like this.  &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MySupport&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EasyMockSupport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Runnable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runnableIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;runnableIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;supplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;supplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I think I need both versions of &lt;code&gt;withMocks&lt;/code&gt;.  The first one handles when you are testing a method that doesn&amp;#39;t
+return anything and the second one handles when your method does return something.  One of the 
+things that gave me trouble was figuring out what interface in &lt;code&gt;java.util.function&lt;/code&gt; would not 
+return any value.  Of course the answer is our old friend &lt;code&gt;Runnable&lt;/code&gt;.  I also struggled with 
+what Java wanted for the generics, that stuff isn&amp;#39;t obvious to me.&lt;/p&gt;
+
+&lt;p&gt;Then your test extends &lt;code&gt;MySupport&lt;/code&gt;.  And within your tests you can have code that looks like this.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ageFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Caveat&lt;/h2&gt;
+
+&lt;p&gt;This tightens up unit tests but I did run into a caveat that I should mention.  If the constructor for
+your &lt;em&gt;class under test&lt;/em&gt; uses mocks that would need to be between the &lt;code&gt;replayAll()&lt;/code&gt; and &lt;code&gt;verifyAll()&lt;/code&gt; 
+methods then you might want to create a method in your test that instantiates your &lt;em&gt;class under test&lt;/em&gt;.
+It might look something like this.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AgeFinder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createAgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createAgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Tue, 30 Jun 2015 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</guid>
+        
+        <category>programming</category>
+        
+        <category>java8</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>Hystrix Circuit Breaker With Java8</title>
@@ -747,96 +830,6 @@ overcome by having food and drinks with people. &lt;/p&gt;
         <pubDate>Sun, 06 Jul 2014 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/programming/2014/07/06/two-years-remote.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/06/two-years-remote.html</guid>
-        
-        <category>programming</category>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Javascript Is Alright</title>
-        <description>&lt;h2&gt;Once Bitten&lt;/h2&gt;
-
-&lt;p&gt;While at my second job as a programmer and still an &lt;a href=&quot;http://www.bradley.edu/&quot;&gt;undergrad&lt;/a&gt; 
-I worked on a team that did an e-commerce site.  This would&amp;#39;ve been about 1998-1999.  It was for
-&lt;a href=&quot;http://www.thelibrarystore.com/&quot;&gt;The Library Store&lt;/a&gt;.  They were good clients.  The
-back end was Java, holy cow I had JDBC code in my JSPs back then.&lt;/p&gt;
-
-&lt;p&gt;We had a UI guy that liked JavaScript.  He used it at the  end of the checkout process.&lt;br&gt;
-You know where this is going, right.  At some point after the
-release the customer called our office.  My manager wasn&amp;#39;t around and I was the most senior
-person there so I took the call.  There was a guy on the other end of the line that had 
-customers that couldn&amp;#39;t give him money because of our JavaScript.   To me this was no fun
-and no amount of JavaScript coolness justified a customer being unable to check out.
-That stuck with me throughout my career.  &lt;/p&gt;
-
-&lt;h2&gt;Full-Stack&lt;/h2&gt;
-
-&lt;p&gt;Even though I pride myself as a full-stack engineer my JavaScript-fu was weak.  I guess by 
-full-stack meant being familiar with:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Linux, databases, web-servers&lt;/li&gt;
-&lt;li&gt;SQL, persistence frameworks&lt;/li&gt;
-&lt;li&gt;dependency injection frameworks&lt;/li&gt;
-&lt;li&gt;Java web frameworks&lt;/li&gt;
-&lt;li&gt;HTML, CSS, a tiny bit of JavaScript&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;It seems that full-stack is something of a thing.  And in to credibly call myself a full-stack programmer 
-I have been in need of a tune-up.&lt;/p&gt;
-
-&lt;div style=&quot;width:540px&quot;&gt;
-&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot; title=&quot;&amp;#034;full-stack&amp;#034; Job Trends&quot;&gt;
-&lt;img width=&quot;540&quot; height=&quot;300&quot; src=&quot;http://www.indeed.com/trendgraph/jobgraph.png?q=%22full-stack%22&quot; border=&quot;0&quot; alt=&quot;&amp;#034;full-stack&amp;#034; Job Trends graph&quot;&gt;
-&lt;/a&gt;
-&lt;table width=&quot;100%&quot; cellpadding=&quot;6&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; style=&quot;font-size:80%&quot;&gt;&lt;tr&gt;
-&lt;td&gt;&lt;a href=&quot;http://www.indeed.com/jobtrends?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; Job Trends&lt;/a&gt;&lt;/td&gt;
-&lt;td align=&quot;right&quot;&gt;&lt;a href=&quot;http://www.indeed.com/jobs?q=%22full-stack%22&quot;&gt;&amp;#034;full-stack&amp;#034; jobs&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
- 
-
-&lt;h2&gt;Late to the Party&lt;/h2&gt;
-
-&lt;p&gt;At work we have lab weeks, often times I&amp;#39;ll do something that is drudgery that needs to get 
-done but this time around I decided that I should dive into JavaScript.  &lt;/p&gt;
-
-&lt;p&gt;I don&amp;#39;t know anyone who learns this way but I ran through a &lt;a href=&quot;http://techbus.safaribooksonline.com/video/programming/javascript/9781771370516&quot;&gt;Learning JavaScript Programming&lt;/a&gt;
-video series on O&amp;#39;Reilly.  That was useful to get boot-strapped.  Then I came up with a manageable
-little problem to solve.  I wrote a &lt;a href=&quot;http://neidetcher.com/531.html&quot;&gt;5/3/1 Workout Calculator&lt;/a&gt;.  It
-was a good place to start.  Some flow control, a bit of math and lots of working with the DOM to add
-listeners and change values.  &lt;/p&gt;
-
-&lt;p&gt;I asked my co-workers how to do some things and they quickly directed me to start using &lt;a href=&quot;https://jquery.com/&quot;&gt;jQuery&lt;/a&gt;.
-I assumed that I could get further with vanilla JavaScript but it seems that jQuery is almost a part
-of JavaScript.  I was already finding answers to questions in StackOverflow that directed me towards
-a solution in jQuery.&lt;/p&gt;
-
-&lt;h2&gt;Tooling is Good&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://getfirebug.com/&quot;&gt;FireBug&lt;/a&gt; and all the similar consoles in major browsers are great to work with.
-And the JavaScript support in &lt;a href=&quot;http://www.jetbrains.com/idea/&quot;&gt;IntelliJ&lt;/a&gt; impresses me as well.  A &lt;a href=&quot;https://github.com/johnnywey&quot;&gt;colleague&lt;/a&gt; 
-said that &lt;a href=&quot;http://www.jetbrains.com/webstorm/&quot;&gt;WebStorm&lt;/a&gt; is more light-weight but the &lt;a href=&quot;http://plugins.jetbrains.com/plugin/164?pr=phpStorm&quot;&gt;IdeaVim&lt;/a&gt;
-plugin isn&amp;#39;t available for it and that&amp;#39;s one of my biggest productivity boosters. I didn&amp;#39;t know 
-&lt;a href=&quot;http://www.w3schools.com/jquery/jquery_ref_selectors.asp&quot;&gt;selectors&lt;/a&gt; were a thing.  They&amp;#39;re  very 
-powerful, they make doing things with jQuery easy.&lt;/p&gt;
-
-&lt;h2&gt;Next&lt;/h2&gt;
-
-&lt;p&gt;I&amp;#39;m glad I took the time to get into JavaScript.  It has changed how I think the browser can interact
-with the server.  Of course I knew you could do all this stuff but I didn&amp;#39;t realize how easy it
-all is.  Especially with frameworks like jQuery my initial bad experiences with JavaScript are less
-likely to happen since they take care of the browser inconsistencies for you.&lt;/p&gt;
-
-&lt;p&gt;From here I guess I need to interact with the server with JavaScript.  I also plan on  using 
-&lt;a href=&quot;https://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt; as well. &lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Jul 2014 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/03/javascript-is-alright.html</guid>
         
         <category>programming</category>
         
