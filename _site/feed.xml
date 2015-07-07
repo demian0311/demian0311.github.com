@@ -6,9 +6,46 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Jul 2015 20:16:30 -0500</pubDate>
-    <lastBuildDate>Mon, 06 Jul 2015 20:16:30 -0500</lastBuildDate>
+    <pubDate>Mon, 06 Jul 2015 20:20:58 -0500</pubDate>
+    <lastBuildDate>Mon, 06 Jul 2015 20:20:58 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>The Obstacle Is The Way</title>
+        <description>&lt;p&gt;This quote isn&amp;#39;t in the book, perhaps it was delivered too recent to make it in.  But it&amp;#39;s a great quote by
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Nassim_Nicholas_Taleb&quot;&gt;Nassim Nicholas Taleb&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A Stoic is someone who transforms fear into prudence, 
+pain into transformation, 
+mistakes into initiation, 
+and desire into undertaking.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The first book on stoicism that I read was  &lt;a href=&quot;http://www.amazon.com/Guide-Good-Life-Ancient-Stoic/dp/0195374614&quot;&gt;A Guide to the Good Life: The Ancient Art of Stoic Joy&lt;/a&gt;.  In a sentence I&amp;#39;d say that it&amp;#39;s a 
+gentle introduction to stoicism purposefully written from a modern perspective with a good amount
+of history on the roots of stoicism.&lt;/p&gt;
+
+&lt;p&gt;The second book on stoicism that I more recently finished is called &lt;a href=&quot;http://www.amazon.com/The-Obstacle-Is-Way-Timeless/dp/1591846358&quot;&gt;The Obstacle is the Way&lt;/a&gt; by Ryan Holiday.&lt;/p&gt;
+
+&lt;p&gt;The pattern seen throughout the book is to observe someone in business, military, politics or sport that has
+done something that is an example of the stoic approach toward life.  It&amp;#39;s not always someone
+who is a practicing stoic or who has read the stoics.  However the author does name notable people that
+have read the stoics or claim that stoic thought has helped in their life, some of them are surprising.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s a good book to consider how stoicism has helped and can help people achieve great things and deal with
+adversity.&lt;/p&gt;
+
+&lt;h3&gt;Where Now&lt;/h3&gt;
+
+&lt;p&gt;It&amp;#39;s time to get to the original sources so up next I&amp;#39;ll read &lt;a href=&quot;http://www.amazon.com/Meditations-Marcus-Aurelius-ebook/dp/B0082XJGRK/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1436189090&amp;amp;sr=1-3&amp;amp;keywords=marcus+aurelius+meditations&quot;&gt;Meditations&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Marcus_Aurelius&quot;&gt;Marcus Aurelius&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Jul 2015 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Stupid Java8 Trick</title>
@@ -731,105 +768,6 @@ port is even available.  So, to you on your computer behind an Apple router, &lt
         <pubDate>Fri, 11 Jul 2014 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</guid>
-        
-        <category>programming</category>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Two Years Remote</title>
-        <description>&lt;h2&gt;Why Remote?&lt;/h2&gt;
-
-&lt;p&gt;I lived in Denver, Colorado for 10 years.  I met my wife out there and like many
-in Colorado we weren&amp;#39;t natives.  We decided that we should attempt to get closer 
-to family if we could so that our two boys could have some good years with their
-grandparents.&lt;/p&gt;
-
-&lt;p&gt;I work at &lt;a href=&quot;http://www.timewarnercable.com/&quot;&gt;Time Warner Cable&lt;/a&gt; and on a case by 
-case basis they will make allowances for people to work remote.  It&amp;#39;s a big leap 
-of faith and a progressive thing to do for a big cable company.  To me this buys
-a lot of good will towards my employer.  I appreciate it and my wife appreciates
-it.  That&amp;#39;s a factor.&lt;/p&gt;
-
-&lt;p&gt;I won&amp;#39;t say that me, being remote is better than me being on-site.  There are
-good things and bad things.  Maybe it&amp;#39;s a wash but I don&amp;#39;t know.  But I am 
-confident that me, being remote is better than the general population of software
-engineers. &lt;/p&gt;
-
-&lt;h2&gt;Things that Make it Work&lt;/h2&gt;
-
-&lt;h3&gt;History with Team&lt;/h3&gt;
-
-&lt;p&gt;I had a couple years of proving myself to the team before I went remote.  It 
-also helped that a few of the guys on the team were long-time colleagues prior
-to my current job.  So there&amp;#39;s some history and trust already.  I could do 
-remote without that but it helps.&lt;/p&gt;
-
-&lt;h3&gt;Office&lt;/h3&gt;
-
-&lt;p&gt;You need to have an office with a door that closes.  This is a no-brainer.
-Of course good Internet access.  Fortunately, the community I&amp;#39;m at in Louisiana 
-has &lt;a href=&quot;http://www.lusfiber.com/&quot;&gt;metropolitan fiber to the curb&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Routine&lt;/h3&gt;
-
-&lt;p&gt;I don&amp;#39;t keep the work hours of the home office, I&amp;#39;m just an hour ahead.  We 
-have engineers in every time zone so I might as well work 9AM to 5PM 
-in my time zone.  By 9AM I have worked out, had a shower and I&amp;#39;m sipping 
-on a fresh cup of coffee ready for work.&lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;m also completely dressed just as I would be for work in-person.  I know 
-others can work remote without being dressed but I see this as yet another
-slippery slope.  In fact when I worked on-site there were days that I would
-wear shorts but since I&amp;#39;ve been remote I always wear pants during work hours.  &lt;/p&gt;
-
-&lt;p&gt;I&amp;#39;ve read warnings from remote workers that a danger you may run into is not 
-knowing when to &lt;em&gt;stop&lt;/em&gt; work.  That has not been a problem for me.  Sure there have 
-been a handful of times where operational concerns will have me working after
-hours but this hasn&amp;#39;t been worse than any other situation.  So yeah, at 5PM my
-time I&amp;#39;m out of my office and thinking about dinner with the family.&lt;/p&gt;
-
-&lt;h3&gt;Standing Meetings&lt;/h3&gt;
-
-&lt;p&gt;Team meetings that happen regularly with cameras and voice are great for 
-getting back in touch to what your team is doing.  If these meetings go 
-away then you can go days without seeing or hearing people.  That isn&amp;#39;t 
-good.&lt;/p&gt;
-
-&lt;h3&gt;Tooling&lt;/h3&gt;
-
-&lt;p&gt;We use a lot of tools to make the remote thing work.  What we&amp;#39;ve found is that
-the quickness at which we can use a tool is almost more important than the
-features of different tools.  We use &lt;a href=&quot;https://join.me/&quot;&gt;join.me&lt;/a&gt; for quick 
-screen sharing and sometimes voice, also &lt;a href=&quot;http://skype.com/&quot;&gt;Skype&lt;/a&gt; for chat 
-and voice.&lt;/p&gt;
-
-&lt;p&gt;We hardly pair-program but at the times where I did it was great with voice
-and screen sharing.  join.me will even let you hand off mouse and keyboard
-control to the person who is looking on the other end.&lt;/p&gt;
-
-&lt;p&gt;Prior to working remote, when I got on voice, the first thing I would
-do is figure out how to get off the phone.  Being on the phone with others
-was kind of creepy.  So yeah, you have to get over that.  Sometimes we&amp;#39;ll 
-even just leave Skype on and not really say anything in particular.  You 
-can mention things casually just as you would if you were co-located.&lt;/p&gt;
-
-&lt;p&gt;Of course another nice thing about tooling is that you can turn it off or
-ignore it.  I&amp;#39;m not the first person that&amp;#39;d say the ability to focus is one
-of the best things about being remote.&lt;/p&gt;
-
-&lt;h3&gt;In-Person Trips&lt;/h3&gt;
-
-&lt;p&gt;Nothing beats getting out into the same place with people, talking, having a 
-meal and maybe a drink.  Most any amount of friction and sharp edges can be
-overcome by having food and drinks with people. &lt;/p&gt;
-</description>
-        <pubDate>Sun, 06 Jul 2014 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2014/07/06/two-years-remote.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/06/two-years-remote.html</guid>
         
         <category>programming</category>
         
