@@ -19,7 +19,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - SQL, Stored Procedures, MySQL, Oracle, PostgreSQL, Hazelcast
 - Netty, Hystrix
 - HTML, CSS, JavaScript, jQuery, AJAX
-- sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock
+- sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock, Pitest
 - UML, OOP, OOA/D, FP, AOP
 - ReST (JRA), SOAP (CXF, Axis2, JAXWS), XML
 
