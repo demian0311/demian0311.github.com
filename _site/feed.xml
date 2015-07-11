@@ -6,9 +6,32 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 09 Jul 2015 08:01:27 -0500</pubDate>
-    <lastBuildDate>Thu, 09 Jul 2015 08:01:27 -0500</lastBuildDate>
+    <pubDate>Sat, 11 Jul 2015 07:12:31 -0500</pubDate>
+    <lastBuildDate>Sat, 11 Jul 2015 07:12:31 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Pensacola Beach 2015</title>
+        <description>&lt;p&gt;This is our 3rd year of going to Pensacola Beach, Florida.  &lt;a href=&quot;https://www.youtube.com/watch?v=UeE9oYN1OjY&quot;&gt;Here&amp;#39;s the video of our 2014 trip&lt;/a&gt;.
+We usually do another trip besides this but this is our lazy trip, we set expectations very low.
+We&amp;#39;ll go to the beach, go to the pool, take a nap, get something to eat.  The beaches are great
+and it&amp;#39;s a 6 hour drive from home in Louisiana.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OZJ3Nqas3K0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;The water was more choppy than what I remember previously.  There were not jellyfish to zap us, mustn&amp;#39;t be
+in season.  This is the first year that Bodhi can swim entirely on his own.  He&amp;#39;s a real strong swimmer.  When
+last season ended he wasn&amp;#39;t quite there.  We got to the pool a lot early this Summer and he picked right
+back up where he was and quickly got more confidence in swimming.&lt;/p&gt;
+
+&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220344.29631034881!2d-87.05139615000002!3d30.354370650000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890dad848d85a0d%3A0x687b7b80ca21169e!2sPensacola+Beach%2C+FL!5e0!3m2!1sen!2sus!4v1436616543660&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Sat, 11 Jul 2015 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>The Obstacle Is The Way</title>
@@ -686,88 +709,6 @@ oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
         <pubDate>Sun, 13 Jul 2014 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</guid>
-        
-        <category>programming</category>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Port Confusion With Apple Airport</title>
-        <description>&lt;p&gt;This won&amp;#39;t add anything to the knowledge that &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;already exists online&lt;/a&gt; but 
-hopefully it&amp;#39;s more searchable for the next poor sap that is confused by this.&lt;/p&gt;
-
-&lt;h2&gt;Locking Down my Server&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://neidetcher.com&quot;&gt;This site&lt;/a&gt; runs on a tiny &lt;a href=&quot;http://www.rackspace.com/&quot;&gt;Rackspace&lt;/a&gt; server.  I&amp;#39;m no expert but 
-one of the easiest things you can do to lock down your server is to shut down as many ports as possible.  That 
-means that you don&amp;#39;t have potentially vulnerable software listening in on ports.  &lt;/p&gt;
-
-&lt;p&gt;You&amp;#39;ll probably do some &lt;code&gt;nmap&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;nmap localhost
-
-Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
-Interesting ports on localhost (127.0.0.1):
-Not shown: 997 closed ports
-PORT    STATE SERVICE
-22/tcp  open  ssh
-80/tcp  open  http
-443/tcp open  https
-
-Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;And maybe some &lt;code&gt;netstat&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian@raven ~&amp;gt;netstat -l
-Active Internet connections (only servers)
-Proto Recv-Q Send-Q Local Address           Foreign Address         State      
-tcp        0      0 *:https                 *:*                     LISTEN     
-tcp        0      0 *:www                   *:*                     LISTEN     
-tcp        0      0 *:ssh                   *:*                     LISTEN     
-tcp6       0      0 [::]:ssh                [::]:*                  LISTEN     
-Active UNIX domain sockets (only servers)
-Proto RefCnt Flags       Type       State         I-Node   Path
-unix  2      [ ACC ]     STREAM     LISTENING     83108    /var/run/acpid.socket
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I checked it locally and noticed that &lt;code&gt;exim4&lt;/code&gt; was running and had a port open.  So I made sure that service was no
-longer in the startup scripts and &lt;a href=&quot;https://wiki.debian.org/Daemon&quot;&gt;removed the daemon&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Now Try from Laptop&lt;/h2&gt;
-
-&lt;p&gt;Just to be sure I ran it from &lt;code&gt;nmap&lt;/code&gt; from my laptop.  This is what I saw.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;demian  ~  nmap neidetcher.com
-
-Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
-Nmap scan report for neidetcher.com (184.106.150.226)
-Host is up (0.057s latency).
-rDNS record for 184.106.150.226: foo.com
-Not shown: 992 closed ports
-PORT     STATE SERVICE
-21/tcp   open  ftp
-22/tcp   open  ssh
-80/tcp   open  http
-443/tcp  open  https
-554/tcp  open  rtsp
-3128/tcp open  squid-http
-7070/tcp open  realserver
-8080/tcp open  http-proxy
-
-Nmap done: 1 IP address (1 host up) scanned in 0.87 seconds
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Whoah, that&amp;#39;s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of &lt;code&gt;nmap&lt;/code&gt;
-such that it doesn&amp;#39;t show the ports they have used to turn my server into a slave for 
-their &lt;a href=&quot;https://en.wikipedia.org/wiki/Botnet&quot;&gt;botnet&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Apple Airport&lt;/h2&gt;
-
-&lt;p&gt;I ran across &lt;a href=&quot;http://blog.nephtaliproject.com/?p=129&quot;&gt;this blog post&lt;/a&gt;.  The deal is that Apple Airport will 
-try to proxy protocols for you.  Apparently it doesn&amp;#39;t bother to check with the far-end servers to see if the
-port is even available.  So, to you on your computer behind an Apple router, &lt;code&gt;nmap&lt;/code&gt; will think the port is hot.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 11 Jul 2014 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/11/port-confusion-with-apple-airport.html</guid>
         
         <category>programming</category>
         
