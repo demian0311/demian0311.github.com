@@ -6,9 +6,39 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 11 Jul 2015 07:12:31 -0500</pubDate>
-    <lastBuildDate>Sat, 11 Jul 2015 07:12:31 -0500</lastBuildDate>
+    <pubDate>Mon, 20 Jul 2015 09:34:04 -0700</pubDate>
+    <lastBuildDate>Mon, 20 Jul 2015 09:34:04 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Pacific Coast Of Oregon</title>
+        <description>&lt;p&gt;We did Florida for a week.  Then we were home in Louisiana for a couple weeks.  Then the whole family
+took a trip to the Pacific Northwest to see the coast.&lt;/p&gt;
+
+&lt;p&gt;After flying into Portland we drove to Lincoln City.  Great access to the beach, the boys saw the Pacific 
+Ocean for the first time.  We went to the &lt;a href=&quot;http://aquarium.org/&quot;&gt;Oregon Coast Aquarium&lt;/a&gt; in Newport.  Then 
+we went whale watching.  We saw whales come up for air but we didn&amp;#39;t see any tails.  The Pacific was choppy.&lt;/p&gt;
+
+&lt;p&gt;Then we set off for Cannon Beach.  On the way we went to the &lt;a href=&quot;https://www.tillamook.com/&quot;&gt;Tilamook Cheese Factory&lt;/a&gt;.  We 
+got to see how cheese was made and sampled some.  Not a destination you&amp;#39;d want to migrate to but it was on the way.  On to
+Cannon Beach, this is where you can get to &lt;a href=&quot;https://en.wikipedia.org/wiki/Haystack_Rock&quot;&gt;Haystack Rock&lt;/a&gt;.  It&amp;#39;s a very iconic, huge rock
+sticking out of the beach.  It&amp;#39;s very picturesque but pictures don&amp;#39;t do it justice.  While we were there we 
+saw a rescue.  I included it in the home video.&lt;/p&gt;
+
+&lt;p&gt;After that we went to Astoria.  That&amp;#39;s where &lt;a href=&quot;http://www.imdb.com/title/tt0089218/&quot;&gt;The Goonies&lt;/a&gt; was 
+filmed.  We walked to the house featured in the movie and Bodhi did the truffle shuffle.  It&amp;#39;s a 
+quaint sea side town that time forgot.  It also has &lt;a href=&quot;http://www.crmm.org/&quot;&gt;The Columbia River Maritime Museum&lt;/a&gt;, we 
+learned about shipping, boats and what the Coast Guard does.  We were able to tour a retired Coast Guard vessel
+that was used to just be a light-house off the coast.  That&amp;#39;d be some boring duty.&lt;/p&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/y1OfJDxU9FE&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+</description>
+        <pubDate>Mon, 20 Jul 2015 00:00:00 -0700</pubDate>
+        <link>http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Pensacola Beach 2015</title>
@@ -26,7 +56,7 @@ back up where he was and quickly got more confidence in swimming.&lt;/p&gt;
 
 &lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220344.29631034881!2d-87.05139615000002!3d30.354370650000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890dad848d85a0d%3A0x687b7b80ca21169e!2sPensacola+Beach%2C+FL!5e0!3m2!1sen!2sus!4v1436616543660&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 11 Jul 2015 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 11 Jul 2015 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</guid>
         
@@ -63,7 +93,7 @@ adversity.&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s time to get to the original sources so up next I&amp;#39;ll read &lt;a href=&quot;http://www.amazon.com/Meditations-Marcus-Aurelius-ebook/dp/B0082XJGRK/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1436189090&amp;amp;sr=1-3&amp;amp;keywords=marcus+aurelius+meditations&quot;&gt;Meditations&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Marcus_Aurelius&quot;&gt;Marcus Aurelius&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Jul 2015 00:00:00 -0500</pubDate>
+        <pubDate>Mon, 06 Jul 2015 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</guid>
         
@@ -140,7 +170,7 @@ It might look something like this.&lt;/p&gt;
    &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Tue, 30 Jun 2015 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 30 Jun 2015 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</guid>
         
@@ -212,7 +242,7 @@ monster set of calls where you configure your circuit breaker. &lt;/p&gt;
 &lt;p&gt;This isn&amp;#39;t so bad.  Sure it&amp;#39;s convenient that I have those suppliers wrapped inside
 of functions already so I don&amp;#39;t have nasty multi-line lambdas.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 03 Jun 2015 00:00:00 -0500</pubDate>
+        <pubDate>Wed, 03 Jun 2015 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</guid>
         
@@ -294,7 +324,7 @@ Emporer and apparently an alright guy.  His job description including having to 
 all day.  These guys had it figured out, it&amp;#39;s cool something so old has a lot to offer in the 
 present day.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 19 Feb 2015 00:00:00 -0600</pubDate>
+        <pubDate>Thu, 19 Feb 2015 00:00:00 -0800</pubDate>
         <link>http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</guid>
         
@@ -344,7 +374,7 @@ evaluate companies they fund.&lt;/p&gt;
 &lt;li&gt;To be compelling, your offering should be a 10x improvement over your competition.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Thu, 15 Jan 2015 00:00:00 -0600</pubDate>
+        <pubDate>Thu, 15 Jan 2015 00:00:00 -0800</pubDate>
         <link>http://neidetcher.com/2015/01/15/winter-reading.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/01/15/winter-reading.html</guid>
         
@@ -412,7 +442,7 @@ of strength numbers. &lt;/p&gt;
 &lt;p&gt;Besides that I want to maintain my strength and remain injury free.  I might dabble a little with
 what would make up a minimal effective dose of training to stay where I&amp;#39;m at.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 28 Dec 2014 00:00:00 -0600</pubDate>
+        <pubDate>Sun, 28 Dec 2014 00:00:00 -0800</pubDate>
         <link>http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</link>
         <guid isPermaLink="true">http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</guid>
         
@@ -450,7 +480,7 @@ in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Fri, 29 Aug 2014 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 29 Aug 2014 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html</guid>
         
@@ -596,7 +626,7 @@ workouts in some sensible fashion:&lt;/p&gt;
 &lt;li&gt;keep showing up&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Thu, 17 Jul 2014 00:00:00 -0500</pubDate>
+        <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
         <link>http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</link>
         <guid isPermaLink="true">http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</guid>
         
@@ -606,114 +636,6 @@ workouts in some sensible fashion:&lt;/p&gt;
         
         
         <category>fitness</category>
-        
-      </item>
-    
-      <item>
-        <title>What Next For Java</title>
-        <description>&lt;p&gt;At Time Warner Cable we&amp;#39;re in the midst of an acquisition.  There is a possibility 
-that many of us will be changing jobs in the coming years.  Since we&amp;#39;ve been at 
-our current gig we have switched from using Java to Groovy and Scala.  A while ago, 
-some fellow co-workers and I were talking about languages and where we think we&amp;#39;ll
-end up and where we&amp;#39;d like to end up.  I thought this was an interesting conversation.
-This sums up a lot of what was said, you can assume anything insightful wasn&amp;#39;t said
-by me.&lt;/p&gt;
-
-&lt;h2&gt;Groovy&lt;/h2&gt;
-
-&lt;p&gt;Grails is great for bootstrapping a new project.  The architectural decisions have
-been made for you and you just need to fill in the blanks with your  implementation.  &lt;/p&gt;
-
-&lt;p&gt;Grails is great for working with web designers and UI people.  They can understand
-how Grails works and it&amp;#39;s easy for them to work with the views.  &lt;/p&gt;
-
-&lt;p&gt;It&amp;#39;s difficult to boldly refactor Groovy code though.  There&amp;#39;s a lot of magic going
-on and the compiler or tests won&amp;#39;t always tell you when you&amp;#39;ve done something bad.
-This is especially true when you inherit code with bad tests.  Often when attempting
-a bold refactor I&amp;#39;ll need to lean on commandline searching to make sure there broken 
-references that my IDE and compiler aren&amp;#39;t warning me about.&lt;/p&gt;
-
-&lt;p&gt;All in all, because Grails is so great Groovy or Grails are not going away any time 
-soon.  I could see doing more Grails applications in the future.  &lt;/p&gt;
-
-&lt;h3&gt;Greenfield&lt;/h3&gt;
-
-&lt;p&gt;But what if I were starting up a new team, would I pick it?  If we outsourced or had
-a different team of UI/ UX web designers then having Grails on the front end is 
-compelling at least for the web application.  But the looseness and lack of tooling
-support would otherwise make me want to pick something with a more strict type 
-system.&lt;/p&gt;
-
-&lt;h2&gt;Scala&lt;/h2&gt;
-
-&lt;h3&gt;Deep Water&lt;/h3&gt;
-
-&lt;p&gt;I&amp;#39;m mixed on Scala.  I&amp;#39;d like to throw away 30% of the features.  There are some 
-features that make the code incredibly hard for me to understand.  I&amp;#39;m sure some
-would say that those are the features that also make for very easy to use APIs.
-Maybe the answer is something like CheckStyle that would bark at you if introduce 
-new code to your project that is too hairy.&lt;/p&gt;
-
-&lt;h3&gt;Fun&lt;/h3&gt;
-
-&lt;p&gt;But Scala has really re-invigorated my enjoyment while programming.  It&amp;#39;s so powerful 
-and functional programming let&amp;#39;s you do awesome code that just feels &lt;em&gt;tight&lt;/em&gt;.  We
-just write some clean, awesome code that generally doesn&amp;#39;t have problems.&lt;/p&gt;
-
-&lt;h3&gt;Asshole Magnet&lt;/h3&gt;
-
-&lt;p&gt;Scala seems like it could be a language for pedantic assholes to apply  esoteric 
-features that make their code un-intelligible.  Whenever I code I try to imagine
-me looking at this code a year from now, with a VP screaming on a conference call
-at 3AM.  Would I be able to understand what I&amp;#39;m writing?  Could I safely change it?
-If I need to bring to bear my entire intellect to write code I have no
-hope of understanding it in the future.  &lt;/p&gt;
-
-&lt;p&gt;This will be a big challenge for Scala going forward.  With Scala on my 
-resume I&amp;#39;d like to somehow advertise to potential teams that I swing toward the 
-more pragmatic side even though I&amp;#39;m using a language that attracts engineers
-very interested in pushing Scala to the limit.&lt;/p&gt;
-
-&lt;h3&gt;Greenfield&lt;/h3&gt;
-
-&lt;p&gt;I&amp;#39;d happily do more work in Scala.  But on a new team doing Scala I would 
-really want to influence people to stay in the shallow end of the pool.  I&amp;#39;d 
-also caution against throwing out all the great frameworks that the Java 
-community has in place.&lt;/p&gt;
-
-&lt;h2&gt;Java&lt;/h2&gt;
-
-&lt;p&gt;I bet we&amp;#39;ll see a renaissance in Java.  The language has amazing staying power. Relative 
-to Groovy the tooling is so great for Java, you just totally know what
-the code is doing.  It might be verbose and littered with semi-colons but you
-get it.  It&amp;#39;s hard to hide your intentions in Java.  Maybe that&amp;#39;s just because
-even though I haven&amp;#39;t done it much the last two years I&amp;#39;ve used the language for
-a very long time.&lt;/p&gt;
-
-&lt;p&gt;Lambdas, streams and the collections API are great.  They&amp;#39;ve done a great
-job given the restrictions that they&amp;#39;re working under.&lt;/p&gt;
-
-&lt;p&gt;Most Java coders aren&amp;#39;t going to get excited about lambdas for a while.  When 
-popular libraries leverage these features then we&amp;#39;ll start to see lambdas embraced. &lt;/p&gt;
-
-&lt;h3&gt;Greenfield&lt;/h3&gt;
-
-&lt;p&gt;If I found myself doing Java8 I&amp;#39;d embrace the new features and try to be as 
-functional and immutable as possible.  The latest version of Spring leverages 
-lambdas and it&amp;#39;d be fun to see where they (and other Java libraries) take it.  &lt;/p&gt;
-
-&lt;p&gt;It&amp;#39;d also be interesting to loop back and see how you&amp;#39;d solve problems with the
-new features.  For example with functional programming I bet annotations and aspect
-oriented programming aren&amp;#39;t needed anymore.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 13 Jul 2014 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2014/07/13/what-next-for-java.html</guid>
-        
-        <category>programming</category>
-        
-        
-        <category>programming</category>
         
       </item>
     
