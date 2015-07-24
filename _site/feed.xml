@@ -6,9 +6,100 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 20 Jul 2015 09:34:04 -0700</pubDate>
-    <lastBuildDate>Mon, 20 Jul 2015 09:34:04 -0700</lastBuildDate>
+    <pubDate>Fri, 24 Jul 2015 12:29:07 -0700</pubDate>
+    <lastBuildDate>Fri, 24 Jul 2015 12:29:07 -0700</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Oscon 2015</title>
+        <description>&lt;p&gt;I went to &lt;a href=&quot;http://www.oscon.com/&quot;&gt;OSCON&lt;/a&gt; this year.  It&amp;#39;s a conference for opensource put 
+on by &lt;a href=&quot;http://www.oreilly.com/&quot;&gt;O&amp;#39;Reilly&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Kids Day&lt;/h2&gt;
+
+&lt;p&gt;I took my 17 year old son, Caden and my 8 year old son Ryder.  &lt;/p&gt;
+
+&lt;h3&gt;Python&lt;/h3&gt;
+
+&lt;p&gt;The first session was on
+Python.  Python is a great language to start out with.  I like Python a lot, it was the
+first language I used professionall after COBOL.  They had a good curriculum set up for 
+us.  We did a series of games where we accepted input, tried to guess a number and 
+whatnot.  Ryder had lots of fun playing the game.&lt;/p&gt;
+
+&lt;p&gt;&lt;img style=&quot;float: right&quot; src=&quot;https://i.imgur.com/wIFL6Vxm.jpg&quot;&gt;&lt;/p&gt;
+
+&lt;h3&gt;Modding Minecraft&lt;/h3&gt;
+
+&lt;p&gt;The second session was modding &lt;a href=&quot;https://minecraft.net/&quot;&gt;Minecraft&lt;/a&gt; 
+with &lt;a href=&quot;http://files.minecraftforge.net/&quot;&gt;Forge&lt;/a&gt;.  We don&amp;#39;t run Minecraft at home yet, we
+probably will in the next year.  Minecraft is written in Java and the 
+author, &lt;a href=&quot;https://en.wikipedia.org/wiki/Markus_Persson&quot;&gt;Notch&lt;/a&gt;, has made it very open 
+for modification.  Fortunately Caden knew how to use Minecraft so we could see our 
+modifications in action.  We did stuff like spawning lots of dragons based on certain
+events.  It was a hit, very visual.&lt;/p&gt;
+
+&lt;h3&gt;Arduino&lt;/h3&gt;
+
+&lt;p&gt;Finally we did a session on &lt;a href=&quot;https://www.arduino.cc/&quot;&gt;Arduino&lt;/a&gt;.  The kids were given 
+kits whith lots of resistors, LEDs, a bread board, an Arduino board and some other small
+pieces.  We installed wires, LEDs, a switch, a dimmer and a resistor on the breadboard and
+saw an LED light up.  After that we hooked the breadboard up to an Arduino, wrote a little
+code to control the LED and we saw it work.  I have to say for Ryder it really clicked, he
+was amazed that software he wrote was running on a little piece of hardware.  I&amp;#39;ll get a
+book on more Ardruino projects and more hardware, Ryder is excited.&lt;/p&gt;
+
+&lt;h2&gt;Akka Workshop&lt;/h2&gt;
+
+&lt;p&gt;I signed up for a 2 day workshop on building &lt;a href=&quot;http://www.reactivemanifesto.org/&quot;&gt;reactive&lt;/a&gt; systems with &lt;a href=&quot;http://akka.io/&quot;&gt;Akka&lt;/a&gt; in &lt;a href=&quot;http://scala-lang.org/&quot;&gt;Scala&lt;/a&gt;.  I saw
+some code that reminded me when I used to say, &amp;quot;It&amp;#39;s shit like this Scala&amp;quot; a lot.  I 
+previously read a book on Akka but I still think I got something out of the workshop.  The 
+workshop went through the mechanics but I&amp;#39;d be interested more to see how you practically
+organize your actors.  Are actors nouns in your domain?  Are they some representation of
+work that needs to get done?  Perhaps they are things at the horizontal tiers of your
+architecture like DAOs, managers or controllers.&lt;/p&gt;
+
+&lt;h2&gt;Other Notable Talks&lt;/h2&gt;
+
+&lt;p&gt;I saw a talk on microservices.  To me it just seems like a sensible (maybe more granular) 
+SOA architecture.  The big innovation is containers I suppose.  Currently I see containers
+as things I can bone up on if I think I need them to solve scaling problems, for now I don&amp;#39;t. &lt;/p&gt;
+
+&lt;p&gt;A speaker with a Python background spoke about testing.  He said that dependency injection
+promoted bad design.  That totally made me challenge my existing assumptions.  Just kidding
+that made me embarrassed for him that he said it in public and on camera.&lt;/p&gt;
+
+&lt;p&gt;The Twitter talk on Scala was good.  You hear so much about Scala at Twitter but he said that
+35% of their code was Scala, I guess they have lots of Java as well.  They sure seem to take
+&amp;#39;on boarding&amp;#39; engineers to a whole other level.&lt;/p&gt;
+
+&lt;p&gt;A talk on Design with Akka was good.  I wish there was less time spent on background as 
+opposed to how you would structure your actors within a given business domain. &lt;/p&gt;
+
+&lt;p&gt;Other talks were on getting the most out of GitHub, remote working, IPython Notebook for data
+science, keeping architecture simple.&lt;/p&gt;
+
+&lt;h2&gt;Zeitgeist of OSCON 2015&lt;/h2&gt;
+
+&lt;p&gt;This stuff is all the sexy.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://martinfowler.com/articles/microservices.html&quot;&gt;Microservices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.reactivemanifesto.org/&quot;&gt;Reactive Programming&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nodejs.org/&quot;&gt;node.js&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I also talked to a lot of people that are working remote or are hiring remote workers.  Maybe
+this is like when you buy a model of car you start to notice a lot of that model on the 
+roads.  It could also be wishful thinking.  I&amp;#39;ve been remote for 3 years, I like it and 
+I&amp;#39;d like to think it&amp;#39;s the future.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 24 Jul 2015 00:00:00 -0700</pubDate>
+        <link>http://neidetcher.com/2015/07/24/oscon-2015.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2015/07/24/oscon-2015.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Pacific Coast Of Oregon</title>
@@ -490,152 +581,6 @@ in &lt;a href=&quot;https://jdk8.java.net/download.html&quot;&gt;Java8&lt;/a&gt;
         
         
         <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Gym Fouls</title>
-        <description>&lt;p&gt;My bubbly extrovert personality has me very happily working out at home the last couple
-of years.  I love it, I have just the right amount of equipment and no one is ever on
-the equipment I want to use.  &lt;/p&gt;
-
-&lt;p&gt;Before my critical tirade, I commend anyone that manages to get up the gumption to get to the
-gym.  There was a long time where I couldn&amp;#39;t muster up that kind of motivation.  And anyone
-that shows up in a given week is doing better than the folks that don&amp;#39;t even make an 
-attempt.&lt;/p&gt;
-
-&lt;h2&gt;Gym Fouls&lt;/h2&gt;
-
-&lt;p&gt;I had the occasion to use a gym at a hotel on a recent trip and it reminded me of other 
-reasons why I like to workout without people around.&lt;/p&gt;
-
-&lt;h3&gt;Reading&lt;/h3&gt;
-
-&lt;p&gt;The gym is not for reading.  Alright, maybe on the treadmill but you should only use the
-treadmill if you need to get out of the house and you&amp;#39;re entire body is already sore from
-resistance training.   &lt;/p&gt;
-
-&lt;p&gt;Training is a good time to focus on the movement you&amp;#39;re doing and to let your brain go 
-on auto-pilot for a while.  Really this is a good thing for your brain and creativity.
-Humans suck at multi-tasking, when you&amp;#39;re reading while training you are training crappy
-and you&amp;#39;re reading crappy.  &lt;/p&gt;
-
-&lt;h3&gt;Martial Arts&lt;/h3&gt;
-
-&lt;p&gt;You&amp;#39;re getting your pump on, mirrors are everywhere and there are women in the gym.  What 
-better time to whip on some next level kung-fu shit.  I really don&amp;#39;t need to make an 
-argument against this just, no, please no.  &lt;/p&gt;
-
-&lt;h3&gt;Not Squatting in the Squat Rack&lt;/h3&gt;
-
-&lt;p&gt;Squat racks are for squatting.  Squats are the most important exercise a person can do.&lt;/p&gt;
-
-&lt;p&gt;The actual reason I quit going to my gym is because a guy was curling in the squat rack.
-This is really bad.  But it gets worse, he was curling chains in the squat rack.  Chains
-make sense if you are a geared power lifter and you want to load the lock-out of your 
-bench or the top of your squat.  Chains are not for curling especially in the squat rack. &lt;/p&gt;
-
-&lt;h3&gt;Combo Moves&lt;/h3&gt;
-
-&lt;p&gt;So you know about lunges.  And you know about pressing 2 pound purple dumbells overhead. 
-Obviously the combination of the two would be doubly beneficial.  Yeah, the best 
-exercises are the ones that aren&amp;#39;t very creative.&lt;/p&gt;
-
-&lt;h3&gt;Ridiculous Movement&lt;/h3&gt;
-
-&lt;p&gt;Exercise machines are sub-optimal for whatever your fitness goals are but they&amp;#39;re 
-easy.  Your butt goes on the seat, your hands go on the handles and then you exert 
-in some prescribed manor.  So  usually you don&amp;#39;t see nonsensical movement on exercise 
-machines.  &lt;/p&gt;
-
-&lt;p&gt;You normally see this with dumbells.  But if the weight isn&amp;#39;t moving in something that
-looks perpendicular to the surface of the Earth then you are probably doing things wrong.&lt;/p&gt;
-
-&lt;p&gt;A variation of this is the deal where you put 1 dumbells in each hand and then lean over 
-to one side or the other.  This is silly, you are providing counter weight, the most 
-value you are getting out of this is just your traps and core supporting weight.  &lt;/p&gt;
-
-&lt;p&gt;You probably mean to do either a &lt;a href=&quot;http://www.exrx.net/WeightExercises/Other/SBFarmersWalk.html&quot;&gt;farmers walk&lt;/a&gt; 
-or &lt;a href=&quot;http://www.exrx.net/WeightExercises/Obliques/DBSideBend.html&quot;&gt;weighted side bends&lt;/a&gt;.  Those 
-are both good things to do.&lt;/p&gt;
-
-&lt;h3&gt;Not Having a Plan&lt;/h3&gt;
-
-&lt;p&gt;This is what I see, someone stumbles into the gym.  You see them look around surprised 
-like they were just tele-ported to that location.  Next they&amp;#39;ll realise they should 
-probably do something since they are there.  Sometimes they&amp;#39;ll just start reading 
-(see above).  But hopefully they decide to do resistance training.  &lt;/p&gt;
-
-&lt;p&gt;You might see some inner conflict but usually this ends up ending up with &amp;quot;I should do
-some curls&amp;quot;.  &lt;/p&gt;
-
-&lt;h2&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;It&amp;#39;d be un-cool if I pointed out the wrong things people were doing and didn&amp;#39;t provide
-any good things you could do in the gym.&lt;/p&gt;
-
-&lt;h3&gt;Established Routines&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://stronglifts.com/&quot;&gt;StrongLifts&lt;/a&gt; is a legit program to start out with.
-&lt;a href=&quot;http://startingstrength.wikia.com/wiki/FAQ:The_Program&quot;&gt;Starting Strength&lt;/a&gt; is 
-more popular and highly regarded.&lt;/p&gt;
-
-&lt;p&gt;If you don&amp;#39;t know how to do the exercises look on YouTube for &lt;a href=&quot;https://www.youtube.com/results?search_query=mark+rippetoe&quot;&gt;Mark Rippetoe&lt;/a&gt; or go to
-&lt;a href=&quot;http://www.exrx.net/Exercise.html&quot;&gt;exrx.net&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This is Starting Strength.  &lt;/p&gt;
-
-&lt;h4&gt;Workout A&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;exercise | sets | reps
----------|------|-----
-squat    | 3    | 5
-bench    | 3    | 5
-deadlift | 1    | 5 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Workout B&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;exercise    | sets | reps
-------------|------|-----
-squat       | 3    | 5
-press       | 3    | 5
-power clean | 5    | 3 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Snowflake&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;#39;re a special snowflake and Starting Strength is too restrictive then just split 
-workouts in some sensible fashion:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;push/ pull/ legs&lt;/li&gt;
-&lt;li&gt;vertical / horizontal / legs&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;With this guidance:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;3 to 5 workouts in a week&lt;/li&gt;
-&lt;li&gt;3 to 5 exercises in a workout&lt;/li&gt;
-&lt;li&gt;3 to 5 sets&lt;/li&gt;
-&lt;li&gt;5 to 10 reps per set (lower reps are for strength, more reps are for size)&lt;/li&gt;
-&lt;li&gt;prefer multi-joint movements and put them at the start of the workout&lt;/li&gt;
-&lt;li&gt;single-joint (if any) movements at the end of the workout&lt;/li&gt;
-&lt;li&gt;fucking never skip leg day in the name of all that is holy&lt;/li&gt;
-&lt;li&gt;you should squat and your femur should go below parallel when you squat&lt;/li&gt;
-&lt;li&gt;track your progress on the multi-joint movements you&amp;#39;re doing (press, deadlift, bench, squat)&lt;/li&gt;
-&lt;li&gt;start the weights very low low&lt;/li&gt;
-&lt;li&gt;increase the weights on &lt;em&gt;at least one&lt;/em&gt; exercise by 5 pounds each week&lt;/li&gt;
-&lt;li&gt;keep showing up&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 17 Jul 2014 00:00:00 -0700</pubDate>
-        <link>http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/fitness/2014/07/17/gym-fouls.html</guid>
-        
-        <category>fitness</category>
-        
-        <category>exercise</category>
-        
-        
-        <category>fitness</category>
         
       </item>
     
