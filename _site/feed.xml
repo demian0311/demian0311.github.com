@@ -6,9 +6,99 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Jul 2015 10:35:07 -0700</pubDate>
-    <lastBuildDate>Sat, 25 Jul 2015 10:35:07 -0700</lastBuildDate>
+    <pubDate>Wed, 19 Aug 2015 18:59:33 -0500</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2015 18:59:33 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Spring Mvc Exception Handler</title>
+        <description>&lt;p&gt;This is probably so obvious that it doesn&amp;#39;t deserve a blog post by anyone
+but I&amp;#39;ll admit that I struggled with this for a few hours.  I have an API 
+that I am putting together for a &lt;a href=&quot;http://martinfowler.com/articles/microservices.html&quot;&gt;microservice&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is a little JSON API and SpringMVC makes it very easy.  But when there
+are exceptions most of the guides I found send you towards a &lt;a href=&quot;http://www.thymeleaf.org/&quot;&gt;Thymeleaf&lt;/a&gt; solution
+that outputs HTML.  That&amp;#39;s not what I want, I want a good HTTP response code
+and a JSON response that the client can parse to help them figure out what
+went wrong.  There&amp;#39;s a great write-up on &lt;a href=&quot;https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc&quot;&gt;exception handling in Spring&lt;/a&gt; but that, I believe, takes you in the Thymeleaf direction as well.&lt;/p&gt;
+
+&lt;h2&gt;My Custom Exception&lt;/h2&gt;
+
+&lt;p&gt;Maybe this has my code too tied to HTTP but I like the explicit nature.  Notice
+the &lt;code&gt;ResponseStatus&lt;/code&gt; annotation that provides what &lt;code&gt;HttpStatus&lt;/code&gt; we want associated
+with this exception.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;package foo.bar;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+public class BadRequestException extends RuntimeException {
+
+    public BadRequestException(String messageIn) {
+        super(messageIn);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Using the Exception&lt;/h2&gt;
+
+&lt;p&gt;Nothing shocking here.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;throw new BadRequestException(&amp;quot;something descriptive goes here&amp;quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;ExceptionHandler&lt;/h2&gt;
+
+&lt;p&gt;Spring lets you just annotate a method on a controller that you have designated to 
+handle exceptions.  So yeah, this is the part that wasn&amp;#39;t obvious to me.  Sending 
+back a &lt;code&gt;Map&lt;/code&gt; tells Spring to just turn it into good JSON.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;nd&quot;&gt;@ExceptionHandler&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;exceptionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletResponseIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;message&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// if not production then show stack trace?&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;StringBuffer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getQueryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&amp;#39;?&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;requestUrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAnnotationPresent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseStatus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;HttpStatus&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;httpStatus&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getReasonPhrase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;httpServletResponseIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This all produces JSON that looks like this along with an HTTP response code of 400.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;requestUrl&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;http://localhost:8080/controller&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;httpStatus&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Bad Request&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;message&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;something descriptive goes here&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Wed, 19 Aug 2015 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2015/08/19/spring-mvc-exception-handler.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2015/08/19/spring-mvc-exception-handler.html</guid>
+        
+        <category>programming</category>
+        
+        <category>java8</category>
+        
+        <category>spring</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>Seattle</title>
@@ -50,7 +140,7 @@ at the top of the life and took in the views, great detour.&lt;/p&gt;
 src=&quot;https://www.youtube.com/embed/LEPHH8ZndYo&quot; 
 frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 25 Jul 2015 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 25 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/25/seattle.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/25/seattle.html</guid>
         
@@ -141,7 +231,7 @@ this is like when you buy a model of car you start to notice a lot of that model
 roads.  It could also be wishful thinking.  I&amp;#39;ve been remote for 3 years, I like it and 
 I&amp;#39;d like to think it&amp;#39;s the future.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 24 Jul 2015 00:00:00 -0700</pubDate>
+        <pubDate>Fri, 24 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/24/oscon-2015.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/24/oscon-2015.html</guid>
         
@@ -171,7 +261,7 @@ that was used to just be a light-house off the coast.  That&amp;#39;d be some bo
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/y1OfJDxU9FE&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Mon, 20 Jul 2015 00:00:00 -0700</pubDate>
+        <pubDate>Mon, 20 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</guid>
         
@@ -194,7 +284,7 @@ back up where he was and quickly got more confidence in swimming.&lt;/p&gt;
 
 &lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220344.29631034881!2d-87.05139615000002!3d30.354370650000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890dad848d85a0d%3A0x687b7b80ca21169e!2sPensacola+Beach%2C+FL!5e0!3m2!1sen!2sus!4v1436616543660&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
-        <pubDate>Sat, 11 Jul 2015 00:00:00 -0700</pubDate>
+        <pubDate>Sat, 11 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</guid>
         
@@ -231,7 +321,7 @@ adversity.&lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s time to get to the original sources so up next I&amp;#39;ll read &lt;a href=&quot;http://www.amazon.com/Meditations-Marcus-Aurelius-ebook/dp/B0082XJGRK/ref=sr_1_3?s=books&amp;amp;ie=UTF8&amp;amp;qid=1436189090&amp;amp;sr=1-3&amp;amp;keywords=marcus+aurelius+meditations&quot;&gt;Meditations&lt;/a&gt; by &lt;a href=&quot;https://en.wikipedia.org/wiki/Marcus_Aurelius&quot;&gt;Marcus Aurelius&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 06 Jul 2015 00:00:00 -0700</pubDate>
+        <pubDate>Mon, 06 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</guid>
         
@@ -308,7 +398,7 @@ It might look something like this.&lt;/p&gt;
    &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Tue, 30 Jun 2015 00:00:00 -0700</pubDate>
+        <pubDate>Tue, 30 Jun 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</guid>
         
@@ -380,7 +470,7 @@ monster set of calls where you configure your circuit breaker. &lt;/p&gt;
 &lt;p&gt;This isn&amp;#39;t so bad.  Sure it&amp;#39;s convenient that I have those suppliers wrapped inside
 of functions already so I don&amp;#39;t have nasty multi-line lambdas.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 03 Jun 2015 00:00:00 -0700</pubDate>
+        <pubDate>Wed, 03 Jun 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</link>
         <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html</guid>
         
@@ -462,7 +552,7 @@ Emporer and apparently an alright guy.  His job description including having to 
 all day.  These guys had it figured out, it&amp;#39;s cool something so old has a lot to offer in the 
 present day.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 19 Feb 2015 00:00:00 -0800</pubDate>
+        <pubDate>Thu, 19 Feb 2015 00:00:00 -0600</pubDate>
         <link>http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</guid>
         
@@ -512,84 +602,10 @@ evaluate companies they fund.&lt;/p&gt;
 &lt;li&gt;To be compelling, your offering should be a 10x improvement over your competition.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Thu, 15 Jan 2015 00:00:00 -0800</pubDate>
+        <pubDate>Thu, 15 Jan 2015 00:00:00 -0600</pubDate>
         <link>http://neidetcher.com/2015/01/15/winter-reading.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/01/15/winter-reading.html</guid>
         
-        
-      </item>
-    
-      <item>
-        <title>Lifting In 2014</title>
-        <description>&lt;h2&gt;Overall&lt;/h2&gt;
-
-&lt;p&gt;Here are my PRs at the end of the year:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Press: 205&lt;/li&gt;
-&lt;li&gt;Dead: 365&lt;/li&gt;
-&lt;li&gt;Bench: 275&lt;/li&gt;
-&lt;li&gt;Squat: 315&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3&gt;5/3/1&lt;/h3&gt;
-
-&lt;p&gt;Still trucking along on 5/3/1.  I think I&amp;#39;m going to stick with the template for this lifetime.
-The undulation is probably good for someone that is getting older, being able to not go heavy
-all of the time.  As I said last year, it&amp;#39;s a perfect mix of structure and flexibility.&lt;/p&gt;
-
-&lt;h2&gt;Exercises&lt;/h2&gt;
-
-&lt;h3&gt;Press&lt;/h3&gt;
-
-&lt;p&gt;I felt a tweak in my shoulder while going heavy sometime mid-year so I lowered the weights and
-decided to work back up to a 205 max.  Although my progress in the press has gone well I don&amp;#39;t 
-feel the need to go any higher.  Of course 225 is calling but it&amp;#39;s an uneasy feeling to have 
-205 pounds above your head, at least for me.&lt;/p&gt;
-
-&lt;h3&gt;Dead&lt;/h3&gt;
-
-&lt;p&gt;My dead has stayed still for a year.  I&amp;#39;ve kept the weight at 365 for almost a year.  I think I
-have more in the tank but it&amp;#39;s still slow to get up.  &lt;/p&gt;
-
-&lt;p&gt;I continue to be a fan of the barbell hip thrust.  I started at 65 pounds and after increasing the
-weight by 5 pounds every workout I&amp;#39;m now doing 3 sets of 10 reps at 315 pounds.  &lt;/p&gt;
-
-&lt;h3&gt;Bench&lt;/h3&gt;
-
-&lt;p&gt;To review what was wrong with my bench, I used a wide grip while trying to chase numbers.  It was
-stupid.  Keeping a more narrow grip gives you more longevity so if you aren&amp;#39;t competing it just
-makes sense.  Especially given the shoulder problems I have from dislocating my shoulder while
-snowboarding.&lt;/p&gt;
-
-&lt;p&gt;So I brought the numbers way down and worked up to a 275 single.  Like the other lifts, feels like
-there&amp;#39;s more in the tank but now the game is being injury free.&lt;/p&gt;
-
-&lt;h3&gt;Squats&lt;/h3&gt;
-
-&lt;p&gt;There isn&amp;#39;t much you can do in the gym that is more of a head-trip than the squat.  It&amp;#39;s really 
-the main lift where I have to summon the demons to prepare myself.  But as with the other lifts
-I usually marvel at how easy it was to get up the weight.&lt;/p&gt;
-
-&lt;h2&gt;On to 2015&lt;/h2&gt;
-
-&lt;p&gt;My goal is to keep the weight where it is but figure out a way to motivate myself such that getting
-leaner is part of the picture.  I don&amp;#39;t want to switch to looking at scale weight and lose sight 
-of strength numbers. &lt;/p&gt;
-
-&lt;p&gt;Besides that I want to maintain my strength and remain injury free.  I might dabble a little with
-what would make up a minimal effective dose of training to stay where I&amp;#39;m at.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 28 Dec 2014 00:00:00 -0800</pubDate>
-        <link>http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/fitness/2014/12/28/lifting-in-2014.html</guid>
-        
-        <category>fitness</category>
-        
-        <category>exercise</category>
-        
-        
-        <category>fitness</category>
         
       </item>
     
