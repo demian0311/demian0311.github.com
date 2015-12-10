@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Demian Neidetcher</title>
-  <meta name="description" content="I'm a software engineer, primarily working with JVM languages and in the telecommunications domain.
-">
+  <title>Checkstyle Suppressions</title>
+  <meta name="description" content="I have recently focused on build tools that help keep code clean.  In gradle I usePMD, findbugs and checkstyle.  Probably about 50% of the time I check in co...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/">
+  <link rel="canonical" href="http://neidetcher.com/programming/2015/12/10/checkstyle-suppressions.html">
   <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
 </head>
 
@@ -63,55 +62,58 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Checkstyle Suppressions</h1>
+    <p class="post-meta">Dec 10, 2015</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Dec 10, 2015</span>
+  <article class="post-content">
+    <p>I have recently focused on build tools that help keep code clean.  In <a href="http://gradle.org/">gradle</a> I use
+<a href="https://pmd.github.io/">PMD</a>, <a href="http://findbugs.sourceforge.net/">findbugs</a> and <a href="http://checkstyle.sourceforge.net/">checkstyle</a>.  Probably about 50% of the time I check in code these
+tools catch something bad I was attempting to do.  They have proven their worth.</p>
 
-        <h2>
-          <a class="post-link" href="/programming/2015/12/10/checkstyle-suppressions.html">Checkstyle Suppressions</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 19, 2015</span>
+<p>I run into a problem though with beans where the equals that IntelliJ generates trips 
+complexity warnings in checkstyle.  Running a <code>./gradlew check</code> gives me an error 
+that looks like this.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">:checkstyleMain
+[ant:checkstyle] ./bar/src/main/java/com/example/foo/model/Thing.java:33:5: NPath Complexity is 48 (max allowed is 20).
+:checkstyleMain FAILED
+</code></pre></div>
+<p>In the past I have refactored and teased apart this generated code but I finally came
+to the conclusion that I wasn&#39;t adding any value in that effort.</p>
 
-        <h2>
-          <a class="post-link" href="/programming/2015/08/19/spring-mvc-exception-handler.html">Spring Mvc Exception Handler</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 25, 2015</span>
+<p>What I want is an unintrusive way to ignore that check for everything in a given path.
+I stick my beans in a <code>model</code> package so this isn&#39;t too hard to suppress.</p>
 
-        <h2>
-          <a class="post-link" href="/2015/07/25/seattle.html">Seattle</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 24, 2015</span>
+<h2>Create a Suppressions File</h2>
 
-        <h2>
-          <a class="post-link" href="/2015/07/24/oscon-2015.html">Oscon 2015</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 20, 2015</span>
+<p>In my project I have <code>./config/checkstyle/checkstyle.xml</code> already.  I&#39;m going to 
+create a file in the same directory called <code>checkstyle-suppressions.xml</code>.</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE suppressions PUBLIC</span>
+<span class="cp">        &quot;-//Puppy Crawl//DTD Suppressions 1.0//EN&quot;</span>
+<span class="cp">        &quot;http://www.puppycrawl.com/dtds/suppressions_1_0.dtd&quot;&gt;</span>
+<span class="nt">&lt;suppressions&gt;</span>
+    <span class="nt">&lt;suppress</span> <span class="na">checks=</span><span class="s">&quot;NPathComplexity&quot;</span> <span class="na">files=</span><span class="s">&quot;.*\/model\/.*&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/suppressions&gt;</span>
+</code></pre></div>
+<h2>Reference the Suppressions File</h2>
 
-        <h2>
-          <a class="post-link" href="/2015/07/20/pacific-coast-of-oregon.html">Pacific Coast Of Oregon</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>In my <code>./config/checkstyle/checkstyle.xml</code> I have this.</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE module PUBLIC</span>
+<span class="cp">        &quot;-//Puppy Crawl//DTD Check Configuration 1.3//EN&quot;</span>
+<span class="cp">        &quot;http://www.puppycrawl.com/dtds/configuration_1_3.dtd&quot;&gt;</span>
+<span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;Checker&quot;</span><span class="nt">&gt;</span>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+    <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;SuppressionFilter&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;file&quot;</span> <span class="na">value=</span><span class="s">&quot;./config/checkstyle/checkstyle-suppressions.xml&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/module&gt;</span>
+    ...
+</code></pre></div>
+  </article>
 
 </div>
 
