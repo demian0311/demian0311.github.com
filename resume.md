@@ -16,10 +16,12 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Finagle
 - Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
 - Java, JMS, J2EE, EJB, [iBatis](http://blog.mybatis.org/), JDBC, Hibernate, JSP, Struts2, Spring (DI, AOP, DAO, Security)
+- Spring, Spring-Boot
 - SQL, Stored Procedures, MySQL, Oracle, PostgreSQL, Hazelcast, MongoDB
 - Netty, Hystrix
 - HTML, CSS, JavaScript, jQuery, AJAX
-- gradle, sbt, Maven 2, Ant, jUnit, jUnitPerf, Selenium, Cobertura, EasyMock, Pitest
+- gradle, sbt, Maven 2, Ant, Selenium, Cobertura, Pitest
+- jUnit, EasyMock, Mockito, jUnitPerf
 - UML, OOP, OOA/D, FP, AOP
 - ReST (JRA), SOAP (CXF, Axis2, JAXWS), XML
 
@@ -43,7 +45,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - Collaborated with business and leadership to establish a domain model and database schema to run a VoIP and 911 geospatial call routing systems.
 - Created architecture and design for the entire software solution.
 - Wrote the initial software and remained active in the code after advancing in role.
-- Managed a 6 engineer team built by hiring and acquisition. 
+- Managed a 6 engineer team built by hiring and acquisition.
 - Lead agile process as scrum master, aligning work with strategic and tactical business goals.
 - Communicated with customers to make sure they could use our API.
 - Evaluated vendors and consumed various types of APIs.
