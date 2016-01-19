@@ -6,9 +6,142 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Dec 2015 17:13:40 -0600</pubDate>
-    <lastBuildDate>Thu, 10 Dec 2015 17:13:40 -0600</lastBuildDate>
+    <pubDate>Tue, 19 Jan 2016 12:19:56 -0600</pubDate>
+    <lastBuildDate>Tue, 19 Jan 2016 12:19:56 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Entering Amateur Radio</title>
+        <description>&lt;p&gt;When I was in the Marines I remember a European NGO worker (I think 
+he was with &lt;a href=&quot;https://www.icrc.org/&quot;&gt;ICRC&lt;/a&gt;) had a radio setup such that 
+he could communicate around the world.  That seemed interesting at 
+the time.  I don&amp;#39;t remember if he used it to conduct NGO business or
+just communicate with people back home while he was in in remote parts 
+of Africa.&lt;/p&gt;
+
+&lt;p&gt;Recently the local amateur radio club, &lt;a href=&quot;http://www.w5ddl.org/&quot;&gt;Acadiana Amateur Radio 
+Association&lt;/a&gt;, was generous enough to conduct 
+&lt;a href=&quot;http://theadvocate.com/news/acadiana/14385399-123/lafayette-class-helps-ham-radio-enthusiasts-learn-about-hobby-prepare-for-licensing&quot;&gt;free training&lt;/a&gt; at the &lt;a href=&quot;http://www.lafayettesciencemuseum.org/&quot;&gt;Lafayette 
+Science Museum&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I guess I should also out myself as something of a prepper.  You get
+accidental death and dismemberment insurance because there&amp;#39;s a remote
+chance something bad will happen.  In the same sense you can have
+interests that are fun but also prepare you if there is an emergency
+at a local or national level.  I think amateur radio is one of those
+interests.  Knowing what I know now about amateur radio I would want
+a capable HAM in my fortified zombie-proof compound.&lt;/p&gt;
+
+&lt;p&gt;I decided to go and I brought along my son Ryder.  The classes were
+great, a good mix of general topics to get us engaged in HAM radio
+and test preparation.&lt;/p&gt;
+
+&lt;h2&gt;Getting Certified&lt;/h2&gt;
+
+&lt;p&gt;The FCC allows citizens to use portions of the radio spectrum for
+personal use.  To prevent the &lt;a href=&quot;https://en.wikipedia.org/wiki/Tragedy_of_the_commons&quot;&gt;tragedy of the commons&lt;/a&gt; the FCC requires
+that citizens be licensed to use that spectrum.&lt;/p&gt;
+
+&lt;p&gt;There are 3 amateur radio licenses.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Technician&lt;/strong&gt; lets you talk around town and possibly within the state&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;General&lt;/strong&gt; lets you talk nationally and possibly even all over the world&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Extra&lt;/strong&gt; frees up more of the spectrum to do more of the same&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Gordo&amp;#39;s Books&lt;/h3&gt;
+
+&lt;p&gt;Besides the class I read through the &lt;a href=&quot;http://www.gordonwestradioschool.com/&quot;&gt;Gordon West&lt;/a&gt; books 
+to prepare.  The books
+are high quality, good paper, good color.  He has a good approach I think, he
+co-locates the content with the questions and answers.  The dimensions of the
+book make it easier to bring with you as you run errands so that if you have
+a spare moment you can study.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Technician-2014-18-Element-License-Preparation/dp/0945053797/ref=sr_1_1?ie=UTF8&amp;amp;qid=1453213371&amp;amp;sr=8-1&amp;amp;keywords=gordon+west&quot;&gt;Technician Class 2014-18&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/General-Class-2015-2019-Gordon-West/dp/0945053827/ref=sr_1_2?ie=UTF8&amp;amp;qid=1453213505&amp;amp;sr=8-2&amp;amp;keywords=gordon+west&quot;&gt;General Class 2015-2019&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Studying and Practice Testing&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://hamstudy.org/&quot;&gt;hamstudy.org&lt;/a&gt; was another invaluable resource to
+prepare.  The only downside is that you need Internet connectivity to take
+study.  The site seems to be smart about what it puts in front of you, 
+as the learner your main mission is to chug through it until you&amp;#39;re at around
+85% so that you can surely pass the tests.&lt;/p&gt;
+
+&lt;p&gt;One thing I learned too late was that you can go into specific sections
+of the test that you have trouble with.  This lets you focus on those questions
+and see them more often.  I don&amp;#39;t think it&amp;#39;s the only way to go but perhaps it&amp;#39;s
+good to mix it up like that.&lt;/p&gt;
+
+&lt;h3&gt;My Suggestions&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Don&amp;#39;t peak too early, I did and I had to keep studying for a couple weeks to
+retain.  Give yourself 2 or 3 weeks and go for it.&lt;/li&gt;
+&lt;li&gt;Don&amp;#39;t focus too much on the formulas.  I know the formulas and I get them but
+I just memorized the answers.&lt;/li&gt;
+&lt;li&gt;Unit conversion (like from kHz to MHz) moves 3 decimal places, exclude answers that fit that.&lt;/li&gt;
+&lt;li&gt;Except for decibels the math is always either multiplication or division, knowing
+the right answer fits that will get you far.&lt;/li&gt;
+&lt;li&gt;Always end transmissions with your call sign.&lt;/li&gt;
+&lt;li&gt;Always err on being safe.&lt;/li&gt;
+&lt;li&gt;Always err on being nice. &lt;/li&gt;
+&lt;li&gt;Mnemonics.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To elaborate on the mnemonics, here are a couple that get me through 6 or so of the
+answers.  If you&amp;#39;ve been through the questions you know how it helps.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;There&amp;#39;s a duck in a field with a magnet in his mouth, he has a chain around his 
+neck and it says &amp;quot;Henry&amp;quot;, he flies up and from the side his lips look like an inductor schematic.&lt;/li&gt;
+&lt;li&gt;There&amp;#39;s an Arab guy named Farad in a field wearing a cap with a lightning bolt on it, the
+top of his cap looks like a capacitor schematic.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Testing&lt;/h3&gt;
+
+&lt;p&gt;Before their monthly meeting the local amateur radio club holds tests conducted by 
+trained volunteers.  You can take as many tests as you would like for $15 but if you 
+fail a test and want to re-take it you have to pay another $15.  I was able to take
+both the technician and the general tests.  I did alright on the technician, for the 
+general I was unsure but they told me I passed.  They asked if I wanted to go for
+extra but I didn&amp;#39;t want to waste their time.  All the volunteers were awesome and helpful.&lt;/p&gt;
+
+&lt;h2&gt;Call Sign&lt;/h2&gt;
+
+&lt;p&gt;A week after testing I looked up my name with the FCC.  I was assigned the call sign
+&lt;strong&gt;KG5KZM&lt;/strong&gt;.  Not too bad but I decided to apply for a vanity call sign right 
+away.  Just like vanity plates for your car you can try to get a call sign of 
+your choosing as long as it&amp;#39;s available.  It also has to be the right format for 
+your license.&lt;/p&gt;
+
+&lt;p&gt;You pick a dozen or so call signs you would like in priority order, wait 18 days and
+find out what you got.  I chose a bunch of variations on X9DLN to have my initials.
+Not very creative but seems easy to remember.&lt;/p&gt;
+
+&lt;h2&gt;What&amp;#39;s Next&lt;/h2&gt;
+
+&lt;p&gt;We have to see if my son Ryder can pass for technician.  He&amp;#39;s slowly getting there.&lt;/p&gt;
+
+&lt;p&gt;I have some hand-held radios that you&amp;#39;d use for local communication.  I&amp;#39;d like to get
+into pack portable HF on battery and solar, lots to learn.  If I get up to speed I 
+might look into &lt;a href=&quot;http://www.arrl.org/ares&quot;&gt;ARES&lt;/a&gt; to be helpful in emergencies.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Jan 2016 00:00:00 -0600</pubDate>
+        <link>http://neidetcher.com/ham/2016/01/19/entering-amateur-radio.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/ham/2016/01/19/entering-amateur-radio.html</guid>
+        
+        <category>ham</category>
+        
+        
+        <category>ham</category>
+        
+      </item>
     
       <item>
         <title>Checkstyle Suppressions</title>
@@ -538,82 +671,6 @@ of functions already so I don&amp;#39;t have nasty multi-line lambdas.&lt;/p&gt;
         
         
         <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>A Guide To The Good Life</title>
-        <description>&lt;p&gt;Raise your hand if your job title is &lt;em&gt;I work with assholes all day&lt;/em&gt;.  Wow, that was a lot, you might
-want to read this book.  The full title of the book is &lt;a href=&quot;http://www.amazon.com/Guide-Good-Life-Ancient-Stoic/dp/0195374614&quot;&gt;A Guide to the Good Life: The Ancient Art of Stoic Joy&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;Background&lt;/h2&gt;
-
-&lt;p&gt;I have read blog posts and perused Wikipedia but this is the first book I have read on stoicism.  It 
-probably doesn&amp;#39;t help that the word &lt;em&gt;Stoic&lt;/em&gt; is used commonly to refer to someone who seems without
-emotion.  But for the un-initiated, stoicism is a Greek and Roman philosophy that is concerned with
-minimizing bad emotions.  It&amp;#39;s different in that is very practical, it&amp;#39;s not very abstract.  It&amp;#39;s
-better to think of it as a set of tools that help you navigate your day and your life with minimal
-negative thoughts like jealousy, anxiety, anger and so on.&lt;/p&gt;
-
-&lt;p&gt;Like so many topics I think I gravitated towards this because instead of showing me something I 
-never thought of before it more codifies an approach or ideology I already have.  There&amp;#39;s a lot
-of value in firming up your existing beliefs but it&amp;#39;s good to be aware of the selection bias that
-you have.&lt;/p&gt;
-
-&lt;h2&gt;The Book&lt;/h2&gt;
-
-&lt;p&gt;The book covers the history of stoicism.  That was interesting although some notable Stoics seemed
-to die early.  That might not be encouraging when you&amp;#39;re browsing for philosophies.&lt;/p&gt;
-
-&lt;p&gt;It goes on to cover some techniques to help you in your daily life.  The author doesn&amp;#39;t hide the
-fact that he is interpreting original Stoic literature for us and applying it to modern life.  It&amp;#39;s 
-not a big book, seems to be a great introduction overall to the philosophy.&lt;/p&gt;
-
-&lt;h2&gt;Some Techniques&lt;/h2&gt;
-
-&lt;h3&gt;Negative Visualization&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;#39;ve ever reasoned &lt;em&gt;what is the worst that could happen&lt;/em&gt; to get yourself through something then
-you have practiced negative visualization.  For example if you have anxiety about entirely losing your
-livelyhood you could imagine living with family.  Maybe that wouldn&amp;#39;t be so bad, maybe you&amp;#39;d connect
-more than you would have otherwise.  Alright, perhaps a bad example but you get the idea.  There are
-other variations on this theme but that&amp;#39;s the gist.&lt;/p&gt;
-
-&lt;h3&gt;Dichotomy of Control&lt;/h3&gt;
-
-&lt;p&gt;If you&amp;#39;ve ever read the Serenity Prayer you&amp;#39;re familiar with this Stoic principle.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;God, grant me the serenity to accept the things I cannot change,
-The courage to change the things I can,
-And the wisdom to know the difference.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;It&amp;#39;s really about working through the things that you can absolutely control (the thoughts in your
-mind), the things you sort of control (your actions) and the things you absolutely don&amp;#39;t control which
-is pretty much everything else in the world.  There&amp;#39;s much more useful subtlety in the book.&lt;/p&gt;
-
-&lt;h3&gt;Fatalism for the Past&lt;/h3&gt;
-
-&lt;p&gt;Stoics also seem to practice a kind of fatalism on past events.  I guess this is just a function of
-putting the past into the bucket of those things you can&amp;#39;t control.  So let it guide your decisions
-but don&amp;#39;t dwell on it and don&amp;#39;t worry about it.&lt;/p&gt;
-
-&lt;h2&gt;End Matter&lt;/h2&gt;
-
-&lt;p&gt;You might think that all this would make someone apathetic towards life.  That&amp;#39;s not the case, 
-Stoics seem to think you have a social duty based on your existence.  You should strive to be 
-productive and have a positive influence on others.&lt;/p&gt;
-
-&lt;p&gt;Still not sure, go read &lt;a href=&quot;https://en.wikiquote.org/wiki/Marcus_Aurelius&quot;&gt;some quotes from Marcus Aurelius&lt;/a&gt;.  He was the last big Stoic, a Roman
-Emporer and apparently an alright guy.  His job description including having to work with assholes
-all day.  These guys had it figured out, it&amp;#39;s cool something so old has a lot to offer in the 
-present day.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 19 Feb 2015 00:00:00 -0600</pubDate>
-        <link>http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2015/02/19/a-guide-to-the-good-life.html</guid>
-        
         
       </item>
     
