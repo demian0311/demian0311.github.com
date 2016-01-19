@@ -55,7 +55,7 @@ a spare moment you can study.
 ### Studying and Practice Testing
 
 [hamstudy.org](https://hamstudy.org/) was another invaluable resource to
-prepare.  The only downside is that you need Internet connectivity to take
+prepare.  The only downside is that you need Internet connectivity to 
 study.  The site seems to be smart about what it puts in front of you, 
 as the learner your main mission is to chug through it until you're at around
 85% so that you can surely pass the tests.
@@ -71,7 +71,7 @@ good to mix it up like that.
   retain.  Give yourself 2 or 3 weeks and go for it.
 - Don't focus too much on the formulas.  I know the formulas and I get them but
   I just memorized the answers.
-- Unit conversion (like from kHz to MHz) moves 3 decimal places, exclude answers that fit that.
+- Unit conversion (like from kHz to MHz) moves 3 decimal places, exclude answers that do not fit that.
 - Except for decibels the math is always either multiplication or division, knowing
   the right answer fits that will get you far.
 - Always end transmissions with your call sign.
