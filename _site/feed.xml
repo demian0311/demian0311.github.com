@@ -6,8 +6,8 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 19 Jan 2016 12:19:56 -0600</pubDate>
-    <lastBuildDate>Tue, 19 Jan 2016 12:19:56 -0600</lastBuildDate>
+    <pubDate>Tue, 02 Feb 2016 07:01:10 -0600</pubDate>
+    <lastBuildDate>Tue, 02 Feb 2016 07:01:10 -0600</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -67,7 +67,7 @@ a spare moment you can study.&lt;/p&gt;
 &lt;h3&gt;Studying and Practice Testing&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://hamstudy.org/&quot;&gt;hamstudy.org&lt;/a&gt; was another invaluable resource to
-prepare.  The only downside is that you need Internet connectivity to take
+prepare.  The only downside is that you need Internet connectivity to 
 study.  The site seems to be smart about what it puts in front of you, 
 as the learner your main mission is to chug through it until you&amp;#39;re at around
 85% so that you can surely pass the tests.&lt;/p&gt;
@@ -84,7 +84,7 @@ good to mix it up like that.&lt;/p&gt;
 retain.  Give yourself 2 or 3 weeks and go for it.&lt;/li&gt;
 &lt;li&gt;Don&amp;#39;t focus too much on the formulas.  I know the formulas and I get them but
 I just memorized the answers.&lt;/li&gt;
-&lt;li&gt;Unit conversion (like from kHz to MHz) moves 3 decimal places, exclude answers that fit that.&lt;/li&gt;
+&lt;li&gt;Unit conversion (like from kHz to MHz) moves 3 decimal places, exclude answers that do not fit that.&lt;/li&gt;
 &lt;li&gt;Except for decibels the math is always either multiplication or division, knowing
 the right answer fits that will get you far.&lt;/li&gt;
 &lt;li&gt;Always end transmissions with your call sign.&lt;/li&gt;
