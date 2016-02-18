@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Demian Neidetcher</title>
-  <meta name="description" content="I'm a software engineer, primarily working with JVM languages and in the telecommunications domain.
-">
+  <title>Log The Stack In Java</title>
+  <meta name="description" content="Sometimes a method is executed and you&#39;re just not sure how you got there.  You could bump up logging orset a breakpoint but just logging the contents of...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/">
+  <link rel="canonical" href="http://neidetcher.com/programming/2016/02/18/log-the-stack-in-java.html">
   <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
 </head>
 
@@ -67,55 +66,30 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <div class="post">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title">Log The Stack In Java</h1>
+    <p class="post-meta">Feb 18, 2016</p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Feb 18, 2016</span>
+  <article class="post-content">
+    <p>Sometimes a method is executed and you&#39;re just not sure how you got there.  You could bump up logging or
+set a breakpoint but just logging the contents of the call stack is another good option.</p>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">logStack</span><span class="o">()</span> <span class="o">{</span>
+   <span class="kt">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
+   <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;logging stack at [{}]&quot;</span><span class="o">,</span> <span class="n">currTime</span><span class="o">);</span>
+   <span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">skip</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">ste</span> <span class="o">-&gt;</span> <span class="n">ste</span><span class="o">.</span><span class="na">getClassName</span><span class="o">().</span><span class="na">startsWith</span><span class="o">(</span><span class="s">&quot;com.exmple&quot;</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">ste</span> <span class="o">-&gt;</span> <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;{} - ste: {}&quot;</span><span class="o">,</span> <span class="n">currTime</span><span class="o">,</span> <span class="n">ste</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></div>
+<p>We skip the first 2 elements of the stack because that contains where we called logStack from and
+the current location.  It&#39;s optional but I like to filter to just include classes that start with
+our package name.</p>
 
-        <h2>
-          <a class="post-link" href="/programming/2016/02/18/log-the-stack-in-java.html">Log The Stack In Java</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 19, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/ham/2016/01/19/entering-amateur-radio.html">Entering Amateur Radio</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 10, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/programming/2015/12/10/checkstyle-suppressions.html">Checkstyle Suppressions</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 19, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/programming/2015/08/19/spring-mvc-exception-handler.html">Spring Mvc Exception Handler</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 25, 2015</span>
-
-        <h2>
-          <a class="post-link" href="/2015/07/25/seattle.html">Seattle</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+  </article>
 
 </div>
 
