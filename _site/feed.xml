@@ -6,9 +6,62 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Feb 2016 07:41:56 -0600</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 07:41:56 -0600</lastBuildDate>
+    <pubDate>Fri, 29 Apr 2016 11:48:21 -0500</pubDate>
+    <lastBuildDate>Fri, 29 Apr 2016 11:48:21 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Strengths Finder</title>
+        <description>&lt;p&gt;At &lt;a href=&quot;https://timewarnercable.com&quot;&gt;work&lt;/a&gt; they had us take the 
+&lt;a href=&quot;https://www.gallupstrengthscenter.com&quot;&gt;Gallup StrengthsFinder&lt;/a&gt; test to see what our strengths 
+are.  I figured they paid for it, why shouldn&amp;#39;t the whole world benefit from knowing what my 
+strengths are according to Gallup.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;#39;t imagine much will be done with this data but my co-workers and I compared our results 
+and they were accurate.  Here they are in priority order.&lt;/p&gt;
+
+&lt;h2&gt;Learner&lt;/h2&gt;
+
+&lt;p&gt;Indeed I like to learn.  Programming is a great career for someone who likes to learn.  I like to 
+be pragmatic about it, learning what I need to get something done and do the right things.  &lt;/p&gt;
+
+&lt;p&gt;In my personal life I see the same thing.  I cycle through different things to study, right now it&amp;#39;s 
+amateur radio and a distant second of learning the guitar.  I don&amp;#39;t read fiction because I&amp;#39;d rather
+be learning stuff, sure there are great rebuttals to that statement.&lt;/p&gt;
+
+&lt;p&gt;The Gallup description says that sometimes for a learner the process is more significant than the
+result.  I&amp;#39;d like to think that&amp;#39;s not the case with me.  I believe I am more pragmatic and that I
+get amped up about applying what I learn to solve problems.  That&amp;#39;s when the payoff is.&lt;/p&gt;
+
+&lt;h2&gt;Strategic&lt;/h2&gt;
+
+&lt;p&gt;Yeah this is me too.  I think about the long-term results of decisions and wether or not we will come
+to regret them.  I have a strong pull to share these views.&lt;/p&gt;
+
+&lt;h2&gt;Achiever&lt;/h2&gt;
+
+&lt;p&gt;The Gallup copy explains this strength as needing continual success.  This one fits as well.  I know
+that I sometimes say &amp;#39;we need a win&amp;#39; or &amp;#39;they need a W on the board&amp;#39;.  If I&amp;#39;m being honest with myself,
+this isn&amp;#39;t all the time.  I need to be engaged and bought into what is happening.  I set goals for 
+myself and I feel good about achieving them, peronsally and professionally.  &lt;/p&gt;
+
+&lt;h2&gt;Focus&lt;/h2&gt;
+
+&lt;p&gt;I also hear myself say &amp;#39;we need to make forward progress&amp;#39;.  So yeah this one is appropriate too.  When
+I get my head wrapped around a problem I get a tight grip on it.&lt;/p&gt;
+
+&lt;h2&gt;Responsibility&lt;/h2&gt;
+
+&lt;p&gt;I guess this fits as well.  As with &amp;#39;achiever&amp;#39; I honestly need to be invested in the endeavor before I
+attach that responsibility.  If something is out of my area or if there are other folks running with it
+I do see myself not exercising this strength.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 29 Apr 2016 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/2016/04/29/strengths-finder.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2016/04/29/strengths-finder.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Log The Stack In Java</title>
@@ -546,89 +599,6 @@ adversity.&lt;/p&gt;
         <link>http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/06/the-obstacle-is-the-way.html</guid>
         
-        
-      </item>
-    
-      <item>
-        <title>Stupid Java8 Trick</title>
-        <description>&lt;p&gt;Alright this isn&amp;#39;t much but I&amp;#39;m satisfied with myself and it surprisingly took me a
-little bit to push the right buttons to make it work.&lt;/p&gt;
-
-&lt;p&gt;I use EasyMock in my unit tests in Java8.  Mocking frameworks will typically have a
-recording phase and then a phase where your expectations should be ready to play back.
-With EasyMock your unit test can extend &lt;code&gt;EasyMockSupport&lt;/code&gt;.  That class gives you access
-to methods like &lt;code&gt;replayAll()&lt;/code&gt; and &lt;code&gt;verifyAll()&lt;/code&gt;.  &lt;/p&gt;
-
-&lt;h2&gt;Before&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
-
-   &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;Inter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ageFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;After&lt;/h2&gt;
-
-&lt;p&gt;This isn&amp;#39;t as smooth as you&amp;#39;d see in Scala or Groovy but in Java8 you can do something like this.  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MySupport&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EasyMockSupport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Runnable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;runnableIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;runnableIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Supplier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;supplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;replayAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;supplierIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;verifyAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I think I need both versions of &lt;code&gt;withMocks&lt;/code&gt;.  The first one handles when you are testing a method that doesn&amp;#39;t
-return anything and the second one handles when your method does return something.  One of the 
-things that gave me trouble was figuring out what interface in &lt;code&gt;java.util.function&lt;/code&gt; would not 
-return any value.  Of course the answer is our old friend &lt;code&gt;Runnable&lt;/code&gt;.  I also struggled with 
-what Java wanted for the generics, that stuff isn&amp;#39;t obvious to me.&lt;/p&gt;
-
-&lt;p&gt;Then your test extends &lt;code&gt;MySupport&lt;/code&gt;.  And within your tests you can have code that looks like this.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ageFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Caveat&lt;/h2&gt;
-
-&lt;p&gt;This tightens up unit tests but I did run into a caveat that I should mention.  If the constructor for
-your &lt;em&gt;class under test&lt;/em&gt; uses mocks that would need to be between the &lt;code&gt;replayAll()&lt;/code&gt; and &lt;code&gt;verifyAll()&lt;/code&gt; 
-methods then you might want to create a method in your test that instantiates your &lt;em&gt;class under test&lt;/em&gt;.
-It might look something like this.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AgeFinder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createAgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mockDatabase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// a bunch of expects&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;Integer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withMocks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createAgeFinder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAge&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;assertEquals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Tue, 30 Jun 2015 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2015/06/30/stupid-java8-trick.html</guid>
-        
-        <category>programming</category>
-        
-        <category>java8</category>
-        
-        
-        <category>programming</category>
         
       </item>
     
