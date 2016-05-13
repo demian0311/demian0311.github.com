@@ -6,22 +6,21 @@ title : Resume
 demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 
 ## Summary of Qualifications
+- Strengths are [Learner, Achiever, Focus, Responsibility](/2016/04/29/strengths-finder.html)
 - Pragmatic team player that thrives on producing tangible results that add real benefit.
-- Effectively operate in Fortune 500 companies and startups.
-- Over 15 years on Java platform (Java, Groovy, Scala) primarily in the telecom domain.
-- Full SDLC experience in consulting, enterprise and consumer software offerings.
+- Over 17 years on Java platform (Java, Groovy, Scala) primarily in the telecom domain.
 
 ## Skill
 ### Languages and APIs
-- [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Finagle
+- Java (FP with Java8), JMS, J2EE, EJB, [iBatis](http://blog.mybatis.org/), JDBC, Hibernate, JSP, Struts2, Spring (DI, AOP, DAO, Security)
 - Groovy, Grails, Python (Django , CGI, PIL), Jython, Ruby, Rails
-- Java, JMS, J2EE, EJB, [iBatis](http://blog.mybatis.org/), JDBC, Hibernate, JSP, Struts2, Spring (DI, AOP, DAO, Security)
-- Spring, Spring-Boot
-- SQL, Stored Procedures, MySQL, Oracle, PostgreSQL, Hazelcast, MongoDB
-- Netty, Hystrix
-- HTML, CSS, JavaScript, jQuery, AJAX
-- gradle, sbt, Maven 2, Ant, Selenium, Cobertura, Pitest
-- jUnit, EasyMock, Mockito, jUnitPerf
+- [Scala](http://www.scala-lang.org/), [Lift](http://liftweb.net/), Play, Finagle
+- Spring, Spring-Boot, Hystrix
+- SQL, Stored Procedures, MySQL, Oracle, PostgreSQL, MongoDB, Hazelcast
+- Netty, SipStack.io 
+- HTML, CSS, Sass, JavaScript, jQuery, Angular, Chrome Developer Tools
+- gradle, sbt, Maven 2, Ant
+- jUnit, EasyMock, Mockito, jUnitPerf, Selenium-IDE (and selenium-java), Cobertura, Jacoco, Pitest
 - UML, OOP, OOA/D, FP, AOP
 - ReST (JRA), SOAP (CXF, Axis2, JAXWS), XML
 
@@ -37,7 +36,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 #### [Time Warner Cable](http://www.timewarnercable.com/) - Senior Engineer, Denver, CO (Oct 10 - present)
 - Lead engineer on 2 [PCI](https://www.pcisecuritystandards.org/) customer portal applications written in Groovy and Grails.
 - Residential and commercial portal development in Groovy and Grails.
-- Scala RESTful JSON API integrating a dozen back-end systems.
+- Scala RESTful JSON middleware to support portals integrating a dozen back-end systems.
 - Designed and implemented web services backing the first cable iPad application to stream real-time video content. The application and service was awarded the [2011 Academy of Television Arts & Sciences Philo T. Farnsworth Award](http://www.deadline.com/2011/10/emmys-primetime-engineering-awards-announced-vod-pioneer-among-winners/).
 - Wrote Android demo application featured in Samsung keynote at the 2011 [CES](http://www.cesweb.org/).
 
