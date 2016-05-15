@@ -20,7 +20,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - Netty, SipStack.io 
 - HTML, CSS, Sass, JavaScript, jQuery, Angular, Chrome Developer Tools
 - gradle, sbt, Maven 2, Ant
-- jUnit, EasyMock, Mockito, jUnitPerf, Selenium-IDE (and selenium-java), Cobertura, Jacoco, Pitest
+- jUnit, Spock, EasyMock, Mockito, jUnitPerf, Selenium-IDE (and selenium-java), Cobertura, Jacoco, Pitest
 - UML, OOP, OOA/D, FP, AOP
 - ReST (JRA), SOAP (CXF, Axis2, JAXWS), XML
 
