@@ -6,16 +6,105 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 May 2016 21:58:08 -0500</pubDate>
-    <lastBuildDate>Thu, 12 May 2016 21:58:08 -0500</lastBuildDate>
+    <pubDate>Tue, 17 May 2016 20:23:35 -0500</pubDate>
+    <lastBuildDate>Tue, 17 May 2016 20:23:35 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Spring Security Grails Plugin Gotcha</title>
+        <description>&lt;h2&gt;Spring Security Grails Plugin&lt;/h2&gt;
+
+&lt;p&gt;Alright, our hero is doing a Grails application and wants some security in a brand new Grails 3.1.6 
+application.  Good thing there&amp;#39;s a plugin for that and I can move onto the next thing right away.  Oh
+ you sweet summer child.&lt;/p&gt;
+
+&lt;p&gt;Add the dependency in &lt;code&gt;build.gradle&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;org.grails.plugins:spring-security-core:3.1.1&amp;#39;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then I run the associated script to create the domain objects that are going to manage the
+security like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;grails s2-quickstart com.yourapp User Role --groupClassName=RoleGroup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Blissfully ignorant and following along with the documentation I charged forward.  Next up 
+you quick data for development to associate the user to the role in &lt;code&gt;BootStrap.groovy&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dneidetcher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;username:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;dneidetcher&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;firstName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Demian&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;lastName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Neidetcher&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;emailAddress:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;demian0311@gmail.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;password:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;foo&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;flush:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;UserRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dneidetcher&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adminRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;UserRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withSession&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;flush&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;clear&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then I apply my annotation on a controller so that I can allow access to it based on role:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;grails.plugin.springsecurity.annotation.Secured&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Secured&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ROLE_ADMIN&amp;#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scaffold&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Identifying the Problem&lt;/h2&gt;
+
+&lt;p&gt;Then you navigate to &lt;a href=&quot;http://localhost:8080/user&quot;&gt;http://localhost:8080/user&lt;/a&gt; and you 
+get &lt;em&gt;Sorry, you&amp;#39;re not authorized to view this page&lt;/em&gt; and nothing really more helpful than that.&lt;/p&gt;
+
+&lt;p&gt;Turns out that our sad story really began when we added this &lt;code&gt;--groupClassName=RoleGroup&lt;/code&gt; to 
+the &lt;code&gt;s2-quickstart&lt;/code&gt; command we used to generate the code.  The net of it is that my &lt;code&gt;BootStrap.groovy&lt;/code&gt; code
+that associated &lt;code&gt;User&lt;/code&gt; to &lt;code&gt;Role&lt;/code&gt; was insufficient.  The group stuff wants you to associate a &lt;code&gt;Group&lt;/code&gt; with
+a &lt;code&gt;Role&lt;/code&gt; and then a &lt;code&gt;User&lt;/code&gt; with that &lt;code&gt;Group&lt;/code&gt; to get anything done.  That&amp;#39;s all fine but it&amp;#39;s a layer of
+indirection I don&amp;#39;t think I need.  It took me over 3 hours to figure this out.&lt;/p&gt;
+
+&lt;h2&gt;The Fix&lt;/h2&gt;
+
+&lt;p&gt;Well in the first place I should have done this for my &lt;code&gt;s2-quickstart&lt;/code&gt; command.  That would have avoided the headache. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;grails s2-quickstart com.yourapp User Role 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But in my case I wanted to attempt to back out of the mess so this is what I did.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code&gt;User&lt;/code&gt; you need to change this function to this implementation:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Role&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getAuthorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;UserRole&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;findAllByUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)*.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;role&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In &lt;code&gt;application.groovy&lt;/code&gt; you need to change this attribute to be false:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;grails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;plugin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;springsecurity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;useRoleGroups&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And you need to remove all of the Spring Security Plugin generated domain objects that have the word &lt;code&gt;Group&lt;/code&gt; 
+in them.  After that things worked as expected, Spring Security worked with my annotations.  So yeah, maybe 
+not so much a &lt;em&gt;gotcha&lt;/em&gt; but me not knowing Spring Security well enough.  Regardless, onward and upward.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 17 May 2016 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</guid>
+        
+        <category>programming</category>
+        
+        <category>grails</category>
+        
+        <category>spring</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       <item>
         <title>Videos From This Spring</title>
         <description>&lt;h2&gt;Denver 2016&lt;/h2&gt;
 
 &lt;p&gt;The past couple years I managed to get 2 snowboarding trips back to Denver.  This season I only got one.  Mike took his
-daughter Chloe for lessons at A-Basin so that&amp;#39;s where we went.  Visibility could&amp;#39;ve been better but I can&amp;#39;t complain. Work
+daughter Chloe for lessons at Loveland so that&amp;#39;s where we went.  Visibility could&amp;#39;ve been better but I can&amp;#39;t complain. Work
 flew a lot of people out so we could be in one place.  Enough of us were out such that our offices downtown Denver couldn&amp;#39;t
 hold us all so we went over to &lt;a href=&quot;http://www.galvanize.com/&quot;&gt;Gavlanize&lt;/a&gt;.  It was great to see people, given the merger
 not sure when or if I&amp;#39;ll get back there.  Holy cow Denver is growing.&lt;/p&gt;
@@ -564,29 +653,6 @@ that was used to just be a light-house off the coast.  That&amp;#39;d be some bo
         <pubDate>Mon, 20 Jul 2015 00:00:00 -0500</pubDate>
         <link>http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</link>
         <guid isPermaLink="true">http://neidetcher.com/2015/07/20/pacific-coast-of-oregon.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Pensacola Beach 2015</title>
-        <description>&lt;p&gt;This is our 3rd year of going to Pensacola Beach, Florida.  &lt;a href=&quot;https://www.youtube.com/watch?v=UeE9oYN1OjY&quot;&gt;Here&amp;#39;s the video of our 2014 trip&lt;/a&gt;.
-We usually do another trip besides this but this is our lazy trip, we set expectations very low.
-We&amp;#39;ll go to the beach, go to the pool, take a nap, get something to eat.  The beaches are great
-and it&amp;#39;s a 6 hour drive from home in Louisiana.&lt;/p&gt;
-
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OZJ3Nqas3K0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;The water was more choppy than what I remember previously.  There were not jellyfish to zap us, mustn&amp;#39;t be
-in season.  This is the first year that Bodhi can swim entirely on his own.  He&amp;#39;s a real strong swimmer.  When
-last season ended he wasn&amp;#39;t quite there.  We got to the pool a lot early this Summer and he picked right
-back up where he was and quickly got more confidence in swimming.&lt;/p&gt;
-
-&lt;iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220344.29631034881!2d-87.05139615000002!3d30.354370650000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8890dad848d85a0d%3A0x687b7b80ca21169e!2sPensacola+Beach%2C+FL!5e0!3m2!1sen!2sus!4v1436616543660&quot; width=&quot;600&quot; height=&quot;450&quot; frameborder=&quot;0&quot; style=&quot;border:0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-</description>
-        <pubDate>Sat, 11 Jul 2015 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2015/07/11/pensacola-beach-2015.html</guid>
         
         
       </item>
