@@ -12,4 +12,6 @@ github_username:  demian0311
 # Build settings
 #markdown: kramdown
 markdown: redcarpet
-highlighter: pygments
+#highlighter: pygments
+highlighter: rouge
+

@@ -95,7 +95,7 @@ It&#39;s familiar to someone used to Scala.  Templates are just functions and ha
 
 <p><strong>Testing</strong><br>
 They have utilities to help with testing.  All the examples use Specs, I haven&#39;t got the Specs memo yet, still using jUnit (get off my porch).  The biggest problem is that the controllers are objects so it&#39;s hard to do good unit testing.  I found a workaround that someone suggested.  Basically your controller is a class, in this case taking a dependency via the constructor.  Then the object that you tell Play about in the routes extends that class.  This seems to work in my toy example.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">object MockUp extends controllers.MockUp(new ProductionGuidCryptoServiceProvider()) {}
+<div class="highlight"><pre><code class="language-" data-lang="">object MockUp extends controllers.MockUp(new ProductionGuidCryptoServiceProvider()) {}
 </code></pre></div>
   </article>
 

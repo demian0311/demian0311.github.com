@@ -116,10 +116,10 @@ The Akka documentation wasn&#39;t very straight-forward to me.  I have to admit 
 read it end to end, I was doing more random access.</p>
 <div class="highlight"><pre><code class="language-scala" data-lang="scala"><span class="k">implicit</span> <span class="k">val</span> <span class="n">timeout</span> <span class="k">=</span> <span class="nc">Timeout</span><span class="o">(</span><span class="mi">10000</span><span class="o">)</span>
 
-<span class="k">val</span> <span class="n">system</span> <span class="k">=</span> <span class="nc">ActorSystem</span><span class="o">(</span><span class="s">&quot;SimpleSystem&quot;</span><span class="o">)</span>
+<span class="k">val</span> <span class="n">system</span> <span class="k">=</span> <span class="nc">ActorSystem</span><span class="o">(</span><span class="s">"SimpleSystem"</span><span class="o">)</span>
 <span class="k">val</span> <span class="n">persistorActor</span><span class="k">:</span> <span class="kt">ActorRef</span> <span class="o">=</span> <span class="n">system</span><span class="o">.</span><span class="n">actorOf</span><span class="o">(</span><span class="nc">Props</span><span class="o">[</span><span class="kt">PersistorActor</span><span class="o">].</span><span class="n">withRouter</span><span class="o">(</span>
     <span class="nc">RoundRobinRouter</span><span class="o">(</span><span class="n">nrOfInstances</span> <span class="k">=</span> <span class="mi">100</span><span class="o">)</span>
-<span class="o">),</span> <span class="n">name</span> <span class="k">=</span> <span class="s">&quot;simpleRoutedActor&quot;</span><span class="o">)</span>
+<span class="o">),</span> <span class="n">name</span> <span class="k">=</span> <span class="s">"simpleRoutedActor"</span><span class="o">)</span>
 </code></pre></div>
 <p>This is the actor usage example that you always see.  This is async, fire and
 forget.  This goes right on a different thread so the actor can do it&#39;s work.</p>

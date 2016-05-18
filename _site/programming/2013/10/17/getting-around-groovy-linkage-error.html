@@ -107,8 +107,8 @@ it is to have a static method with the same name as an inner class.</p>
 <p>The offending class is <a href="http://netflix.github.io/Hystrix/javadoc/com/netflix/hystrix/HystrixCommandProperties.html">HystrixCommandProperties</a>.
 If you search that page for <em>Setter</em> you&#39;ll see the inner class and 
 the static factory method they want you to use to create a new one.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">  LinkageError occurred when processing request: [GET] /hystrix-circuit-breaker/test
-  loader constraint violation: when resolving method &quot;com.netflix.hystrix.HystrixCommandProperties.Setter()Lcom/netflix/hystrix/HystrixCommandProperties$Setter;&quot; the class loader (instance of org/codehaus/groovy/runtime/callsite/CallSiteClassLoader) of the current class, com/netflix/hystrix/HystrixCommandProperties$Setter, and the class loader (instance of groovy/lang/GroovyClassLoader) for resolved class, com/netflix/hystrix/HystrixCommandProperties, have different Class objects for the type com/netflix/hystrix/HystrixCommandProperties$Setter used in the signature. Stacktrace follows:
+<div class="highlight"><pre><code class="language-" data-lang="">  LinkageError occurred when processing request: [GET] /hystrix-circuit-breaker/test
+  loader constraint violation: when resolving method "com.netflix.hystrix.HystrixCommandProperties.Setter()Lcom/netflix/hystrix/HystrixCommandProperties$Setter;" the class loader (instance of org/codehaus/groovy/runtime/callsite/CallSiteClassLoader) of the current class, com/netflix/hystrix/HystrixCommandProperties$Setter, and the class loader (instance of groovy/lang/GroovyClassLoader) for resolved class, com/netflix/hystrix/HystrixCommandProperties, have different Class objects for the type com/netflix/hystrix/HystrixCommandProperties$Setter used in the signature. Stacktrace follows:
   org.codehaus.groovy.grails.web.servlet.mvc.exceptions.ControllerExecutionException: Executing action [index] of controller [hystrix.circuit.breaker.TestController] in plugin [hystrix-circuit-breaker] caused exception: Runtime error executing action
      at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(ThreadPoolExecutor.java:895)
      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:918)
@@ -117,7 +117,7 @@ the static factory method they want you to use to create a new one.</p>
     ... 3 more
   Caused by: java.lang.reflect.InvocationTargetException
     ... 3 more
-  Caused by: java.lang.LinkageError: loader constraint violation: when resolving method &quot;com.netflix.hystrix.HystrixCommandProperties.Setter()Lcom/netflix/hystrix/HystrixCommandProperties$Setter;&quot; the class loader (instance of org/codehaus/groovy/runtime/callsite/CallSiteClassLoader) of the current class, com/netflix/hystrix/HystrixCommandProperties$Setter, and the class loader (instance of groovy/lang/GroovyClassLoader) for resolved class, com/netflix/hystrix/HystrixCommandProperties, have different Class objects for the type com/netflix/hystrix/HystrixCommandProperties$Setter used in the signature
+  Caused by: java.lang.LinkageError: loader constraint violation: when resolving method "com.netflix.hystrix.HystrixCommandProperties.Setter()Lcom/netflix/hystrix/HystrixCommandProperties$Setter;" the class loader (instance of org/codehaus/groovy/runtime/callsite/CallSiteClassLoader) of the current class, com/netflix/hystrix/HystrixCommandProperties$Setter, and the class loader (instance of groovy/lang/GroovyClassLoader) for resolved class, com/netflix/hystrix/HystrixCommandProperties, have different Class objects for the type com/netflix/hystrix/HystrixCommandProperties$Setter used in the signature
     at hystrix.circuit.breaker.DodgyStringReverser.createSetter(TestController.groovy:31)
     at hystrix.circuit.breaker.DodgyStringReverser.&lt;init&gt;(TestController.groovy:36)
     at hystrix.circuit.breaker.TestController.index(TestController.groovy:18)
@@ -129,8 +129,8 @@ the static factory method they want you to use to create a new one.</p>
 I would try a bunch of different possibilities to see if they get me
 around this issue.  I won&#39;t show all the ways that didn&#39;t work. 
 Here&#39;s the way that seems to work.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">  static HystrixCommandProperties.Setter createHystrixCommandPropertiesSetter(){
-      HystrixCommandProperties.invokeMethod(&quot;Setter&quot;, null)
+<div class="highlight"><pre><code class="language-" data-lang="">  static HystrixCommandProperties.Setter createHystrixCommandPropertiesSetter(){
+      HystrixCommandProperties.invokeMethod("Setter", null)
   }
 </code></pre></div>
 <p>And <a href="https://github.com/demian0311/hystrix-circuit-breaker/blob/master/grails-app/controllers/hystrix/circuit/breaker/TestController.groovy">here&#39;s a link to my silly example that proves the concept</a>.</p>

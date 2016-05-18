@@ -98,7 +98,7 @@ lambdas then the circuit breaker trips.</p>
     <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplier</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplier</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">DatabaseCommand</span><span class="o">(</span>
+    <span class="kd">public</span> <span class="n">DatabaseCommand</span><span class="o">(</span>
             <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplierIn</span><span class="o">,</span>
             <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplierIn</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">getSetter</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">DB_COMMAND_KEY</span><span class="o">));</span>
@@ -107,11 +107,11 @@ lambdas then the circuit breaker trips.</p>
         <span class="n">fallbackSupplier</span> <span class="o">=</span> <span class="n">fallbackSupplierIn</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">runSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
     <span class="o">}</span>
 
-    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">getFallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">getFallback</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">fallbackSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>

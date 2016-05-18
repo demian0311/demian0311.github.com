@@ -81,7 +81,7 @@ tools catch something bad I was attempting to do.  They have proven their worth.
 <p>I run into a problem though with beans where the equals that IntelliJ generates trips 
 complexity warnings in checkstyle.  Running a <code>./gradlew check</code> gives me an error 
 that looks like this.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">:checkstyleMain
+<div class="highlight"><pre><code class="language-" data-lang="">:checkstyleMain
 [ant:checkstyle] ./bar/src/main/java/com/example/foo/model/Thing.java:33:5: NPath Complexity is 48 (max allowed is 20).
 :checkstyleMain FAILED
 </code></pre></div>
@@ -95,25 +95,25 @@ I stick my beans in a <code>model</code> package so this isn&#39;t too hard to s
 
 <p>In my project I have <code>./config/checkstyle/checkstyle.xml</code> already.  I&#39;m going to 
 create a file in the same directory called <code>checkstyle-suppressions.xml</code>.</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
-<span class="cp">&lt;!DOCTYPE suppressions PUBLIC</span>
-<span class="cp">        &quot;-//Puppy Crawl//DTD Suppressions 1.0//EN&quot;</span>
-<span class="cp">        &quot;http://www.puppycrawl.com/dtds/suppressions_1_0.dtd&quot;&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.0//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_0.dtd"&gt;</span>
 <span class="nt">&lt;suppressions&gt;</span>
-    <span class="nt">&lt;suppress</span> <span class="na">checks=</span><span class="s">&quot;NPathComplexity&quot;</span> <span class="na">files=</span><span class="s">&quot;.*\/model\/.*&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;suppress</span> <span class="na">checks=</span><span class="s">"NPathComplexity"</span> <span class="na">files=</span><span class="s">".*\/model\/.*"</span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/suppressions&gt;</span>
 </code></pre></div>
 <h2>Reference the Suppressions File</h2>
 
 <p>In my <code>./config/checkstyle/checkstyle.xml</code> I have this.</p>
-<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
-<span class="cp">&lt;!DOCTYPE module PUBLIC</span>
-<span class="cp">        &quot;-//Puppy Crawl//DTD Check Configuration 1.3//EN&quot;</span>
-<span class="cp">        &quot;http://www.puppycrawl.com/dtds/configuration_1_3.dtd&quot;&gt;</span>
-<span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;Checker&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="cp">&lt;!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd"&gt;</span>
+<span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">"Checker"</span><span class="nt">&gt;</span>
 
-    <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">&quot;SuppressionFilter&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;file&quot;</span> <span class="na">value=</span><span class="s">&quot;./config/checkstyle/checkstyle-suppressions.xml&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;module</span> <span class="na">name=</span><span class="s">"SuppressionFilter"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"file"</span> <span class="na">value=</span><span class="s">"./config/checkstyle/checkstyle-suppressions.xml"</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;/module&gt;</span>
     ...
 </code></pre></div>

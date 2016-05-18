@@ -84,7 +84,7 @@ one of the easiest things you can do to lock down your server is to shut down as
 means that you don&#39;t have potentially vulnerable software listening in on ports.  </p>
 
 <p>You&#39;ll probably do some <code>nmap</code>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">demian@raven ~&gt;nmap localhost
+<div class="highlight"><pre><code class="language-" data-lang="">demian@raven ~&gt;nmap localhost
 
 Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
 Interesting ports on localhost (127.0.0.1):
@@ -97,7 +97,7 @@ PORT    STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
 </code></pre></div>
 <p>And maybe some <code>netstat</code>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">demian@raven ~&gt;netstat -l
+<div class="highlight"><pre><code class="language-" data-lang="">demian@raven ~&gt;netstat -l
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State      
 tcp        0      0 *:https                 *:*                     LISTEN     
@@ -114,7 +114,7 @@ longer in the startup scripts and <a href="https://wiki.debian.org/Daemon">remov
 <h2>Now Try from Laptop</h2>
 
 <p>Just to be sure I ran it from <code>nmap</code> from my laptop.  This is what I saw.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">demian  ~  nmap neidetcher.com
+<div class="highlight"><pre><code class="language-" data-lang="">demian  ~  nmap neidetcher.com
 
 Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
 Nmap scan report for neidetcher.com (184.106.150.226)

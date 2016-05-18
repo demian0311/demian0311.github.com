@@ -123,13 +123,13 @@ we want to discard it.  And good values will be between 0 and 1000000.  We
 also say that we want to keep around an average of the last hour and an
 average of the last 24 hours.  rrdtool will take care of averaging all the
 updates it gets into nice averages that we can later graph.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">rrdtool create $rrdfile --step 60 \
-   &quot;DS:${name}:GAUGE:120:0:1000000&quot; \
-   &quot;RRA:AVERAGE:0:1:60&quot; \
-   &quot;RRA:AVERAGE:0:60:24&quot;
+<div class="highlight"><pre><code class="language-" data-lang="">rrdtool create $rrdfile --step 60 \
+   "DS:${name}:GAUGE:120:0:1000000" \
+   "RRA:AVERAGE:0:1:60" \
+   "RRA:AVERAGE:0:60:24"
 </code></pre></div>
 <p>So, to do this step in my script I would run this one time to set things up:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">root@raven:~/bin# ./neidetcher_access_log.sh create
+<div class="highlight"><pre><code class="language-" data-lang="">root@raven:~/bin# ./neidetcher_access_log.sh create
 </code></pre></div>
 <h3>Logtail &amp; rrdtool update</h3>
 
@@ -143,7 +143,7 @@ at the top.</p>
 <p>Here we just get a line count wich roughly correlates to the number of 
 requests that came into NGINx.  We get that for two log files, add them
 together and shove that value into our RRDB using <a href="http://oss.oetiker.ch/rrdtool/">rrdtool</a>.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">http_value=`/usr/sbin/logtail -f /var/log/nginx/neidetcher.access.log \
+<div class="highlight"><pre><code class="language-" data-lang="">http_value=`/usr/sbin/logtail -f /var/log/nginx/neidetcher.access.log \
    -o /var/log/nginx/.neidetcher.access.log.offset | wc -l`
 https_value=`/usr/sbin/logtail -f /var/log/nginx/ssl_neidetcher.access.log \
    -o /var/log/nginx/.ssl_neidetcher.access.log.offset| wc -l`
@@ -152,14 +152,14 @@ value=$(($http_value + $https_value))
 rrdtool update $rrdfile N:${value}
 </code></pre></div>
 <p>That capability runs once a minute from cron.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">* * * * * /root/bin/neidetcher_access_log.sh update
+<div class="highlight"><pre><code class="language-" data-lang="">* * * * * /root/bin/neidetcher_access_log.sh update
 </code></pre></div>
 <h3>rrdtool graph</h3>
 
 <p>Now the fun part where we graph the data that we&#39;ve been tracking.  The
 first time we get 1 hour worth, the second time we get 24 hours worth.
 We move that file into where all my static HTML is for my site and that&#39;s it.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">rrdtool graph ./${name}_hour.png \
+<div class="highlight"><pre><code class="language-" data-lang="">rrdtool graph ./${name}_hour.png \
          --start end-1h \
          DEF:${name}=${rrdfile}:${name}:AVERAGE \
          AREA:${name}#aa5555:${name}
@@ -172,7 +172,7 @@ rrdtool graph ./${name}_day.png \
 mv -f ./${name}_day.png ${imageDir}/${name}_day.png
 </code></pre></div>
 <p>The graphing runs once a minute as well from cron.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">* * * * * /root/bin/neidetcher_access_log.sh graph
+<div class="highlight"><pre><code class="language-" data-lang="">* * * * * /root/bin/neidetcher_access_log.sh graph
 </code></pre></div>
 <h2>What that gets you</h2>
 

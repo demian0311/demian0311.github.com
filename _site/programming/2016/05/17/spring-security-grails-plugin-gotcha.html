@@ -82,22 +82,22 @@ application.  Good thing there&#39;s a plugin for that and I can move onto the n
 
 <p>Add the dependency in <code>build.gradle</code>:</p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">dependencies</span> <span class="o">{</span>
-    <span class="n">compile</span> <span class="s1">&#39;org.grails.plugins:spring-security-core:3.1.1&#39;</span>
+    <span class="n">compile</span> <span class="s1">'org.grails.plugins:spring-security-core:3.1.1'</span>
     <span class="o">...</span>
 <span class="o">}</span>
 </code></pre></div>
 <p>Then I run the associated script to create the domain objects that are going to manage the
 security like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">grails s2-quickstart com.yourapp User Role --groupClassName=RoleGroup
+<div class="highlight"><pre><code class="language-" data-lang="">grails s2-quickstart com.yourapp User Role --groupClassName=RoleGroup
 </code></pre></div>
 <p>Blissfully ignorant and following along with the documentation I charged forward.  Next up 
 you quick data for development to associate the user to the role in <code>BootStrap.groovy</code>:</p>
 <div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">User</span> <span class="n">dneidetcher</span> <span class="o">=</span> <span class="k">new</span> <span class="n">User</span><span class="o">(</span>
-        <span class="nl">username:</span> <span class="s1">&#39;dneidetcher&#39;</span><span class="o">,</span>
-        <span class="nl">firstName:</span> <span class="s1">&#39;Demian&#39;</span><span class="o">,</span>
-        <span class="nl">lastName:</span> <span class="s1">&#39;Neidetcher&#39;</span><span class="o">,</span>
-        <span class="nl">emailAddress:</span> <span class="s2">&quot;demian0311@gmail.com&quot;</span><span class="o">,</span>
-        <span class="nl">password:</span> <span class="s2">&quot;foo&quot;</span><span class="o">).</span><span class="na">save</span><span class="o">(</span><span class="nl">flush:</span> <span class="kc">true</span><span class="o">)</span>
+        <span class="nl">username:</span> <span class="s1">'dneidetcher'</span><span class="o">,</span>
+        <span class="nl">firstName:</span> <span class="s1">'Demian'</span><span class="o">,</span>
+        <span class="nl">lastName:</span> <span class="s1">'Neidetcher'</span><span class="o">,</span>
+        <span class="nl">emailAddress:</span> <span class="s2">"demian0311@gmail.com"</span><span class="o">,</span>
+        <span class="nl">password:</span> <span class="s2">"foo"</span><span class="o">).</span><span class="na">save</span><span class="o">(</span><span class="nl">flush:</span> <span class="kc">true</span><span class="o">)</span>
 
 <span class="n">UserRole</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">dneidetcher</span><span class="o">,</span> <span class="n">adminRole</span><span class="o">)</span>
 
@@ -107,11 +107,11 @@ you quick data for development to associate the user to the role in <code>BootSt
 <span class="o">}</span>
 </code></pre></div>
 <p>Then I apply my annotation on a controller so that I can allow access to it based on role:</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">package</span> <span class="n">foo</span>
+<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="kn">package</span> <span class="nn">foo</span>
 
 <span class="kn">import</span> <span class="nn">grails.plugin.springsecurity.annotation.Secured</span>
 
-<span class="nd">@Secured</span><span class="o">(</span><span class="s1">&#39;ROLE_ADMIN&#39;</span><span class="o">)</span>
+<span class="nd">@Secured</span><span class="o">(</span><span class="s1">'ROLE_ADMIN'</span><span class="o">)</span>
 <span class="kd">class</span> <span class="nc">UserController</span> <span class="o">{</span>
     <span class="kd">static</span> <span class="n">scaffold</span> <span class="o">=</span> <span class="n">User</span>
 <span class="o">}</span>
@@ -130,7 +130,7 @@ indirection I don&#39;t think I need.  It took me over 3 hours to figure this ou
 <h2>The Fix</h2>
 
 <p>Well in the first place I should have done this for my <code>s2-quickstart</code> command.  That would have avoided the headache. </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">grails s2-quickstart com.yourapp User Role 
+<div class="highlight"><pre><code class="language-" data-lang="">grails s2-quickstart com.yourapp User Role 
 </code></pre></div>
 <p>But in my case I wanted to attempt to back out of the mess so this is what I did.</p>
 

@@ -83,7 +83,7 @@ With EasyMock your unit test can extend <code>EasyMockSupport</code>.  That clas
 to methods like <code>replayAll()</code> and <code>verifyAll()</code>.  </p>
 
 <h2>Before</h2>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span><span class="o">()</span> <span class="o">{</span>
    <span class="c1">// a bunch of expects</span>
 
    <span class="n">replayAll</span><span class="o">();</span>
@@ -98,13 +98,13 @@ to methods like <code>replayAll()</code> and <code>verifyAll()</code>.  </p>
 <p>This isn&#39;t as smooth as you&#39;d see in Scala or Groovy but in Java8 you can do something like this.  </p>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySupport</span> <span class="kd">extends</span> <span class="n">EasyMockSupport</span> <span class="o">{</span>
 
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">withMocks</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnableIn</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="n">withMocks</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnableIn</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">replayAll</span><span class="o">();</span>
         <span class="n">runnableIn</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
         <span class="n">verifyAll</span><span class="o">();</span>
     <span class="o">}</span>
 
-    <span class="kd">protected</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="n">T</span> <span class="nf">withMocks</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">supplierIn</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="n">T</span> <span class="n">withMocks</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">supplierIn</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">replayAll</span><span class="o">();</span>
         <span class="n">T</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">supplierIn</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
         <span class="n">verifyAll</span><span class="o">();</span>
@@ -120,7 +120,7 @@ return any value.  Of course the answer is our old friend <code>Runnable</code>.
 what Java wanted for the generics, that stuff isn&#39;t obvious to me.</p>
 
 <p>Then your test extends <code>MySupport</code>.  And within your tests you can have code that looks like this.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span><span class="o">()</span> <span class="o">{</span>
    <span class="c1">// a bunch of expects</span>
    <span class="n">Integer</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">withMocks</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">ageFinder</span><span class="o">.</span><span class="na">findAge</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
@@ -132,11 +132,11 @@ what Java wanted for the generics, that stuff isn&#39;t obvious to me.</p>
 your <em>class under test</em> uses mocks that would need to be between the <code>replayAll()</code> and <code>verifyAll()</code> 
 methods then you might want to create a method in your test that instantiates your <em>class under test</em>.
 It might look something like this.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="n">AgeFinder</span> <span class="nf">createAgeFinder</span><span class="o">()</span> <span class="o">{</span>
-   <span class="k">return</span> <span class="k">new</span> <span class="nf">AgeFinder</span><span class="o">(</span><span class="n">mockDatabase</span><span class="o">);</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="n">AgeFinder</span> <span class="nf">createAgeFinder</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+   <span class="k">return</span> <span class="k">new</span> <span class="n">AgeFinder</span><span class="o">(</span><span class="n">mockDatabase</span><span class="o">);</span>
 <span class="o">}</span>
 
-<span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">test</span><span class="o">()</span> <span class="o">{</span>
    <span class="c1">// a bunch of expects</span>
    <span class="n">Integer</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">withMocks</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">createAgeFinder</span><span class="o">().</span><span class="na">findAge</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
