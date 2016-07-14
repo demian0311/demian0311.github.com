@@ -1,6 +1,7 @@
 ---
 layout: page
 title : Resume
+menu: true 
 ---
 
 demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
@@ -37,7 +38,7 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 - Lead engineer on 2 [PCI](https://www.pcisecuritystandards.org/) customer portal applications written in Groovy and Grails.
 - Residential and commercial portal development in Groovy and Grails.
 - Scala RESTful JSON middleware to support portals integrating a dozen back-end systems.
-- Designed and implemented web services backing the first cable iPad application to stream real-time video content. The application and service was awarded the [2011 Academy of Television Arts & Sciences Philo T. Farnsworth Award](http://www.deadline.com/2011/10/emmys-primetime-engineering-awards-announced-vod-pioneer-among-winners/).
+- Designed and implemented edge web services backing the first cable iPad application to stream real-time video content. The application and service was awarded the [2011 Academy of Television Arts & Sciences Philo T. Farnsworth Award](http://www.deadline.com/2011/10/emmys-primetime-engineering-awards-announced-vod-pioneer-among-winners/).
 - Wrote Android demo application featured in Samsung keynote at the 2011 [CES](http://www.cesweb.org/).
 
 #### [Dash Carrier Services](https://www.linkedin.com/company/646621?trk=tyah&trkInfo=tarId%3A1398094869496%2Ctas%3Adash%20carrier%20services%2Cidx%3A1-1-1) - Principal Architect, Denver, CO (Jun 07 - Oct 10)
@@ -78,3 +79,5 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 ## Education
 - University of Colorado graduate SW Certificate in Software Engineering, Boulder, CO - 2004
 - [Bradley University](http://www.bradley.edu/), BS, Computer Science, Peoria, IL - 1999
+
+I also wrote a [career narrative](/career-narrative.html).
