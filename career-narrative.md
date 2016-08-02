@@ -85,31 +85,33 @@ software into packages that could be distributed with their tooling.  I also did
 using JSF, SOAP and Hibernate.  I don't like JSF, I never want to work with it again.
 
 Other than a few amazing people, frankly it was an odd little culture.  It was acceptable for your IDE to be
-full of red squiggly errors.  At one point in a private conversation with the CIO I suggested that the existing
-architecture needed to be scrapped.  A few weeks later I was laid off.
+full of red squiggly errors.  At one point in a private conversation with the CIO I respectfully suggested that the 
+existing architecture needed to be scrapped.  A few weeks later I was laid off.  He was mainly responsible for
+the existing architecture.  I feel I owe my employer the truth, delivered respectfully and possibly in private 
+conversations.  In the past when I have kept quiet I have come to regret it.
 
 ## Dash Carrier Services
 A friend introduced me to Dash Carrier Services.  I was there for about three and a half years.  They had recently
 acquired another company and they wanted to replace the .NET stack with something else.  I came on as the sole
-engineer for what would become a huge greenfield project.  We eventually built up a team of about six people through hiring and
+engineer for what would become a lot of greenfield work.  We eventually built up a team of about six people through hiring and
 acquisitions.  The CEO was Justin Nelson, I've never seen so much technical ability, business acumen, 
 intelligence and guts in a single person.  We also brought on Johnny Wey, if you're in Denver you probably
 know that guy can crank at writing software, highly capable folks.
 
 I've never been so proud of the work I've done than when I worked at Dash, it was a feeling of being alive
 and in control.  On a scrappy budget, in a startup environment we routed origination, termination and 911 calls among
-other VoIP services.  But yeah, say '911 call routing' and 'scrappy budget' in the same sentence and you might understand that 
-towards the end, the stress was getting to me so I started talking to other companies.  
+other phone (VoIP) services.  Say '911 call routing' and 'scrappy budget' in the same sentence and you might 
+understand that towards the end the stress was getting to me so I started talking to other companies.  
 
 ## Time Warner Cable
-Some former co-workers that I highly respected were at TWC and I joined them. Time Warner Cable set up an office in 
+Some former co-workers that I highly respect were at TWC and I joined them. Time Warner Cable set up an office in 
 downtown Denver.  The idea was to be something of a startup inside of a legacy cable company.  
 
 Initially we worked on the first streaming cable application for the iPad.
-The team I was on worked on edge services in Java so the iPad knew that you were a valid user, what channels you
+The team I was on built edge services in Java so the iPad knew that you were a valid user, what channels you
 could watch and so on.  To do this we talked to a variety of back-end systems that used different variations of
-ReST and SOAP.  The goal was to come up with simple APIs so that the code running on devices could be more simple
-and abstracted from our back-office complexities.  Time Warner Cable won 
+ReST and SOAP as needed.  The goal was to come up with simple APIs so that the code running on devices could be 
+more simple and abstracted from our back-office complexities.  Time Warner Cable won 
 a [Philo T. Farnsworth Award](https://en.wikipedia.org/wiki/Philo_T._Farnsworth_Award) for our efforts.
 
 As Time Warner Cable expanded IP video we continued to do more work on that.  Through organizational changes
@@ -117,11 +119,31 @@ some of us eventually morphed into working on our customer-facing portals.  Exis
 we ported them to Grails.  At about the same time our team decided to embrace Scala for our back-end middleware 
 tier that talked to about a dozen other systems to come up with an API the portals could use.
 
-Scala was fun the danger is that you can write code that is hard to maintain.  I wouldn't mind working with it
+Scala was fun but the danger is that you can write code that is hard to maintain.  I wouldn't mind working with it
 again but I would have to know that the team is dedicated to writing pragmatic software.  Scala code has a 
-feeling of being _tight_.  I apply those concepts to other languages like Java8.  I think I'm a better Java
-developer for having done Scala.
+feeling of being _tight_.  I apply those concepts to Java8 and Groovy.  I think I'm a better Java developer for 
+having done Scala.  
+
+I went on to work on 2 Groovy / Grails applications that allow Time Warner Cable customers to pay their bills.  I 
+also worked with a Java8 and PostgreSQL to create a system to store customer events.
 
 ## Where I'm At
-This is me sort of positioning myself.  I have a blog post on my experience with [Strengths Finder](/2016/04/29/strengths-finder.html) and how it's 
-mostly accurate.  I think  
+I've been in the JVM space for almost 20 years.  I was an early adopter of Java8, I like doing a little functional
+programming inside of easy to understand Java.  I can do Groovy and Grails code but I'll add types to most everything
+I instantiate.  I like the IDE and compiler keeping me honest.  Although I'm sure I could pick it back up I'd have a 
+hard time positioning myself as a Scala programmer even though I did it for a few years.  
+
+On teams I can be something of a void filler.  For example if process is figured out then it's something I don't 
+care about.  If it's a problem then I'm interested and trying to get it figured out.  I'm typically the guy willing 
+to ask questions, my desire to understand things outweighs my concern for looking stupid.  I'm also the guy that 
+wants to draw pictures to hash out design or a problem.  I'm not much of a control freak but honestly I draw pictures 
+better and in a way that brings out the important points to understand. 
+
+I also have a blog post on my experience with [Strengths Finder](/2016/04/29/strengths-finder.html) and how it's 
+mostly accurate.  
+
+I've been a remote worker for 3 years.  I acknowledge that there's nothing better than people standing at a
+whiteboard when it comes to communication.  But I think I'm good at working remotely.  If at all possible I'd 
+like to continue doing that.
+
+
