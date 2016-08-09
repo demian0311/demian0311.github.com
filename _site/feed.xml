@@ -6,9 +6,55 @@
 </description>
     <link>http://neidetcher.com/</link>
     <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Aug 2016 21:22:18 -0500</pubDate>
-    <lastBuildDate>Tue, 02 Aug 2016 21:22:18 -0500</lastBuildDate>
+    <pubDate>Tue, 09 Aug 2016 13:37:32 -0500</pubDate>
+    <lastBuildDate>Tue, 09 Aug 2016 13:37:32 -0500</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Book Review Smarter Faster Better</title>
+        <description>&lt;p&gt;I&amp;#39;m not sure how &lt;a href=&quot;https://www.amazon.com/Smarter-Faster-Better-Productive-Business/dp/081299339X&quot;&gt;Smarter Faster Better&lt;/a&gt; by 
+Charles Duhigg ended up on my Amazon wish list.  Perhaps it was because one of the first stories in the book deal
+with Marines and new approaches they are taking to get recruits motivated.&lt;/p&gt;
+
+&lt;p&gt;There are 7 chapters and they all go into something that&amp;#39;ll make you better in some manner.  The formula for each
+chapter interleaves a couple stories, culminating in an actual concept that can improve your performance.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;motivation&lt;/li&gt;
+&lt;li&gt;teams&lt;/li&gt;
+&lt;li&gt;focus&lt;/li&gt;
+&lt;li&gt;goal setting&lt;/li&gt;
+&lt;li&gt;managing&lt;/li&gt;
+&lt;li&gt;decision making&lt;/li&gt;
+&lt;li&gt;innovation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Marine story deals with motivation and &lt;em&gt;locus of control&lt;/em&gt;.  The concept is that if you think control of your life is within 
+you (as in you are responsible for your life) then you are likely to be more motivated.  That makes sense,
+if you have a fatalistic attitude and life is more something that happens to you then you&amp;#39;re less likely to do
+something about it.  &lt;/p&gt;
+
+&lt;p&gt;The book also references lean and agile concepts borrowed from manufacturing and software engineering.  The stories
+in that chapter came together particularly well.  An FBI software project was saved by using lean practices and
+agents in the field used that software to solved a kidnapping.  &lt;/p&gt;
+
+&lt;p&gt;The same chapter that dealt with agile also talked about commitment culture with respect to management.  He describes
+a big study during the dot-com era in Silicon Valley that evaluated different company cultures.  The results indicated that a 
+&lt;em&gt;commitment culture&lt;/em&gt;, this is a company where the leadership puts the welfare of employees as a high priority, do
+better more consistently than other scenarios.  The probably reason is low turnover means less intellectual
+property walking out the door, less expense in training people.  Those teams also built up a lot of trust that
+enabled collaboration and general healthy environments.&lt;/p&gt;
+
+&lt;p&gt;The book was good.  Not all of the ideas are shocking but it&amp;#39;s good to firm up the concepts.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Aug 2016 00:00:00 -0500</pubDate>
+        <link>http://neidetcher.com/2016/08/09/book-review-smarter-faster-better.html</link>
+        <guid isPermaLink="true">http://neidetcher.com/2016/08/09/book-review-smarter-faster-better.html</guid>
+        
+        <category>books</category>
+        
+        
+      </item>
     
       <item>
         <title>Book Review How To Fail At Almost Everything</title>
@@ -601,96 +647,6 @@ create a file in the same directory called &lt;code&gt;checkstyle-suppressions.x
         <category>programming</category>
         
         <category>java8</category>
-        
-        
-        <category>programming</category>
-        
-      </item>
-    
-      <item>
-        <title>Spring Mvc Exception Handler</title>
-        <description>&lt;p&gt;This is probably so obvious that it doesn&amp;#39;t deserve a blog post by anyone
-but I&amp;#39;ll admit that I struggled with this for a few hours.  I have an API 
-that I am putting together for a &lt;a href=&quot;http://martinfowler.com/articles/microservices.html&quot;&gt;microservice&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This is a little JSON API and SpringMVC makes it very easy.  But when there
-are exceptions most of the guides I found send you towards a &lt;a href=&quot;http://www.thymeleaf.org/&quot;&gt;Thymeleaf&lt;/a&gt; solution
-that outputs HTML.  That&amp;#39;s not what I want, I want a good HTTP response code
-and a JSON response that the client can parse to help them figure out what
-went wrong.  There&amp;#39;s a great write-up on &lt;a href=&quot;https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc&quot;&gt;exception handling in Spring&lt;/a&gt; but that, I believe, takes you in the Thymeleaf direction as well.&lt;/p&gt;
-
-&lt;h2&gt;My Custom Exception&lt;/h2&gt;
-
-&lt;p&gt;Maybe this has my code too tied to HTTP but I like the explicit nature.  Notice
-the &lt;code&gt;ResponseStatus&lt;/code&gt; annotation that provides what &lt;code&gt;HttpStatus&lt;/code&gt; we want associated
-with this exception.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;package foo.bar;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class BadRequestException extends RuntimeException {
-
-    public BadRequestException(String messageIn) {
-        super(messageIn);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Using the Exception&lt;/h2&gt;
-
-&lt;p&gt;Nothing shocking here.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;throw new BadRequestException(&quot;something descriptive goes here&quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;ExceptionHandler&lt;/h2&gt;
-
-&lt;p&gt;Spring lets you just annotate a method on a controller that you have designated to 
-handle exceptions.  So yeah, this is the part that wasn&amp;#39;t obvious to me.  Sending 
-back a &lt;code&gt;Map&lt;/code&gt; tells Spring to just turn it into good JSON.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;nd&quot;&gt;@ExceptionHandler&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exceptionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;HttpServletRequest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;HttpServletResponse&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletResponseIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// if not production then show stack trace?&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;StringBuffer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getRequestURL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpServletRequestIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getQueryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;&#39;?&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;requestUrl&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAnnotationPresent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseStatus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;HttpStatus&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;httpStatus&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getReasonPhrase&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;httpServletResponseIn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;httpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This all produces JSON that looks like this along with an HTTP response code of 400.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;requestUrl&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:8080/controller&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;httpStatus&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Bad Request&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s2&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;something descriptive goes here&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        <pubDate>Wed, 19 Aug 2015 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2015/08/19/spring-mvc-exception-handler.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2015/08/19/spring-mvc-exception-handler.html</guid>
-        
-        <category>programming</category>
-        
-        <category>java8</category>
-        
-        <category>spring</category>
         
         
         <category>programming</category>
