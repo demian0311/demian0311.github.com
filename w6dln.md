@@ -19,8 +19,22 @@ as opposed to something purely pack portable.
 
 ## Gear
 
+### UHF/ VHF 
 I have a few [Baofeng UV5R](http://www.baofengradio.com/en/ProShowcn.asp?ID=141) radios. 
 They are the gateway radio into HAM radio.  As of right now anyways they are just 
 [$25 on Amazon](http://www.amazon.com/BaoFeng-UV-5R-Dual-Radio-Black/dp/B007H4VT7A/ref=sr_1_2?ie=UTF8&qid=1454417746&sr=8-2&keywords=baofeng+uv5r).
 That's a cheap way to get into the hobby.  
+
+I got a couple antennas for the UV5Rs.  The [Nagoya NA-771 15.6-Inch Whip ](https://www.amazon.com/gp/product/B00KC4PWQQ/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) makes
+the radio work better while mobile.  And the [Tram 1185 Amateur Dual-Band Magnet Antenna](https://www.amazon.com/gp/product/B0045EQUBK/ref=oh_aui_search_detailpage?ie=UTF8&psc=1) is good when
+I'm not moving around.  Of course you can't stop there, you need a USB cable and extra batteries.
+
+### HF
+
+I finally got an [FT-817ND](http://www.yaesu.com/indexVS.cfm?cmd=DisplayProducts&ProdCatID=102&encProdID=06014CD0AFA0702B25B12AB4DC9C0D27).  I
+really was looking at an FT-857 but there was some supply disruption and I got impatient.  So I did what they 
+tell all new HAMs not to do, start out with [QRP](https://en.wikipedia.org/wiki/QRP_operation).  I also got a
+[Mini Buddipole](http://www.buddipole.com/minibuddipole.html).  My experience is limited to just a little bit of
+20M listening.  
+
 
