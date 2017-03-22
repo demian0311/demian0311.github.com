@@ -68,7 +68,7 @@ think of a Marine this is probably the job you imagine most of them doing.  The 
 Infantry is where infantry Marines are trained.
 
 SOI is right next door to MCT at Camp Pendleton.  This was a longer school but it wasn't 
-quite as tough or maybe I was harder.  About half-way throught the school I picked up a 
+quite as tough or maybe I was harder.  About half-way through the school I picked up a 
 squad leader role in SOI and got a meritorious promotion to Lance Corporal when I graduated 
 SOI.  
 
@@ -90,8 +90,9 @@ School.
 
 Security Forces School was primarily about gaining proficiency with the shotgun and the
 pistol.  Most infantry Marines don't use those weapons.  We used the Mossberg 590 shotgun
-and the 1911 pistol.  The instruction was good, especially for pistol they ran great drills
-that turned us into effective shooters.  
+and the 1911 pistol even though the rest of the military was transitioning to 9mm 
+Berettas.  The instruction was good, especially for pistol they ran great drills that 
+turned us into effective shooters.  
 
 Room clearing or urban combat was also a big focus.  We practiced in shoot houses.  We also
 did paint-ball training in a dry-docked Navy ship in nearby Vallejo.  
@@ -139,7 +140,7 @@ Another time I volunteered it ended up being an odd duty where a few of us joine
 aircraft carrier down to Los Angeles.  I have no idea why there was a need for that.  Perhaps the
 Lincoln was short a few Marines so they pulled us.  
 
-If a sailor is wounded and needs to be carried aboard the shipt it is the Marines that do stretcher 
+If a sailor is wounded and needs to be carried aboard the ship it is the Marines that do stretcher 
 duty.  Makes sense, Marines are generally in better shape.  When we were pulling into Long Beach all the 
 other Marines were _manning the rails_ to put on a show.  Since we weren't taking part in that we were pulled 
 to do stretcher duty for an actual situation.  Below the flight deck is another huge hangar space with elevators
@@ -175,7 +176,7 @@ was due to ship to Somalia.
 
 I got introduced to my new unit.  I fit in well but I was a little nervous about being the new guy in a
 unit that was on it's way to an actual situation.  For me at least going from security forces to an LAV
-unit was light and day.  They were much more laid back than what I was used to.  They talked to officers
+unit was night and day.  They were much more laid back than what I was used to.  They talked to officers
 the way wouldn't even think of talking to junior NCOs.
 
 Typical of the military there was a lot of hurry-up and wait.  There were a lot of false alarms where they'd
@@ -188,7 +189,7 @@ One of the coolest things about being deployed was seeing logistically how they 
 plane was chartered for us.  We flew from California to probably Dover, Deleware.  From there we went to 
 Rammstein in Germany.  Then we landed in Cairo, it was cool looking out the window and seeing all the
 arabic writing.  I gotta say I was a little alarmed to know that Egyptians were re-fueling and maintaining
-a plane full of over a hundres US Marines.  From Cairo we flew to Mogadishu, Somalia.  We get off the plane
+a plane full of over a hundreds US Marines.  From Cairo we flew to Mogadishu, Somalia.  We get off the plane
 with our personal rifles and the first thing they do is issue us our ammunition.
 
 ![alt text](../assets/images/usmc/mogadishu_airport.png)
@@ -213,7 +214,7 @@ was just in time because a few days after we did that, we started to receive fir
 At one point I was next to a water buffalo (a big tank with lots of clean water).  I was takind a field-bath 
 where you use a cut up water-bottle, a wash-cloth and a bar of soap and figure out how to get yourself cleaned 
 up without offending on-lookers.  We started taking fire and I saw rounds impact nearby.  In the confusion my
-rifle got mixed up with someone elses.  I zigged and zagged enough to make it to some cover without any new
+rifle got mixed up with someone else's.  I zigged and zagged enough to make it to some cover without any new
 holes in my body.  It's interesting how in the moment fear wasn't an issue.  It was all training and doing what
 needs to be done.  By the time I found cover I made sure the rifle was good to operate but the bolt was full 
 of sand.  When things settled down I was able to find the rightful owner and get my rifle back.  We had perimeter
@@ -243,7 +244,7 @@ some security for them at night.  I happened to be one of the few Marines with a
 Hummers to get to their NGO compounds.  Consequently I went on a lot of the missions to guard NGOs.  It was a
 great distraction from the monotony.  Frankly it was nice to talk to people that weren't Marines.  There were a
 lot of well meaning westerners working for the ICRC and Doctors without Borders.  We also ate well, one of the 
-ICRC guys that ran the compound found a local Somalian that knew how to cook italian very well.  Somalia was
+ICRC guys that ran the compound found a local Somalian that knew how to cook Italian very well.  Somalia was
 at one point controlled by Italy.  He made a fish dinner that was awesome and I don't like fish.
 
 ![alt text](../assets/images/usmc/bardera_guarding_ngos.png)
@@ -266,7 +267,7 @@ Well some Pakistanis thought it'd make a fine bath-tub.
 
 ![alt text](../assets/images/usmc/stadium_with_pakis.png)
 
-While we were there we made an effort to establish relationships and make friends with peole that wanted to
+While we were there we made an effort to establish relationships and make friends with people that wanted to
 do good things.  I think we were good at earning trust and making little kids laugh.  As we were leaving the
 locals seemed unsure of the troops that were relieving us.
 
@@ -316,4 +317,3 @@ going to college and you getting out a little early will let you start your seme
 out a few months before you were supposed to get out.  So that's what I did, I was able to get out a 3 months
 earlier than I should have.  It made sense, I was enough of a short-timer that I wasn't going on any other
 deployments and I was ready.
-
