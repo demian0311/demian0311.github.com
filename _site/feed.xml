@@ -6,8 +6,8 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Apr 2017 14:58:45 -0500</pubDate>
-    <lastBuildDate>Fri, 07 Apr 2017 14:58:45 -0500</lastBuildDate>
+    <pubDate>Fri, 07 Apr 2017 15:31:56 -0500</pubDate>
+    <lastBuildDate>Fri, 07 Apr 2017 15:31:56 -0500</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -17,24 +17,38 @@ have some concerns that it contributes to a mindset that devalues the work that 
 engineers do.&lt;/p&gt;
 
 &lt;p&gt;I help run a local user group called the &lt;a href=&quot;https://acadianasoftwaregroup.org/#/&quot;&gt;Acadiana Software Group&lt;/a&gt;.  We
-meet monthly and at our last meeting a couple of other attendees and myself decided to
+meet monthly and at our last meeting Geoff Daily, &lt;a href=&quot;http://www.mustmodify.com/&quot;&gt;Johnathan Wright&lt;/a&gt; and myself decided to
 team up.  The code fest website started releasing data and a lot of it was spatial.  So
-we pulled in another guy that does GIS work for his day job. At the orientation for the 
+we pulled in Brian Stanford, a guy that does GIS work for his day job. At the orientation for the 
 code fest we added an additional team member that has experience in design and front-end.&lt;/p&gt;
 
 &lt;p&gt;On Wednesday we were able to start coding.  We didn&amp;#39;t do much other than begin
 to look at the data.  The stack was Ruby on Rails and PostGIS.  I didn&amp;#39;t help with
-any of the RoR, I don&amp;#39;t have any experience with it.  Me and another team member
-were able to make ourselves useful by loading and manipulating spatial data such 
-that it could be used by the Rails codee.&lt;/p&gt;
+any of the RoR, I don&amp;#39;t have any experience with it.  Me and Brian were able to make 
+ourselves useful by loading and manipulating spatial data such that it could be used 
+by the Rails codee.&lt;/p&gt;
 
-&lt;h2&gt;Judging&lt;/h2&gt;
+&lt;h2&gt;The Project&lt;/h2&gt;
+
+&lt;p&gt;Our idea was to come up with a website that would give you derived scores for addresses based
+on information from various data-sets including spatial.  Our approach was a bit 
+intensive on the back-end in bulk.  We did a fair amount of number crunching to come up with
+scores for addresses.&lt;/p&gt;
+
+&lt;h2&gt;Results&lt;/h2&gt;
 
 &lt;p&gt;We got 2nd place.  We lost to a team that wrote a chat-bot that gives people local information
 based on local events.  Each individual team was able to vote on what project they liked, our
-team also won this award.  For botbbh of those we won a $2,500 prize.&lt;/p&gt;
+team also won this award.  For both of those we won a $2,500 prize.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;../assets/images/misc/ccf_2017.jpg&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/misc/ccf_2017.jpg&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Because my 9-5 work situation has been a bit slow recently it was good to do computer stuff in
+anger.  That stuff where you come to respect your peers and challenge yourself.  One thing that 
+was interesting is that I think it was useful to have a non-technical person on the team.  Geoff
+Daily is more of a business or product owner type.  His enthusiasm for the vision, guidance and
+ultimate presentation of our project was invaluable.  Before the experience I probably would have
+discounted the value of having that type of person involved in a hack-a-thon.&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Apr 2017 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/fitness/2017/04/06/cajun-code-fest.html</link>
