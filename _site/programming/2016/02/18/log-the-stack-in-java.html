@@ -10,8 +10,8 @@
   <meta name="description" content="Sometimes a method is executed and you&#39;re just not sure how you got there.  You could bump up logging orset a breakpoint but just logging the contents of...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/programming/2016/02/18/log-the-stack-in-java.html">
-  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/programming/2016/02/18/log-the-stack-in-java.html">
+  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -78,7 +78,7 @@
   <article class="post-content">
     <p>Sometimes a method is executed and you&#39;re just not sure how you got there.  You could bump up logging or
 set a breakpoint but just logging the contents of the call stack is another good option.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">logStack</span><span class="p">(</span><span class="o">)</span> <span class="o">{</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">logStack</span><span class="o">()</span> <span class="o">{</span>
    <span class="kt">long</span> <span class="n">currTime</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">();</span>
    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"logging stack at [{}]"</span><span class="o">,</span> <span class="n">currTime</span><span class="o">);</span>
    <span class="n">Arrays</span><span class="o">.</span><span class="na">stream</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">())</span>

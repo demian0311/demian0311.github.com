@@ -10,8 +10,8 @@
   <meta name="description" content="It&#39;ll continue to be interesting to see what happens with Java8.  Sure the version isout there, you can write all the lambdas you want.  But it&#39;s goi...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html">
-  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/programming/2015/06/03/hystrix-circuit-breaker-with-java8.html">
+  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -100,7 +100,7 @@ lambdas then the circuit breaker trips.</p>
     <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplier</span><span class="o">;</span>
     <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplier</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="n">DatabaseCommand</span><span class="o">(</span>
+    <span class="kd">public</span> <span class="nf">DatabaseCommand</span><span class="o">(</span>
             <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplierIn</span><span class="o">,</span>
             <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplierIn</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">getSetter</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">DB_COMMAND_KEY</span><span class="o">));</span>
@@ -109,11 +109,11 @@ lambdas then the circuit breaker trips.</p>
         <span class="n">fallbackSupplier</span> <span class="o">=</span> <span class="n">fallbackSupplierIn</span><span class="o">;</span>
     <span class="o">}</span>
 
-    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">runSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
     <span class="o">}</span>
 
-    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="n">getFallback</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">getFallback</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">fallbackSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>

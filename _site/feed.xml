@@ -2,13 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Demian Neidetcher</title>
-    <description>I&#39;m a software engineer, primarily working with JVM languages and in the telecommunications domain.
+    <description>I'm a software engineer, primarily working with JVM languages and in the telecommunications domain.
 </description>
-    <link>http://neidetcher.com/</link>
-    <atom:link href="http://neidetcher.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Feb 2017 08:17:45 -0600</pubDate>
-    <lastBuildDate>Sat, 18 Feb 2017 08:17:45 -0600</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 07 Apr 2017 14:58:45 -0500</pubDate>
+    <lastBuildDate>Fri, 07 Apr 2017 14:58:45 -0500</lastBuildDate>
+    <generator>Jekyll v3.4.3</generator>
+    
+      <item>
+        <title>Cajun Code Fest</title>
+        <description>&lt;p&gt;I have never done a code fest before.  If I&amp;#39;m being honest I wasn&amp;#39;t too into the idea.  I 
+have some concerns that it contributes to a mindset that devalues the work that software
+engineers do.&lt;/p&gt;
+
+&lt;p&gt;I help run a local user group called the &lt;a href=&quot;https://acadianasoftwaregroup.org/#/&quot;&gt;Acadiana Software Group&lt;/a&gt;.  We
+meet monthly and at our last meeting a couple of other attendees and myself decided to
+team up.  The code fest website started releasing data and a lot of it was spatial.  So
+we pulled in another guy that does GIS work for his day job. At the orientation for the 
+code fest we added an additional team member that has experience in design and front-end.&lt;/p&gt;
+
+&lt;p&gt;On Wednesday we were able to start coding.  We didn&amp;#39;t do much other than begin
+to look at the data.  The stack was Ruby on Rails and PostGIS.  I didn&amp;#39;t help with
+any of the RoR, I don&amp;#39;t have any experience with it.  Me and another team member
+were able to make ourselves useful by loading and manipulating spatial data such 
+that it could be used by the Rails codee.&lt;/p&gt;
+
+&lt;h2&gt;Judging&lt;/h2&gt;
+
+&lt;p&gt;We got 2nd place.  We lost to a team that wrote a chat-bot that gives people local information
+based on local events.  Each individual team was able to vote on what project they liked, our
+team also won this award.  For botbbh of those we won a $2,500 prize.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets/images/misc/ccf_2017.jpg&quot; alt=&quot;alt text&quot;&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Apr 2017 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/fitness/2017/04/06/cajun-code-fest.html</link>
+        <guid isPermaLink="true">http://localhost:4000/fitness/2017/04/06/cajun-code-fest.html</guid>
+        
+        <category>programming</category>
+        
+        
+        <category>fitness</category>
+        
+      </item>
     
       <item>
         <title>Lifting In 2017</title>
@@ -181,8 +218,8 @@ go.  &lt;/p&gt;
 a light load (currently ~155) for 10, 8, 6, 4, 2 reps with 10 breath pause in between sets.&lt;/p&gt;
 </description>
         <pubDate>Tue, 31 Jan 2017 00:00:00 -0600</pubDate>
-        <link>http://neidetcher.com/fitness/2017/01/31/lifting-in-2017.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/fitness/2017/01/31/lifting-in-2017.html</guid>
+        <link>http://localhost:4000/fitness/2017/01/31/lifting-in-2017.html</link>
+        <guid isPermaLink="true">http://localhost:4000/fitness/2017/01/31/lifting-in-2017.html</guid>
         
         <category>fitness</category>
         
@@ -257,8 +294,8 @@ more useful in an emergency.  Right now the FEMA site is painful to register on,
 be an ordeal on it&amp;#39;s own.&lt;/p&gt;
 </description>
         <pubDate>Fri, 06 Jan 2017 00:00:00 -0600</pubDate>
-        <link>http://neidetcher.com/ham/2017/01/06/amateur-extra.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/ham/2017/01/06/amateur-extra.html</guid>
+        <link>http://localhost:4000/ham/2017/01/06/amateur-extra.html</link>
+        <guid isPermaLink="true">http://localhost:4000/ham/2017/01/06/amateur-extra.html</guid>
         
         <category>ham</category>
         
@@ -340,8 +377,8 @@ week after the cruise I still felt like I was walking on the ship.  &lt;/p&gt;
 the Audobon Zoo.  We had fun at the zoo.   &lt;/p&gt;
 </description>
         <pubDate>Tue, 27 Dec 2016 00:00:00 -0600</pubDate>
-        <link>http://neidetcher.com/2016/12/27/2016-in-review.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2016/12/27/2016-in-review.html</guid>
+        <link>http://localhost:4000/2016/12/27/2016-in-review.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/12/27/2016-in-review.html</guid>
         
         
       </item>
@@ -384,8 +421,8 @@ enabled collaboration and general healthy environments.&lt;/p&gt;
 &lt;p&gt;The book was good.  Not all of the ideas are shocking but it&amp;#39;s good to firm up the concepts.&lt;/p&gt;
 </description>
         <pubDate>Tue, 09 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/2016/08/09/book-review-smarter-faster-better.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2016/08/09/book-review-smarter-faster-better.html</guid>
+        <link>http://localhost:4000/2016/08/09/book-review-smarter-faster-better.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/08/09/book-review-smarter-faster-better.html</guid>
         
         <category>books</category>
         
@@ -453,8 +490,8 @@ good to think about.  But you also have to know that this is one guy talking abo
 &lt;p&gt;Yeah, good book, easy read, I recommend it.&lt;/p&gt;
 </description>
         <pubDate>Wed, 03 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/2016/08/03/book-review-how-to-fail-at-almost-everything.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2016/08/03/book-review-how-to-fail-at-almost-everything.html</guid>
+        <link>http://localhost:4000/2016/08/03/book-review-how-to-fail-at-almost-everything.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/08/03/book-review-how-to-fail-at-almost-everything.html</guid>
         
         <category>books</category>
         
@@ -547,8 +584,8 @@ at work.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 02 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2016/08/02/uberconf-2016.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2016/08/02/uberconf-2016.html</guid>
+        <link>http://localhost:4000/programming/2016/08/02/uberconf-2016.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/2016/08/02/uberconf-2016.html</guid>
         
         <category>programming</category>
         
@@ -590,8 +627,8 @@ to interpretation.  Lean Startup also talks about vanity metrics and gathering t
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cohort_analysis&quot;&gt;cohort analysis&lt;/a&gt; but doesn&amp;#39;t go into much detail about it.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jul 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2016/07/14/book-review-lean-startup.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2016/07/14/book-review-lean-startup.html</guid>
+        <link>http://localhost:4000/programming/2016/07/14/book-review-lean-startup.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/2016/07/14/book-review-lean-startup.html</guid>
         
         <category>books</category>
         
@@ -610,7 +647,7 @@ application.  Good thing there&amp;#39;s a plugin for that and I can move onto t
 
 &lt;p&gt;Add the dependency in &lt;code&gt;build.gradle&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;org.grails.plugins:spring-security-core:3.1.1&#39;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'org.grails.plugins:spring-security-core:3.1.1'&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -621,9 +658,9 @@ security like this:&lt;/p&gt;
 &lt;p&gt;Blissfully ignorant and following along with the documentation I charged forward.  Next up 
 you quick data for development to associate the user to the role in &lt;code&gt;BootStrap.groovy&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dneidetcher&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;username:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;dneidetcher&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;firstName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Demian&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;nl&quot;&gt;lastName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Neidetcher&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;username:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'dneidetcher'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;firstName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Demian'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;lastName:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Neidetcher'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;nl&quot;&gt;emailAddress:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;demian0311@gmail.com&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
         &lt;span class=&quot;nl&quot;&gt;password:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;flush:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 
@@ -639,7 +676,7 @@ you quick data for development to associate the user to the role in &lt;code&gt;
 
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;grails.plugin.springsecurity.annotation.Secured&lt;/span&gt;
 
-&lt;span class=&quot;nd&quot;&gt;@Secured&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;ROLE_ADMIN&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Secured&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'ROLE_ADMIN'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scaffold&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -675,8 +712,8 @@ in them.  After that things worked as expected, Spring Security worked with my a
 not so much a &lt;em&gt;gotcha&lt;/em&gt; but me not knowing Spring Security well enough.  Regardless, onward and upward.&lt;/p&gt;
 </description>
         <pubDate>Tue, 17 May 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</guid>
+        <link>http://localhost:4000/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</link>
+        <guid isPermaLink="true">http://localhost:4000/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</guid>
         
         <category>programming</category>
         
@@ -709,61 +746,8 @@ trouble but it&amp;#39;s a tame affair for most. &lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zEQtZlEIXLw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Thu, 12 May 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/2016/05/12/videos-from-this-spring.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2016/05/12/videos-from-this-spring.html</guid>
-        
-        
-      </item>
-    
-      <item>
-        <title>Strengths Finder</title>
-        <description>&lt;p&gt;At &lt;a href=&quot;https://timewarnercable.com&quot;&gt;work&lt;/a&gt; they had us take the 
-&lt;a href=&quot;https://www.gallupstrengthscenter.com&quot;&gt;Gallup StrengthsFinder&lt;/a&gt; test to see what our strengths 
-are.  I figured they paid for it, why shouldn&amp;#39;t the whole world benefit from knowing what my 
-strengths are according to Gallup.&lt;/p&gt;
-
-&lt;p&gt;I don&amp;#39;t imagine much will be done with this data but my co-workers and I compared our results 
-and they were accurate.  Here they are in priority order.&lt;/p&gt;
-
-&lt;h2&gt;Learner&lt;/h2&gt;
-
-&lt;p&gt;Indeed I like to learn.  Programming is a great career for someone who likes to learn.  I like to 
-be pragmatic about it, learning what I need to get something done and do the right things.  &lt;/p&gt;
-
-&lt;p&gt;In my personal life I see the same thing.  I cycle through different things to study, right now it&amp;#39;s 
-amateur radio and a distant second of learning the guitar.  I don&amp;#39;t read fiction because I&amp;#39;d rather
-be learning stuff, sure there are great rebuttals to that statement.&lt;/p&gt;
-
-&lt;p&gt;The Gallup description says that sometimes for a learner the process is more significant than the
-result.  I&amp;#39;d like to think that&amp;#39;s not the case with me.  I believe I am more pragmatic and that I
-get amped up about applying what I learn to solve problems.  That&amp;#39;s when the payoff is.&lt;/p&gt;
-
-&lt;h2&gt;Strategic&lt;/h2&gt;
-
-&lt;p&gt;Yeah this is me too.  I think about the long-term results of decisions and wether or not we will come
-to regret them.  I have a strong pull to share these views.&lt;/p&gt;
-
-&lt;h2&gt;Achiever&lt;/h2&gt;
-
-&lt;p&gt;The Gallup copy explains this strength as needing continual success.  This one fits as well.  I know
-that I sometimes say &amp;#39;we need a win&amp;#39; or &amp;#39;they need a W on the board&amp;#39;.  If I&amp;#39;m being honest with myself,
-this isn&amp;#39;t all the time.  I need to be engaged and bought into what is happening.  I set goals for 
-myself and I feel good about achieving them, peronsally and professionally.  &lt;/p&gt;
-
-&lt;h2&gt;Focus&lt;/h2&gt;
-
-&lt;p&gt;I also hear myself say &amp;#39;we need to make forward progress&amp;#39;.  So yeah this one is appropriate too.  When
-I get my head wrapped around a problem I get a tight grip on it.&lt;/p&gt;
-
-&lt;h2&gt;Responsibility&lt;/h2&gt;
-
-&lt;p&gt;I guess this fits as well.  As with &amp;#39;achiever&amp;#39; I honestly need to be invested in the endeavor before I
-attach that responsibility.  If something is out of my area or if there are other folks running with it
-I do see myself not exercising this strength.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Apr 2016 00:00:00 -0500</pubDate>
-        <link>http://neidetcher.com/2016/04/29/strengths-finder.html</link>
-        <guid isPermaLink="true">http://neidetcher.com/2016/04/29/strengths-finder.html</guid>
+        <link>http://localhost:4000/2016/05/12/videos-from-this-spring.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2016/05/12/videos-from-this-spring.html</guid>
         
         
       </item>

@@ -10,8 +10,8 @@
   <meta name="description" content="This is probably so obvious that it doesn&#39;t deserve a blog post by anyonebut I&#39;ll admit that I struggled with this for a few hours.  I have an API th...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/programming/2015/08/19/spring-mvc-exception-handler.html">
-  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/programming/2015/08/19/spring-mvc-exception-handler.html">
+  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -115,7 +115,7 @@ public class BadRequestException extends RuntimeException {
 handle exceptions.  So yeah, this is the part that wasn&#39;t obvious to me.  Sending 
 back a <code>Map</code> tells Spring to just turn it into good JSON.</p>
 <div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@ExceptionHandler</span>
-    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">exceptionHandler</span><span class="o">(</span>
+    <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">exceptionHandler</span><span class="o">(</span>
             <span class="n">Exception</span> <span class="n">e</span><span class="o">,</span>
             <span class="n">HttpServletRequest</span> <span class="n">httpServletRequestIn</span><span class="o">,</span>
             <span class="n">HttpServletResponse</span> <span class="n">httpServletResponseIn</span><span class="o">)</span> <span class="o">{</span>

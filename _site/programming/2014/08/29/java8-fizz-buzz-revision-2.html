@@ -10,8 +10,8 @@
   <meta name="description" content="This is my second attempt at FizzBuzz in Java8 with Lambdas.  ">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://neidetcher.com/programming/2014/08/29/java8-fizz-buzz-revision-2.html">
-  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://neidetcher.com/feed.xml" />
+  <link rel="canonical" href="http://localhost:4000/programming/2014/08/29/java8-fizz-buzz-revision-2.html">
+  <link rel="alternate" type="application/rss+xml" title="Demian Neidetcher" href="http://localhost:4000/feed.xml" />
 </head>
 
 
@@ -91,7 +91,7 @@ in <a href="https://jdk8.java.net/download.html">Java8</a> with <a href="http://
 <span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
 
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">FizzBuzz</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="n">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
         <span class="n">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">boxed</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="s">"Fizz"</span><span class="o">:</span> <span class="s">""</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="s">"Buzz"</span><span class="o">:</span> <span class="s">""</span><span class="o">))</span>
