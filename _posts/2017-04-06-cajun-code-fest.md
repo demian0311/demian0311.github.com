@@ -31,13 +31,13 @@ scores for addresses.
 
 We got 2nd place.  We lost to a team that wrote a chat-bot that gives people local information
 based on local events.  Each individual team was able to vote on what project they liked, our
-team also won this award.  For both of those we won a $2,500 prize.
+team also won this award.  For each of those we won a $2,500 prize.
 
 ![alt text](/assets/images/misc/ccf_2017.jpg)
 
 Because my 9-5 work situation has been a bit slow recently it was good to do computer stuff in
 anger.  That stuff where you come to respect your peers and challenge yourself.  One thing that 
-was interesting is that I think it was useful to have a non-technical person on the team.  Geoff
+was interesting was that it was useful to have a non-technical person on the team.  Geoff
 Daily is more of a business or product owner type.  His enthusiasm for the vision, guidance and
 ultimate presentation of our project was invaluable.  Before the experience I probably would have
 discounted the value of having that type of person involved in a hack-a-thon.
