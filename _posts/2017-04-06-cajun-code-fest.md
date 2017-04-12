@@ -1,6 +1,5 @@
 ---
 layout: post
-category : fitness
 tags : [programming]
 ---
 
