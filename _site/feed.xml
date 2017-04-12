@@ -4,10 +4,10 @@
     <title>Demian Neidetcher</title>
     <description>I'm a software engineer, primarily working with JVM languages and in the telecommunications domain.
 </description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Apr 2017 07:00:12 -0500</pubDate>
-    <lastBuildDate>Mon, 10 Apr 2017 07:00:12 -0500</lastBuildDate>
+    <link>http://neidetcher.com:/</link>
+    <atom:link href="http://neidetcher.com:/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 12 Apr 2017 10:34:17 -0500</pubDate>
+    <lastBuildDate>Wed, 12 Apr 2017 10:34:17 -0500</lastBuildDate>
     <generator>Jekyll v3.4.3</generator>
     
       <item>
@@ -51,8 +51,8 @@ ultimate presentation of our project was invaluable.  Before the experience I pr
 discounted the value of having that type of person involved in a hack-a-thon.&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Apr 2017 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/fitness/2017/04/06/cajun-code-fest.html</link>
-        <guid isPermaLink="true">http://localhost:4000/fitness/2017/04/06/cajun-code-fest.html</guid>
+        <link>http://neidetcher.com:/fitness/2017/04/06/cajun-code-fest.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/fitness/2017/04/06/cajun-code-fest.html</guid>
         
         <category>programming</category>
         
@@ -232,8 +232,8 @@ go.  &lt;/p&gt;
 a light load (currently ~155) for 10, 8, 6, 4, 2 reps with 10 breath pause in between sets.&lt;/p&gt;
 </description>
         <pubDate>Tue, 31 Jan 2017 00:00:00 -0600</pubDate>
-        <link>http://localhost:4000/fitness/2017/01/31/lifting-in-2017.html</link>
-        <guid isPermaLink="true">http://localhost:4000/fitness/2017/01/31/lifting-in-2017.html</guid>
+        <link>http://neidetcher.com:/fitness/2017/01/31/lifting-in-2017.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/fitness/2017/01/31/lifting-in-2017.html</guid>
         
         <category>fitness</category>
         
@@ -308,8 +308,8 @@ more useful in an emergency.  Right now the FEMA site is painful to register on,
 be an ordeal on it&amp;#39;s own.&lt;/p&gt;
 </description>
         <pubDate>Fri, 06 Jan 2017 00:00:00 -0600</pubDate>
-        <link>http://localhost:4000/ham/2017/01/06/amateur-extra.html</link>
-        <guid isPermaLink="true">http://localhost:4000/ham/2017/01/06/amateur-extra.html</guid>
+        <link>http://neidetcher.com:/ham/2017/01/06/amateur-extra.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/ham/2017/01/06/amateur-extra.html</guid>
         
         <category>ham</category>
         
@@ -391,8 +391,8 @@ week after the cruise I still felt like I was walking on the ship.  &lt;/p&gt;
 the Audobon Zoo.  We had fun at the zoo.   &lt;/p&gt;
 </description>
         <pubDate>Tue, 27 Dec 2016 00:00:00 -0600</pubDate>
-        <link>http://localhost:4000/2016/12/27/2016-in-review.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/12/27/2016-in-review.html</guid>
+        <link>http://neidetcher.com:/2016/12/27/2016-in-review.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/2016/12/27/2016-in-review.html</guid>
         
         
       </item>
@@ -435,8 +435,8 @@ enabled collaboration and general healthy environments.&lt;/p&gt;
 &lt;p&gt;The book was good.  Not all of the ideas are shocking but it&amp;#39;s good to firm up the concepts.&lt;/p&gt;
 </description>
         <pubDate>Tue, 09 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2016/08/09/book-review-smarter-faster-better.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/08/09/book-review-smarter-faster-better.html</guid>
+        <link>http://neidetcher.com:/2016/08/09/book-review-smarter-faster-better.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/2016/08/09/book-review-smarter-faster-better.html</guid>
         
         <category>books</category>
         
@@ -504,8 +504,8 @@ good to think about.  But you also have to know that this is one guy talking abo
 &lt;p&gt;Yeah, good book, easy read, I recommend it.&lt;/p&gt;
 </description>
         <pubDate>Wed, 03 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2016/08/03/book-review-how-to-fail-at-almost-everything.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/08/03/book-review-how-to-fail-at-almost-everything.html</guid>
+        <link>http://neidetcher.com:/2016/08/03/book-review-how-to-fail-at-almost-everything.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/2016/08/03/book-review-how-to-fail-at-almost-everything.html</guid>
         
         <category>books</category>
         
@@ -598,8 +598,8 @@ at work.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 02 Aug 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/programming/2016/08/02/uberconf-2016.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2016/08/02/uberconf-2016.html</guid>
+        <link>http://neidetcher.com:/programming/2016/08/02/uberconf-2016.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/programming/2016/08/02/uberconf-2016.html</guid>
         
         <category>programming</category>
         
@@ -641,8 +641,8 @@ to interpretation.  Lean Startup also talks about vanity metrics and gathering t
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Cohort_analysis&quot;&gt;cohort analysis&lt;/a&gt; but doesn&amp;#39;t go into much detail about it.&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Jul 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/programming/2016/07/14/book-review-lean-startup.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2016/07/14/book-review-lean-startup.html</guid>
+        <link>http://neidetcher.com:/programming/2016/07/14/book-review-lean-startup.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/programming/2016/07/14/book-review-lean-startup.html</guid>
         
         <category>books</category>
         
@@ -726,8 +726,8 @@ in them.  After that things worked as expected, Spring Security worked with my a
 not so much a &lt;em&gt;gotcha&lt;/em&gt; but me not knowing Spring Security well enough.  Regardless, onward and upward.&lt;/p&gt;
 </description>
         <pubDate>Tue, 17 May 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</link>
-        <guid isPermaLink="true">http://localhost:4000/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</guid>
+        <link>http://neidetcher.com:/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/programming/2016/05/17/spring-security-grails-plugin-gotcha.html</guid>
         
         <category>programming</category>
         
@@ -760,8 +760,8 @@ trouble but it&amp;#39;s a tame affair for most. &lt;/p&gt;
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/zEQtZlEIXLw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 </description>
         <pubDate>Thu, 12 May 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2016/05/12/videos-from-this-spring.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/05/12/videos-from-this-spring.html</guid>
+        <link>http://neidetcher.com:/2016/05/12/videos-from-this-spring.html</link>
+        <guid isPermaLink="true">http://neidetcher.com:/2016/05/12/videos-from-this-spring.html</guid>
         
         
       </item>
