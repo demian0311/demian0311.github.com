@@ -1,11 +1,11 @@
 # Site settings
 title: Demian Neidetcher 
 email: demian0311@gmail.com 
-url: "http://neidetcher.com" # the base hostname & protocol for your site
-port: ""
-host: "neidetcher.com"
-baseurl: "" # does not include hostname
-show_dir_listing: false
+#url: "http://neidetcher.com" # the base hostname & protocol for your site
+#port: "4000"
+#host: "neidetcher.com"
+#baseurl: "/" # does not include hostname
+#show_dir_listing: false
 twitter_username: demian0311
 github_username:  demian0311
 description: > # this means to ignore newlines until "baseurl:"
