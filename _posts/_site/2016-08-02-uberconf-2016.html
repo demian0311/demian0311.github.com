@@ -1,0 +1,79 @@
+<p>I just went to <a href="https://uberconf.com">UberConf</a> 2016.  As always Jay Zimmerman puts on a great show.  As great
+as UberConf is, it’s probably a conference you can get to every other year.  Lots of familiar speakers, they’re
+all great.  I was surprised to see so few people I know in attendance.  Maybe people come to their senses and
+get into management and I’m still slinging code.</p>
+
+<h2 id="reactive-programming">Reactive Programming</h2>
+<p>I took the all day workshop on <a href="http://www.reactivemanifesto.org/">reactive programming</a> given 
+by <a href="http://www.agiledeveloper.com/">Venkat</a>.  It gave me a good basis for reactive programming. 
+Venkat gave an entertaining presentation as always and he covered a lot of ground.</p>
+
+<p>My hangup would be that he focused on the idea of streams or data-flow computing.  He gave examples like stock data 
+or telemetry data continually streaming into your application to be processed.  I’ve been coding 
+professionally for almost 20 years and I have never been in a domain where that happens.  Honestly 
+that kind of turned me off.  It’s not sexy but the fact is developers primarily create HTTP front-ends 
+for either a persistence or some other back-end system.  From Venkat’s perspective if your app doesn’t
+deal with streams of information then it’s not going to be of much use.</p>
+
+<h2 id="spring-and-cloud">Spring and Cloud</h2>
+<p>I recently have become re-interested in Spring.  I used Scala for a few years and then Groovy/ Grails.  I
+forgot how useful all the Spring frameworks were.  They have kept up with things and a lot of the battle 
+of being productive is just being aware of what’s out there.</p>
+
+<p>I did a lot of by <a href="http://habuma.com/">Craig Walls</a>, they were great.  The theme of Craig’s 
+talks were centered around <em>cloud native</em>.  I like the idea, the point is that there are some 
+new tools and concerns we’ll need when going to the cloud.  It doesn’t mean that all this is 
+exclusive just to the cloud.  There was mention of <a href="http://12factor.net/">12 Factor Application</a> I’ve
+gone through it before, seems like it’s something I need to re-visit.</p>
+
+<p>He covered a lot of things about Spring.  <a href="https://spring.io/">Spring</a> is so huge and frankly they 
+do a so-so job of organizing, documenting, deprecating and communicating best practices.  There’s 
+just so much it’s probably very hard for them to keep a handle on it.  My point is that it’s great to 
+hear someone speak that is up to speed on the best practices, how everything is positioned and really
+just letting you know what’s out there.</p>
+
+<p>I also went to a lot of <a href="http://www.mattstine.com/">Matt Stine</a> talks about microservices.  In covering
+microservices he also touched on Spring frameworks that help you.  Matt also covered reactive programming
+in a more pragmatic way such that I could imagine using it with real work.</p>
+
+<h2 id="netflix">Netflix</h2>
+<p><a href="https://nofluffjuststuff.com/conference/speaker/andrew_glover">Andy Glover</a> gave a keynote on 
+Netflix.  I’m thankful for all the opensource software they have put out.  At my current work we
+all looked like heroes just because we wired up <a href="https://github.com/Netflix/Hystrix">Hystrix circuit breakers</a>.</p>
+
+<p>That presentation went on about how great Netflix is, good on them, they’re doing amazing stuff.  But 
+one thing that rubbed me wrong is how proud they are that they <em>only</em> hire senior engineers.  Is that a 
+good thing if everyone just hires senior engineers?</p>
+
+<h2 id="docker">Docker</h2>
+<p>I did a 2 session Docker workshop.  There were a <em>lot</em> of people in attendance and any time you’re doing
+virtualization with more than 100 people things go off the rails quick.  So <a href="https://juddsolutions.blogspot.com/">Chrisopher Judd</a> 
+had his work cut out for him.   I was glad I attended, for whatever reason I couldn’t fit some Docker concepts
+into my head just from reading but the sessions were useful.</p>
+
+<h2 id="more-take-aways">More Take-Aways</h2>
+
+<ul>
+  <li>There’s an interesting relationship with the cloud and microservices.  If you want to have microservices
+you probably want to do cloud things to manage them even if you don’t use a cloud.</li>
+  <li>Spring and Netflix are doing great things, if you’re doing microservices or cloud stuff on the JVM you 
+probably want to get familiar with the opensource tools they have available.</li>
+  <li>If you want to leverage Twitter’s <a href="http://zipkin.io/">Zipkin</a> you can use <a href="https://cloud.spring.io/spring-cloud-sleuth/">Spring Cloud Sleuth</a>.</li>
+  <li>At least right now it’s too soon for me to poke around with Java9 module capabilities.  It’ll be interesting
+when there is build system and tooling support.</li>
+  <li>Use Netflix <a href="https://github.com/Netflix/eureka">Eureka</a> for service discovery.  This prevents you from hard-coding
+URLs to services your application depends on.</li>
+  <li>Use Netflix <a href="https://github.com/Netflix/zuul">Zuul</a> to dynamically route services.</li>
+  <li>Zuul could be used to host static assets <em>and</em> be a gateway for services.  If you do this then you don’t have to 
+worry about cross origin request concerns.</li>
+  <li>Netflix has an interesting approach to load balancing, <a href="https://github.com/Netflix/ribbon">Ribbon</a> runs on 
+the client, is made aware of services by Eureka and does a sort of load balancing in the client.  There isn’t
+a load balancer that sits in front of services.  So, the client using Ribbon will round-robin or lay off of
+poorly behaving services for you.</li>
+  <li>Use <a href="https://github.com/spring-cloud/spring-cloud-config">Spring Cloud Config</a> to manage configuration in 
+your cloud applications.</li>
+  <li><a href="https://www.digitalocean.com/community/tutorials/how-to-install-elasticsearch-logstash-and-kibana-elk-stack-on-ubuntu-14-04">ELK</a>
+seems to be the approach for distributed, searchable logging.  Seems like a bunch of work to get going, we use Splunk 
+at work.</li>
+</ul>
+

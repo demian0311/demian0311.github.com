@@ -33,10 +33,10 @@ demian0311@gmail.com | [neidetcher.com](http://neidetcher.com) | 303.246.0841
 
 ## Experience
 
-#### [Inteliquent](http://www.inteliquent.com/) - Senior Director 911 Software, Boulder, CO (May 17 - Present)
+#### [Voyant](https://www.voyant.com/) - Senior Director Software Engineering, Boulder, CO (May 17 - Present)
 - Building a 911 VoIP Positioning Center and Mobile Positioning Center for carrier customers.
 - Ensure quality process, architecture and design across teams.
-- Develop 911 solutions using NG-911 components (ESRP, LIS, ECRF) to interoperate with legacy 911 call handling.
+- Architect and develop 911 solutions using NG-911 components (ESRP, LIS, ECRF) 
 - Wrote a Java Netty application to maintain E2 and PAM ALI connections.
 - Wrote an extensible SIP call router using Java and Netty handling 2500 calls per second across 8 nodes in production.
 

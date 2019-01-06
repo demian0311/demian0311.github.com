@@ -1,0 +1,25 @@
+<p>This is my second attempt at <a href="http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html">FizzBuzz</a> 
+in <a href="https://jdk8.java.net/download.html">Java8</a> with <a href="http://openjdk.java.net/projects/lambda/">Lambdas</a>.</p>
+
+<p>The first incarnation I did <a href="/programming/2014/01/17/java8-fizz-buzz.html">can be found here</a>.  It’s more enterprisey.</p>
+
+<ul>
+  <li>This <a href="https://stackoverflow.com/questions/23674624/how-do-i-convert-a-java-8-intstream-to-a-list">StackOverflow page</a> is where I found out about <code class="highlighter-rouge">IntStream.boxed()</code>.</li>
+  <li>This thing is kind of a one liner.  Reminds me of how in Scala land a lot of things surprisingly end up being a single expression.</li>
+  <li>I wasn’t a big fan of the ternary operator before getting into FP.  As you strive for more stateless coding you’ll find it’s your friend.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">neidetcher</span><span class="o">.</span><span class="na">java8</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FizzBuzz</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+        <span class="n">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">boxed</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="s">": "</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="s">"Fizz"</span><span class="o">:</span> <span class="s">""</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">x</span><span class="o">%</span><span class="mi">5</span><span class="o">==</span><span class="mi">0</span><span class="o">?</span> <span class="s">"Buzz"</span><span class="o">:</span> <span class="s">""</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>

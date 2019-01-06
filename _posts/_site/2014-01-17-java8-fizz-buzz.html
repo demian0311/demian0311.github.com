@@ -1,0 +1,52 @@
+<p>Here’s my attempt at <a href="http://www.codinghorror.com/blog/2007/02/why-cant-programmers-program.html">FizzBuzz</a> 
+in <a href="https://jdk8.java.net/download.html">Java8</a> with <a href="http://openjdk.java.net/projects/lambda/">Lambdas</a>.  This will 
+not go in the Pantheon of awesome code and I’m sure I’ll tweak it as I learn more.  Oh and this is a self-contained 
+implementation and unit test, just messing around.</p>
+
+<p>Here are some thoughts:</p>
+
+<ul>
+  <li>Not sure if there’s a nicer way to do the predicates inline with the <a href="http://download.java.net/jdk8/docs/api/java/util/stream/IntStream.html">Stream API</a>.</li>
+  <li>I wish if statements were expressions, that would clean up some of the code.</li>
+  <li>It’d be neato if FizzBuzz was conducive to using function composition to do a divBy15 but it isn’t needed for FizzBuzz.</li>
+  <li><a href="http://download.java.net/jdk8/docs/api/java/util/stream/IntStream.html#range-int-int-">Ranges</a> are nice to see.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">javafunctional</span><span class="o">.</span><span class="na">java8</span><span class="o">.</span><span class="na">examples</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.function.Predicate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.IntStream</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertEquals</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FunctionLiterals</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy3</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">3</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;}</span>
+    <span class="kd">private</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="nf">divBy5</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">arg</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">arg</span> <span class="o">%</span> <span class="mi">5</span><span class="o">)</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;}</span>
+
+    <span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testPredicates</span><span class="o">(){</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">divBy3</span><span class="o">().</span><span class="na">test</span><span class="o">(</span><span class="mi">3</span><span class="o">));</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="kc">true</span><span class="o">,</span> <span class="n">divBy5</span><span class="o">().</span><span class="na">test</span><span class="o">(</span><span class="mi">5</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">fizzBuzz</span><span class="o">(</span><span class="n">Integer</span> <span class="n">intIn</span><span class="o">){</span>
+        <span class="n">String</span> <span class="n">fizz</span> <span class="o">=</span> <span class="o">(</span><span class="n">divBy3</span><span class="o">().</span><span class="na">test</span><span class="o">(</span><span class="n">intIn</span><span class="o">))?</span> <span class="s">"Fizz"</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="n">String</span> <span class="n">buzz</span> <span class="o">=</span> <span class="o">(</span><span class="n">divBy5</span><span class="o">().</span><span class="na">test</span><span class="o">(</span><span class="n">intIn</span><span class="o">))?</span> <span class="s">"Buzz"</span> <span class="o">:</span> <span class="s">""</span><span class="o">;</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">fizz</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">buzz</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())?</span> <span class="n">intIn</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">:</span> <span class="n">fizz</span> <span class="o">+</span> <span class="n">buzz</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testFizzBuzz</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">"Fizz"</span><span class="o">,</span> <span class="n">fizzBuzz</span><span class="o">(</span><span class="mi">9</span><span class="o">));</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">"Buzz"</span><span class="o">,</span> <span class="n">fizzBuzz</span><span class="o">(</span><span class="mi">10</span><span class="o">));</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="s">"FizzBuzz"</span><span class="o">,</span> <span class="n">fizzBuzz</span><span class="o">(</span><span class="mi">30</span><span class="o">));</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">runit</span><span class="o">(){</span>
+        <span class="n">IntStream</span><span class="o">.</span><span class="na">range</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">mapToObj</span><span class="o">(</span><span class="n">ii</span> <span class="o">-&gt;</span> <span class="n">fizzBuzz</span><span class="o">(</span><span class="n">ii</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">s</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>

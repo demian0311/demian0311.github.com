@@ -1,0 +1,62 @@
+<p>It’ll continue to be interesting to see what happens with Java8.  Sure the version is
+out there, you can write all the lambdas you want.  But it’s going to get more fun
+to see how every day coders use it and how library authors use it.</p>
+
+<p>During the day I use Groovy, enjoy it’s closures.  I still do a bit of Scala but not as
+much as I’d like.  But at night I’ve been working with Java8.</p>
+
+<h2 id="generic-hystrix-circuit-breaker">Generic Hystrix Circuit Breaker</h2>
+
+<p>From what I understand you should encapsulate the code that talks to remote systems 
+inside of a class that implements a HystrixCommand.  I had a situation where there 
+were a lot of little calls to a back-end system.  Creating new classes for each call 
+was getting tedious.  So I endeavored to create a generic circuit breaker 
+(implementation of HystrixCommand) for each dependent system.</p>
+
+<p>You just give it 2 suppliers, one for the actual thing you’re trying to do and another 
+as a fallback if what you’re trying to do fails.  The suppliers have to adhere to the 
+normal contract with circuit breakers.  If an exception bubbles up from one of your 
+lambdas then the circuit breaker trips.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DatabaseCommand</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="n">HystrixCommand</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplier</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplier</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">DatabaseCommand</span><span class="o">(</span>
+            <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">runSupplierIn</span><span class="o">,</span>
+            <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">Out</span><span class="o">&gt;</span> <span class="n">fallbackSupplierIn</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">getSetter</span><span class="o">(</span><span class="n">CommandProvider</span><span class="o">.</span><span class="na">DB_COMMAND_KEY</span><span class="o">));</span>
+
+        <span class="n">runSupplier</span> <span class="o">=</span> <span class="n">runSupplierIn</span><span class="o">;</span>
+        <span class="n">fallbackSupplier</span> <span class="o">=</span> <span class="n">fallbackSupplierIn</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">run</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">runSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span> <span class="kd">protected</span> <span class="n">Out</span> <span class="nf">getFallback</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">fallbackSupplier</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>There’s some hand waving with the <code class="highlighter-rouge">CommandProvider.getSetter()</code>, that’s the 
+monster set of calls where you configure your circuit breaker.</p>
+
+<h2 id="using-it">Using it</h2>
+
+<p>Then when you want to use the circuit breaker it looks something like this.</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">DatabaseCommand</span><span class="o">&lt;</span><span class="n">Customer</span><span class="o">&gt;</span> <span class="n">databaseCommand</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DatabaseCommand</span><span class="o">&lt;&gt;(</span>
+         <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">databaseClient</span><span class="o">.</span><span class="na">findCustomer</span><span class="o">(</span><span class="n">customerId</span><span class="o">),</span>
+         <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">databaseClient</span><span class="o">.</span><span class="na">findCustomerFromCache</span><span class="o">(</span><span class="n">findCustomerId</span><span class="o">);</span>
+
+<span class="k">return</span> <span class="n">databaseCommand</span><span class="o">.</span><span class="na">execute</span><span class="o">();</span>
+</code></pre>
+</div>
+
+<p>This isn’t so bad.  Sure it’s convenient that I have those suppliers wrapped inside
+of functions already so I don’t have nasty multi-line lambdas.</p>
