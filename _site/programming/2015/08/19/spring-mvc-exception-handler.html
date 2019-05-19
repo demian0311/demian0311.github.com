@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Spring Mvc Exception Handler</title>
-  <meta name="description" content="This is probably so obvious that it doesn&#39;t deserve a blog post by anyonebut I&#39;ll admit that I struggled with this for a few hours.  I have an API th...">
+  <meta name="description" content="This is probably so obvious that it doesn’t deserve a blog post by anyonebut I’ll admit that I struggled with this for a few hours.  I have an API that I am ...">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://localhost:4000/programming/2015/08/19/spring-mvc-exception-handler.html">
@@ -76,45 +76,49 @@
   </header>
 
   <article class="post-content">
-    <p>This is probably so obvious that it doesn&#39;t deserve a blog post by anyone
-but I&#39;ll admit that I struggled with this for a few hours.  I have an API 
+    <p>This is probably so obvious that it doesn’t deserve a blog post by anyone
+but I’ll admit that I struggled with this for a few hours.  I have an API 
 that I am putting together for a <a href="http://martinfowler.com/articles/microservices.html">microservice</a>.</p>
 
 <p>This is a little JSON API and SpringMVC makes it very easy.  But when there
 are exceptions most of the guides I found send you towards a <a href="http://www.thymeleaf.org/">Thymeleaf</a> solution
-that outputs HTML.  That&#39;s not what I want, I want a good HTTP response code
+that outputs HTML.  That’s not what I want, I want a good HTTP response code
 and a JSON response that the client can parse to help them figure out what
-went wrong.  There&#39;s a great write-up on <a href="https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc">exception handling in Spring</a> but that, I believe, takes you in the Thymeleaf direction as well.</p>
+went wrong.  There’s a great write-up on <a href="https://spring.io/blog/2013/11/01/exception-handling-in-spring-mvc">exception handling in Spring</a> but that, I believe, takes you in the Thymeleaf direction as well.</p>
 
-<h2>My Custom Exception</h2>
+<h2 id="my-custom-exception">My Custom Exception</h2>
 
 <p>Maybe this has my code too tied to HTTP but I like the explicit nature.  Notice
-the <code>ResponseStatus</code> annotation that provides what <code>HttpStatus</code> we want associated
+the <code class="highlighter-rouge">ResponseStatus</code> annotation that provides what <code class="highlighter-rouge">HttpStatus</code> we want associated
 with this exception.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">package foo.bar;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">foo</span><span class="p">.</span><span class="n">bar</span><span class="p">;</span>
 
-@ResponseStatus(value = HttpStatus.BAD_REQUEST)
-public class BadRequestException extends RuntimeException {
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">springframework</span><span class="p">.</span><span class="n">http</span><span class="p">.</span><span class="n">HttpStatus</span><span class="p">;</span>
+<span class="n">import</span> <span class="n">org</span><span class="p">.</span><span class="n">springframework</span><span class="p">.</span><span class="n">web</span><span class="p">.</span><span class="n">bind</span><span class="p">.</span><span class="n">annotation</span><span class="p">.</span><span class="n">ResponseStatus</span><span class="p">;</span>
 
-    public BadRequestException(String messageIn) {
-        super(messageIn);
-    }
-}
-</code></pre></div>
-<h2>Using the Exception</h2>
+<span class="p">@</span><span class="n">ResponseStatus</span><span class="p">(</span><span class="n">value</span> <span class="p">=</span> <span class="n">HttpStatus</span><span class="p">.</span><span class="n">BAD_REQUEST</span><span class="p">)</span>
+<span class="k">public</span> <span class="n">class</span> <span class="n">BadRequestException</span> <span class="n">extends</span> <span class="n">RuntimeException</span> <span class="p">{</span>
 
+    <span class="k">public</span> <span class="n">BadRequestException</span><span class="p">(</span><span class="k">String</span> <span class="n">messageIn</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">super</span><span class="p">(</span><span class="n">messageIn</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="using-the-exception">Using the Exception</h2>
 <p>Nothing shocking here.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">throw new BadRequestException("something descriptive goes here");
-</code></pre></div>
-<h2>ExceptionHandler</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>throw new BadRequestException("something descriptive goes here");
+</code></pre></div></div>
+
+<h2 id="exceptionhandler">ExceptionHandler</h2>
 
 <p>Spring lets you just annotate a method on a controller that you have designated to 
-handle exceptions.  So yeah, this is the part that wasn&#39;t obvious to me.  Sending 
-back a <code>Map</code> tells Spring to just turn it into good JSON.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="nd">@ExceptionHandler</span>
+handle exceptions.  So yeah, this is the part that wasn’t obvious to me.  Sending 
+back a <code class="highlighter-rouge">Map</code> tells Spring to just turn it into good JSON.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@ExceptionHandler</span>
     <span class="kd">public</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="nf">exceptionHandler</span><span class="o">(</span>
             <span class="n">Exception</span> <span class="n">e</span><span class="o">,</span>
             <span class="n">HttpServletRequest</span> <span class="n">httpServletRequestIn</span><span class="o">,</span>
@@ -141,14 +145,18 @@ back a <code>Map</code> tells Spring to just turn it into good JSON.</p>
 
         <span class="k">return</span> <span class="n">map</span><span class="o">;</span>
     <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>This all produces JSON that looks like this along with an HTTP response code of 400.</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
-    <span class="s2">"requestUrl"</span><span class="err">:</span> <span class="s2">"http://localhost:8080/controller"</span><span class="p">,</span>
-    <span class="s2">"httpStatus"</span><span class="err">:</span> <span class="s2">"Bad Request"</span><span class="p">,</span>
-    <span class="s2">"message"</span><span class="err">:</span> <span class="s2">"something descriptive goes here"</span>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s2">"requestUrl"</span><span class="p">:</span> <span class="s2">"http://localhost:8080/controller"</span><span class="p">,</span>
+    <span class="s2">"httpStatus"</span><span class="p">:</span> <span class="s2">"Bad Request"</span><span class="p">,</span>
+    <span class="s2">"message"</span><span class="p">:</span> <span class="s2">"something descriptive goes here"</span>
 <span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
+
   </article>
 
 </div>

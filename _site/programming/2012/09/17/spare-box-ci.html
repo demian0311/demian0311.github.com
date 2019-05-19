@@ -76,22 +76,20 @@
   </header>
 
   <article class="post-content">
-    <p>I have 2 employer provided computers.  One is a Mac Book Pro, the other is a Mac Pro.  I do my day to day development on the MBP because I want a smooth transition when I&#39;m on the road.  I do this even though the desktop is a beast.  At home I use ShareMouse (a software KVM) so that the computers almost seem as one.  The desktop streams music from Pandora, has all the IM and email clients.</p>
+    <p>I have 2 employer provided computers.  One is a Mac Book Pro, the other is a Mac Pro.  I do my day to day development on the MBP because I want a smooth transition when I’m on the road.  I do this even though the desktop is a beast.  At home I use ShareMouse (a software KVM) so that the computers almost seem as one.  The desktop streams music from Pandora, has all the IM and email clients.</p>
 
-<p>I still wanted to leverage the desktop for my workflow.  The setup I have allows me to run CI unit tests against my local (laptop) git repo.  I&#39;ll make changes, commit them and then the desktop will poll my laptop to see if there is anything new.  If there is something new then it does a full build and unit test.  I can continue doing other tasks on the laptop while the desktop is churning through our scala project (compiling scala code is resource intensive).  Then when I see that the build is in good shape I&#39;ll do a push to our team GitHub Enterprise Server.</p>
+<p>I still wanted to leverage the desktop for my workflow.  The setup I have allows me to run CI unit tests against my local (laptop) git repo.  I’ll make changes, commit them and then the desktop will poll my laptop to see if there is anything new.  If there is something new then it does a full build and unit test.  I can continue doing other tasks on the laptop while the desktop is churning through our scala project (compiling scala code is resource intensive).  Then when I see that the build is in good shape I’ll do a push to our team GitHub Enterprise Server.</p>
 
-<h3>On your laptop</h3>
-
+<h3 id="on-your-laptop">On your laptop</h3>
 <ul>
-<li>Tell git it&#39;s okay to export your project by touching this file: <code>&lt;path-to-project&gt;/.git/git-daemon-export-ok</code></li>
-<li>Serve up my local repo <code>git daemon --verbose --base-path=&lt;path-to-project&gt;</code></li>
+  <li>Tell git it’s okay to export your project by touching this file: <code class="highlighter-rouge">&lt;path-to-project&gt;/.git/git-daemon-export-ok </code></li>
+  <li>Serve up my local repo <code class="highlighter-rouge">git daemon --verbose --base-path=&lt;path-to-project&gt;</code></li>
 </ul>
 
-<h3>On your desktop</h3>
-
+<h3 id="on-your-desktop">On your desktop</h3>
 <ul>
-<li>Install Jenkins on the desktop</li>
-<li>Point desktop Jenkins to your git repo: <code>git://&lt;your-network-ip&gt;/.git</code></li>
+  <li>Install Jenkins on the desktop</li>
+  <li>Point desktop Jenkins to your git repo: <code class="highlighter-rouge">git://&lt;your-network-ip&gt;/.git</code></li>
 </ul>
 
   </article>

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Port Confusion With Apple Airport</title>
-  <meta name="description" content="This won&#39;t add anything to the knowledge that already exists online but hopefully it&#39;s more searchable for the next poor sap that is confused by this.">
+  <meta name="description" content="This won’t add anything to the knowledge that already exists online but hopefully it’s more searchable for the next poor sap that is confused by this.">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://localhost:4000/programming/2014/07/11/port-confusion-with-apple-airport.html">
@@ -76,17 +76,18 @@
   </header>
 
   <article class="post-content">
-    <p>This won&#39;t add anything to the knowledge that <a href="http://blog.nephtaliproject.com/?p=129">already exists online</a> but 
-hopefully it&#39;s more searchable for the next poor sap that is confused by this.</p>
+    <p>This won’t add anything to the knowledge that <a href="http://blog.nephtaliproject.com/?p=129">already exists online</a> but 
+hopefully it’s more searchable for the next poor sap that is confused by this.</p>
 
-<h2>Locking Down my Server</h2>
+<h2 id="locking-down-my-server">Locking Down my Server</h2>
 
-<p><a href="http://neidetcher.com">This site</a> runs on a tiny <a href="http://www.rackspace.com/">Rackspace</a> server.  I&#39;m no expert but 
+<p><a href="http://neidetcher.com">This site</a> runs on a tiny <a href="http://www.rackspace.com/">Rackspace</a> server.  I’m no expert but 
 one of the easiest things you can do to lock down your server is to shut down as many ports as possible.  That 
-means that you don&#39;t have potentially vulnerable software listening in on ports.  </p>
+means that you don’t have potentially vulnerable software listening in on ports.</p>
 
-<p>You&#39;ll probably do some <code>nmap</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">demian@raven ~&gt;nmap localhost
+<p>You’ll probably do some <code class="highlighter-rouge">nmap</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>demian@raven ~&gt;nmap localhost
 
 Starting Nmap 5.00 ( http://nmap.org ) at 2014-07-11 09:51 CDT
 Interesting ports on localhost (127.0.0.1):
@@ -97,9 +98,11 @@ PORT    STATE SERVICE
 443/tcp open  https
 
 Nmap done: 1 IP address (1 host up) scanned in 0.10 seconds
-</code></pre></div>
-<p>And maybe some <code>netstat</code>.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">demian@raven ~&gt;netstat -l
+</code></pre></div></div>
+
+<p>And maybe some <code class="highlighter-rouge">netstat</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>demian@raven ~&gt;netstat -l
 Active Internet connections (only servers)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State      
 tcp        0      0 *:https                 *:*                     LISTEN     
@@ -109,14 +112,16 @@ tcp6       0      0 [::]:ssh                [::]:*                  LISTEN
 Active UNIX domain sockets (only servers)
 Proto RefCnt Flags       Type       State         I-Node   Path
 unix  2      [ ACC ]     STREAM     LISTENING     83108    /var/run/acpid.socket
-</code></pre></div>
-<p>I checked it locally and noticed that <code>exim4</code> was running and had a port open.  So I made sure that service was no
+</code></pre></div></div>
+
+<p>I checked it locally and noticed that <code class="highlighter-rouge">exim4</code> was running and had a port open.  So I made sure that service was no
 longer in the startup scripts and <a href="https://wiki.debian.org/Daemon">removed the daemon</a>.</p>
 
-<h2>Now Try from Laptop</h2>
+<h2 id="now-try-from-laptop">Now Try from Laptop</h2>
 
-<p>Just to be sure I ran it from <code>nmap</code> from my laptop.  This is what I saw.</p>
-<div class="highlight"><pre><code class="language-" data-lang="">demian  ~  nmap neidetcher.com
+<p>Just to be sure I ran it from <code class="highlighter-rouge">nmap</code> from my laptop.  This is what I saw.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>demian  ~  nmap neidetcher.com
 
 Starting Nmap 6.40 ( http://nmap.org ) at 2014-07-11 09:30 CDT
 Nmap scan report for neidetcher.com (184.106.150.226)
@@ -134,16 +139,18 @@ PORT     STATE SERVICE
 8080/tcp open  http-proxy
 
 Nmap done: 1 IP address (1 host up) scanned in 0.87 seconds
-</code></pre></div>
-<p>Whoah, that&#39;s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of <code>nmap</code>
-such that it doesn&#39;t show the ports they have used to turn my server into a slave for 
+</code></pre></div></div>
+
+<p>Whoah, that’s a lot of ports.  Obviously some hacker syndicate from Eastern Europe has replaced my version of <code class="highlighter-rouge">nmap</code>
+such that it doesn’t show the ports they have used to turn my server into a slave for 
 their <a href="https://en.wikipedia.org/wiki/Botnet">botnet</a>.</p>
 
-<h2>Apple Airport</h2>
+<h2 id="apple-airport">Apple Airport</h2>
 
 <p>I ran across <a href="http://blog.nephtaliproject.com/?p=129">this blog post</a>.  The deal is that Apple Airport will 
-try to proxy protocols for you.  Apparently it doesn&#39;t bother to check with the far-end servers to see if the
-port is even available.  So, to you on your computer behind an Apple router, <code>nmap</code> will think the port is hot.</p>
+try to proxy protocols for you.  Apparently it doesn’t bother to check with the far-end servers to see if the
+port is even available.  So, to you on your computer behind an Apple router, <code class="highlighter-rouge">nmap</code> will think the port is hot.</p>
+
 
   </article>
 

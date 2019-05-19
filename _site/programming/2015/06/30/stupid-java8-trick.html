@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Stupid Java8 Trick</title>
-  <meta name="description" content="Alright this isn&#39;t much but I&#39;m satisfied with myself and it surprisingly took me alittle bit to push the right buttons to make it work.">
+  <meta name="description" content="Alright this isn’t much but I’m satisfied with myself and it surprisingly took me alittle bit to push the right buttons to make it work.">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="http://localhost:4000/programming/2015/06/30/stupid-java8-trick.html">
@@ -76,16 +76,17 @@
   </header>
 
   <article class="post-content">
-    <p>Alright this isn&#39;t much but I&#39;m satisfied with myself and it surprisingly took me a
+    <p>Alright this isn’t much but I’m satisfied with myself and it surprisingly took me a
 little bit to push the right buttons to make it work.</p>
 
 <p>I use EasyMock in my unit tests in Java8.  Mocking frameworks will typically have a
 recording phase and then a phase where your expectations should be ready to play back.
-With EasyMock your unit test can extend <code>EasyMockSupport</code>.  That class gives you access
-to methods like <code>replayAll()</code> and <code>verifyAll()</code>.  </p>
+With EasyMock your unit test can extend <code class="highlighter-rouge">EasyMockSupport</code>.  That class gives you access
+to methods like <code class="highlighter-rouge">replayAll()</code> and <code class="highlighter-rouge">verifyAll()</code>.</p>
 
-<h2>Before</h2>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<h2 id="before">Before</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
    <span class="c1">// a bunch of expects</span>
 
    <span class="n">replayAll</span><span class="o">();</span>
@@ -94,11 +95,13 @@ to methods like <code>replayAll()</code> and <code>verifyAll()</code>.  </p>
 
    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h2>After</h2>
+</code></pre></div></div>
 
-<p>This isn&#39;t as smooth as you&#39;d see in Scala or Groovy but in Java8 you can do something like this.  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySupport</span> <span class="kd">extends</span> <span class="n">EasyMockSupport</span> <span class="o">{</span>
+<h2 id="after">After</h2>
+
+<p>This isn’t as smooth as you’d see in Scala or Groovy but in Java8 you can do something like this.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySupport</span> <span class="kd">extends</span> <span class="n">EasyMockSupport</span> <span class="o">{</span>
 
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">withMocks</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">runnableIn</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">replayAll</span><span class="o">();</span>
@@ -114,27 +117,30 @@ to methods like <code>replayAll()</code> and <code>verifyAll()</code>.  </p>
         <span class="k">return</span> <span class="n">actual</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>I think I need both versions of <code>withMocks</code>.  The first one handles when you are testing a method that doesn&#39;t
+</code></pre></div></div>
+<p>I think I need both versions of <code class="highlighter-rouge">withMocks</code>.  The first one handles when you are testing a method that doesn’t
 return anything and the second one handles when your method does return something.  One of the 
-things that gave me trouble was figuring out what interface in <code>java.util.function</code> would not 
-return any value.  Of course the answer is our old friend <code>Runnable</code>.  I also struggled with 
-what Java wanted for the generics, that stuff isn&#39;t obvious to me.</p>
+things that gave me trouble was figuring out what interface in <code class="highlighter-rouge">java.util.function</code> would not 
+return any value.  Of course the answer is our old friend <code class="highlighter-rouge">Runnable</code>.  I also struggled with 
+what Java wanted for the generics, that stuff isn’t obvious to me.</p>
 
-<p>Then your test extends <code>MySupport</code>.  And within your tests you can have code that looks like this.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<p>Then your test extends <code class="highlighter-rouge">MySupport</code>.  And within your tests you can have code that looks like this.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Test</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
    <span class="c1">// a bunch of expects</span>
    <span class="n">Integer</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">withMocks</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">ageFinder</span><span class="o">.</span><span class="na">findAge</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h2>Caveat</h2>
+</code></pre></div></div>
+
+<h2 id="caveat">Caveat</h2>
 
 <p>This tightens up unit tests but I did run into a caveat that I should mention.  If the constructor for
-your <em>class under test</em> uses mocks that would need to be between the <code>replayAll()</code> and <code>verifyAll()</code> 
+your <em>class under test</em> uses mocks that would need to be between the <code class="highlighter-rouge">replayAll()</code> and <code class="highlighter-rouge">verifyAll()</code> 
 methods then you might want to create a method in your test that instantiates your <em>class under test</em>.
 It might look something like this.</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="n">AgeFinder</span> <span class="nf">createAgeFinder</span><span class="o">()</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="n">AgeFinder</span> <span class="nf">createAgeFinder</span><span class="o">()</span> <span class="o">{</span>
    <span class="k">return</span> <span class="k">new</span> <span class="nf">AgeFinder</span><span class="o">(</span><span class="n">mockDatabase</span><span class="o">);</span>
 <span class="o">}</span>
 
@@ -143,7 +149,8 @@ It might look something like this.</p>
    <span class="n">Integer</span> <span class="n">actual</span> <span class="o">=</span> <span class="n">withMocks</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">createAgeFinder</span><span class="o">().</span><span class="na">findAge</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
    <span class="n">assertEquals</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
+</code></pre></div></div>
+
   </article>
 
 </div>
