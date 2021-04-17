@@ -6,11 +6,8 @@ email: demian0311@gmail.com
 #host: "neidetcher.com"
 #baseurl: "/" # does not include hostname
 #show_dir_listing: false
-twitter_username: demian0311
-github_username:  demian0311
 description: > # this means to ignore newlines until "baseurl:"
-   I'm a software engineer, primarily working with JVM languages and in
-   the telecommunications domain.
+    Father, husband and computer person
 
 # Build settings
 
